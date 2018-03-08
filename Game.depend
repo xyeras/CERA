@@ -1,0 +1,529 @@
+# depslib dependency file v1.0
+1514140580 source:c:\users\cgon5\desktop\csci191t_projects\lesson2\game\main.c
+	<windows.h>
+	<gl/gl.h>
+
+1518048869 source:c:\users\cgon5\desktop\csci191t_projects\lesson2\game\src\glscene.cpp
+	"GLScene.h"
+	<GLlight.h>
+
+1517445753 c:\users\cgon5\desktop\csci191t_projects\lesson2\game\include\glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1517271525 c:\users\cgon5\desktop\csci191t_projects\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1517880641 source:c:\users\cgon5\desktop\csci191t_projects\lesson2\game\src\test.cpp
+	"test.h"
+
+1517880641 c:\users\cgon5\desktop\csci191t_projects\lesson2\game\include\test.h
+
+1518048844 source:c:\users\cgon5\desktop\csci191t_projects\lesson2\game\src\gllight.cpp
+	"GLLight.h"
+
+1518048830 c:\users\cgon5\desktop\csci191t_projects\lesson2\game\include\gllight.h
+	<GLScene.h>
+
+1517447664 source:c:\users\cgon5\desktop\csci191t_projects\lesson2\game\main.cpp
+	<windows.h>
+	<GLScene.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1518048915 source:c:\users\cgon5\desktop\csci191t_projects\lesson3\main.c
+	<windows.h>
+	<GLScene.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1517445753 c:\users\cgon5\desktop\csci191t_projects\lesson3\include\glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1518065510 source:c:\users\cgon5\desktop\csci191t_projects\lesson3\src\gllight.cpp
+	"GLLight.h"
+
+1518048830 c:\users\cgon5\desktop\csci191t_projects\lesson3\include\gllight.h
+	<GLScene.h>
+
+1518050017 source:c:\users\cgon5\desktop\csci191t_projects\lesson3\src\test.cpp
+	"test.h"
+
+1518050017 c:\users\cgon5\desktop\csci191t_projects\lesson3\include\test.h
+
+1518472351 source:c:\users\cgon5\desktop\csci191t_projects\lesson3\src\glscene.cpp
+	"GLScene.h"
+	<GLlight.h>
+	<Model.h>
+
+1517447664 source:c:\users\cgon5\desktop\csci191t_projects\lesson3\main.cpp
+	<windows.h>
+	<GLScene.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1518472308 source:c:\users\cgon5\desktop\csci191t_projects\lesson3\src\model.cpp
+	"Model.h"
+
+1518050988 c:\users\cgon5\desktop\csci191t_projects\lesson3\include\model.h
+	<windows.h>
+	<GL/glut.h>
+
+1518483476 source:c:\users\cgon5\desktop\csci191t_projects\lesson4\main.cpp
+	<windows.h>
+	<GLScene.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1518481823 c:\users\cgon5\desktop\csci191t_projects\lesson4\include\glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1518065510 source:c:\users\cgon5\desktop\csci191t_projects\lesson4\src\gllight.cpp
+	"GLLight.h"
+
+1518048830 c:\users\cgon5\desktop\csci191t_projects\lesson4\include\gllight.h
+	<GLScene.h>
+
+1518483343 source:c:\users\cgon5\desktop\csci191t_projects\lesson4\src\glscene.cpp
+	"GLScene.h"
+	<GLlight.h>
+	<Model.h>
+	<Inputs.h>
+
+1518050988 c:\users\cgon5\desktop\csci191t_projects\lesson4\include\model.h
+	<windows.h>
+	<GL/glut.h>
+
+1518472308 source:c:\users\cgon5\desktop\csci191t_projects\lesson4\src\model.cpp
+	"Model.h"
+
+1518483608 source:c:\users\cgon5\desktop\csci191t_projects\lesson4\src\inputs.cpp
+	"Inputs.h"
+
+1518482600 c:\users\cgon5\desktop\csci191t_projects\lesson4\include\inputs.h
+	<windows.h>
+	<iostream>
+	<Model.h>
+
+1518483476 source:c:\users\cgon5\desktop\csci191t_projects\lesson5\main.cpp
+	<windows.h>
+	<GLScene.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1518481823 c:\users\cgon5\desktop\csci191t_projects\lesson5\include\glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1518065510 source:c:\users\cgon5\desktop\csci191t_projects\lesson5\src\gllight.cpp
+	"GLLight.h"
+
+1518048830 c:\users\cgon5\desktop\csci191t_projects\lesson5\include\gllight.h
+	<GLScene.h>
+
+1518657396 source:c:\users\cgon5\desktop\csci191t_projects\lesson5\src\glscene.cpp
+	"GLScene.h"
+	<GLLight.h>
+	<Model.h>
+	<Inputs.h>
+
+1518656083 c:\users\cgon5\desktop\csci191t_projects\lesson5\include\model.h
+	<windows.h>
+	<GL/glut.h>
+
+1518653131 c:\users\cgon5\desktop\csci191t_projects\lesson5\include\inputs.h
+	<windows.h>
+	<iostream>
+	<Model.h>
+
+1518656625 source:c:\users\cgon5\desktop\csci191t_projects\lesson5\src\inputs.cpp
+	"Inputs.h"
+
+1518657746 source:c:\users\cgon5\desktop\csci191t_projects\lesson5\src\model.cpp
+	"Model.h"
+	<textureLoader.h>
+
+1518656534 source:c:\users\cgon5\desktop\csci191t_projects\lesson5\src\textureloader.cpp
+	"textureLoader.h"
+	<iostream>
+
+1518655605 c:\users\cgon5\desktop\csci191t_projects\lesson5\include\textureloader.h
+	<SOIL.h>
+	<gl/gl.h>
+
+1518653577 c:\users\cgon5\desktop\csci191t_projects\common\include\soil.h
+
+1519689937 source:c:\users\cgon5\desktop\csci191t_projects\lesson6\main.cpp
+	<windows.h>
+	<GLScene.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1519260157 c:\users\cgon5\desktop\csci191t_projects\lesson6\include\glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1518065510 source:c:\users\cgon5\desktop\csci191t_projects\lesson6\src\gllight.cpp
+	"GLLight.h"
+
+1518048830 c:\users\cgon5\desktop\csci191t_projects\lesson6\include\gllight.h
+	<GLScene.h>
+
+1519691856 source:c:\users\cgon5\desktop\csci191t_projects\lesson6\src\glscene.cpp
+	"GLScene.h"
+	<GLLight.h>
+	<Model.h>
+	<Inputs.h>
+	<parallax.h>
+
+1519261290 c:\users\cgon5\desktop\csci191t_projects\lesson6\include\model.h
+	<windows.h>
+	<GL/glut.h>
+
+1519691509 c:\users\cgon5\desktop\csci191t_projects\lesson6\include\inputs.h
+	<windows.h>
+	<iostream>
+	<Model.h>
+	<parallax.h>
+
+1519691799 source:c:\users\cgon5\desktop\csci191t_projects\lesson6\src\inputs.cpp
+	"Inputs.h"
+
+1519261654 source:c:\users\cgon5\desktop\csci191t_projects\lesson6\src\model.cpp
+	"Model.h"
+	<textureLoader.h>
+
+1518655605 c:\users\cgon5\desktop\csci191t_projects\lesson6\include\textureloader.h
+	<SOIL.h>
+	<gl/gl.h>
+
+1519262236 source:c:\users\cgon5\desktop\csci191t_projects\lesson6\src\textureloader.cpp
+	"textureLoader.h"
+	<iostream>
+
+1519690461 source:c:\users\cgon5\desktop\csci191t_projects\lesson6\src\parallax.cpp
+	"parallax.h"
+	<textureLoader.h>
+
+1519261094 c:\users\cgon5\desktop\csci191t_projects\lesson6\include\parallax.h
+	<iostream>
+	<string.h>
+	<gl/gl.h>
+	<windows.h>
+
+1519689937 source:c:\users\cgon5\desktop\csci191t_projects\lesson7\main.cpp
+	<windows.h>
+	<GLScene.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1519260157 c:\users\cgon5\desktop\csci191t_projects\lesson7\include\glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1518065510 source:c:\users\cgon5\desktop\csci191t_projects\lesson7\src\gllight.cpp
+	"GLLight.h"
+
+1518048830 c:\users\cgon5\desktop\csci191t_projects\lesson7\include\gllight.h
+	<GLScene.h>
+
+1519865887 source:c:\users\cgon5\desktop\csci191t_projects\lesson7\src\glscene.cpp
+	"GLScene.h"
+	<GLLight.h>
+	<Model.h>
+	<Inputs.h>
+	<parallax.h>
+	<player.h>
+
+1519863916 c:\users\cgon5\desktop\csci191t_projects\lesson7\include\model.h
+	<windows.h>
+	<GL/glut.h>
+
+1519691509 c:\users\cgon5\desktop\csci191t_projects\lesson7\include\inputs.h
+	<windows.h>
+	<iostream>
+	<Model.h>
+	<parallax.h>
+
+1519261094 c:\users\cgon5\desktop\csci191t_projects\lesson7\include\parallax.h
+	<iostream>
+	<string.h>
+	<gl/gl.h>
+	<windows.h>
+
+1519691799 source:c:\users\cgon5\desktop\csci191t_projects\lesson7\src\inputs.cpp
+	"Inputs.h"
+
+1519864179 source:c:\users\cgon5\desktop\csci191t_projects\lesson7\src\model.cpp
+	"Model.h"
+	<textureLoader.h>
+
+1518655605 c:\users\cgon5\desktop\csci191t_projects\lesson7\include\textureloader.h
+	<SOIL.h>
+	<gl/gl.h>
+
+1519690461 source:c:\users\cgon5\desktop\csci191t_projects\lesson7\src\parallax.cpp
+	"parallax.h"
+	<textureLoader.h>
+
+1519865286 source:c:\users\cgon5\desktop\csci191t_projects\lesson7\src\textureloader.cpp
+	"textureLoader.h"
+	<iostream>
+
+1519693985 source:c:\users\cgon5\desktop\csci191t_projects\lesson7\src\player.cpp
+	<player.h>
+
+1519863977 c:\users\cgon5\desktop\csci191t_projects\lesson7\include\player.h
+	<Model.h>
+	<gl/gl.h>
+	<textureLoader.h>
+
+1519689937 source:c:\users\cgon5\desktop\csci191t_projects\lesson8\main.cpp
+	<windows.h>
+	<GLScene.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1519260157 c:\users\cgon5\desktop\csci191t_projects\lesson8\include\glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1518065510 source:c:\users\cgon5\desktop\csci191t_projects\lesson8\src\gllight.cpp
+	"GLLight.h"
+
+1518048830 c:\users\cgon5\desktop\csci191t_projects\lesson8\include\gllight.h
+	<GLScene.h>
+
+1520294822 source:c:\users\cgon5\desktop\csci191t_projects\lesson8\src\glscene.cpp
+	"GLScene.h"
+	<GLLight.h>
+	<Model.h>
+	<Inputs.h>
+	<parallax.h>
+	<player.h>
+
+1519863916 c:\users\cgon5\desktop\csci191t_projects\lesson8\include\model.h
+	<windows.h>
+	<GL/glut.h>
+
+1519691509 c:\users\cgon5\desktop\csci191t_projects\lesson8\include\inputs.h
+	<windows.h>
+	<iostream>
+	<Model.h>
+	<parallax.h>
+
+1519261094 c:\users\cgon5\desktop\csci191t_projects\lesson8\include\parallax.h
+	<iostream>
+	<string.h>
+	<gl/gl.h>
+	<windows.h>
+
+1519863977 c:\users\cgon5\desktop\csci191t_projects\lesson8\include\player.h
+	<Model.h>
+	<gl/gl.h>
+	<textureLoader.h>
+
+1518655605 c:\users\cgon5\desktop\csci191t_projects\lesson8\include\textureloader.h
+	<SOIL.h>
+	<gl/gl.h>
+
+1520295095 source:c:\users\cgon5\desktop\csci191t_projects\lesson8\src\inputs.cpp
+	"Inputs.h"
+
+1519864179 source:c:\users\cgon5\desktop\csci191t_projects\lesson8\src\model.cpp
+	"Model.h"
+	<textureLoader.h>
+
+1519690461 source:c:\users\cgon5\desktop\csci191t_projects\lesson8\src\parallax.cpp
+	"parallax.h"
+	<textureLoader.h>
+
+1519693985 source:c:\users\cgon5\desktop\csci191t_projects\lesson8\src\player.cpp
+	<player.h>
+
+1519865286 source:c:\users\cgon5\desktop\csci191t_projects\lesson8\src\textureloader.cpp
+	"textureLoader.h"
+	<iostream>
+
+1519866997 source:c:\users\cgon5\desktop\csci191t_projects\lesson8\src\timer.cpp
+	"timer.h"
+
+1519866769 c:\users\cgon5\desktop\csci191t_projects\lesson8\include\timer.h
+	<time.h>
+
+1519689937 source:c:\users\cgon5\desktop\csci191t_projects\lesson9\main.cpp
+	<windows.h>
+	<GLScene.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1519260157 c:\users\cgon5\desktop\csci191t_projects\lesson9\include\glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1518065510 source:c:\users\cgon5\desktop\csci191t_projects\lesson9\src\gllight.cpp
+	"GLLight.h"
+
+1518048830 c:\users\cgon5\desktop\csci191t_projects\lesson9\include\gllight.h
+	<GLScene.h>
+
+1520299562 source:c:\users\cgon5\desktop\csci191t_projects\lesson9\src\glscene.cpp
+	"GLScene.h"
+	<GLLight.h>
+	<Model.h>
+	<Inputs.h>
+	<parallax.h>
+	<player.h>
+
+1519863916 c:\users\cgon5\desktop\csci191t_projects\lesson9\include\model.h
+	<windows.h>
+	<GL/glut.h>
+
+1520299529 c:\users\cgon5\desktop\csci191t_projects\lesson9\include\inputs.h
+	<windows.h>
+	<iostream>
+	<Model.h>
+	<parallax.h>
+	<player.h>
+
+1519261094 c:\users\cgon5\desktop\csci191t_projects\lesson9\include\parallax.h
+	<iostream>
+	<string.h>
+	<gl/gl.h>
+	<windows.h>
+
+1520295703 c:\users\cgon5\desktop\csci191t_projects\lesson9\include\player.h
+	<Model.h>
+	<gl/gl.h>
+	<textureLoader.h>
+
+1518655605 c:\users\cgon5\desktop\csci191t_projects\lesson9\include\textureloader.h
+	<SOIL.h>
+	<gl/gl.h>
+
+1520299534 source:c:\users\cgon5\desktop\csci191t_projects\lesson9\src\inputs.cpp
+	"Inputs.h"
+
+1519864179 source:c:\users\cgon5\desktop\csci191t_projects\lesson9\src\model.cpp
+	"Model.h"
+	<textureLoader.h>
+
+1519690461 source:c:\users\cgon5\desktop\csci191t_projects\lesson9\src\parallax.cpp
+	"parallax.h"
+	<textureLoader.h>
+
+1520299596 source:c:\users\cgon5\desktop\csci191t_projects\lesson9\src\player.cpp
+	<player.h>
+	<timer.h>
+	<textureLoader.h>
+
+1519865286 source:c:\users\cgon5\desktop\csci191t_projects\lesson9\src\textureloader.cpp
+	"textureLoader.h"
+	<iostream>
+
+1519866997 source:c:\users\cgon5\desktop\csci191t_projects\lesson9\src\timer.cpp
+	"timer.h"
+
+1519866769 c:\users\cgon5\desktop\csci191t_projects\lesson9\include\timer.h
+	<time.h>
+
+1519689937 source:c:\users\cgon5\desktop\csci191t_projects\game\main.cpp
+	<windows.h>
+	<GLScene.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1519260157 c:\users\cgon5\desktop\csci191t_projects\game\include\glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1518065510 source:c:\users\cgon5\desktop\csci191t_projects\game\src\gllight.cpp
+	"GLLight.h"
+
+1518048830 c:\users\cgon5\desktop\csci191t_projects\game\include\gllight.h
+	<GLScene.h>
+
+1520486829 source:c:\users\cgon5\desktop\csci191t_projects\game\src\inputs.cpp
+	"Inputs.h"
+
+1520299529 c:\users\cgon5\desktop\csci191t_projects\game\include\inputs.h
+	<windows.h>
+	<iostream>
+	<Model.h>
+	<parallax.h>
+	<player.h>
+
+1519863916 c:\users\cgon5\desktop\csci191t_projects\game\include\model.h
+	<windows.h>
+	<GL/glut.h>
+
+1519261094 c:\users\cgon5\desktop\csci191t_projects\game\include\parallax.h
+	<iostream>
+	<string.h>
+	<gl/gl.h>
+	<windows.h>
+
+1520487105 c:\users\cgon5\desktop\csci191t_projects\game\include\player.h
+	<Model.h>
+	<gl/gl.h>
+	<textureLoader.h>
+
+1518655605 c:\users\cgon5\desktop\csci191t_projects\game\include\textureloader.h
+	<SOIL.h>
+	<gl/gl.h>
+
+1519864179 source:c:\users\cgon5\desktop\csci191t_projects\game\src\model.cpp
+	"Model.h"
+	<textureLoader.h>
+
+1519690461 source:c:\users\cgon5\desktop\csci191t_projects\game\src\parallax.cpp
+	"parallax.h"
+	<textureLoader.h>
+
+1520486456 source:c:\users\cgon5\desktop\csci191t_projects\game\src\player.cpp
+	<player.h>
+	<timer.h>
+	<textureLoader.h>
+
+1519866769 c:\users\cgon5\desktop\csci191t_projects\game\include\timer.h
+	<time.h>
+
+1519865286 source:c:\users\cgon5\desktop\csci191t_projects\game\src\textureloader.cpp
+	"textureLoader.h"
+	<iostream>
+
+1519866997 source:c:\users\cgon5\desktop\csci191t_projects\game\src\timer.cpp
+	"timer.h"
+
+1520479782 source:c:\users\cgon5\desktop\csci191t_projects\game\src\glscene.cpp
+	"GLScene.h"
+	<GLLight.h>
+	<Model.h>
+	<Inputs.h>
+	<parallax.h>
+	<player.h>
+
