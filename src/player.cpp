@@ -68,16 +68,18 @@ void player::playerInit()
 
     stand[0].bindTexture("images/player/play.png");
 
-    runText[0].bindTexture("images/player/player0.png");
-    runText[1].bindTexture("images/player/player1.png");
-    runText[2].bindTexture("images/player/player2.png");
-    runText[3].bindTexture("images/player/player3.png");
-    runText[4].bindTexture("images/player/player4.png");
-    runText[5].bindTexture("images/player/player5.png");
-    runText[6].bindTexture("images/player/player6.png");
-    runText[7].bindTexture("images/player/player7.png");
-    runText[8].bindTexture("images/player/player8.png");
-    runText[9].bindTexture("images/player/player9.png");
+    runText[0].bindTexture("images/Alice/Alice (1).png");
+    runText[1].bindTexture("images/Alice/Alice (2).png");
+    runText[2].bindTexture("images/Alice/Alice (3).png");
+    runText[3].bindTexture("images/Alice/Alice (4).png");
+    runText[4].bindTexture("images/Alice/Alice (5).png");
+    runText[5].bindTexture("images/Alice/Alice (6).png");
+    runText[6].bindTexture("images/Alice/Alice (7).png");
+    runText[7].bindTexture("images/Alice/Alice (8).png");
+    runText[8].bindTexture("images/Alice/Alice (9).png");
+    runText[9].bindTexture("images/Alice/Alice (10).png");
+    runText[10].bindTexture("images/Alice/Alice (11).png");
+    runText[11].bindTexture("images/Alice/Alice (12).png");
 
 }
 

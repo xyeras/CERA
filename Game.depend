@@ -527,3 +527,76 @@
 	<parallax.h>
 	<player.h>
 
+1520822956 source:c:\users\saika\desktop\cera\main.cpp
+	<windows.h>
+	<GLScene.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1520822956 c:\users\saika\desktop\cera\include\glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1520822956 source:c:\users\saika\desktop\cera\src\gllight.cpp
+	"GLLight.h"
+
+1520822956 c:\users\saika\desktop\cera\include\gllight.h
+	<GLScene.h>
+
+1520822956 source:c:\users\saika\desktop\cera\src\glscene.cpp
+	"GLScene.h"
+	<GLLight.h>
+	<Model.h>
+	<Inputs.h>
+	<parallax.h>
+	<player.h>
+
+1520822956 c:\users\saika\desktop\cera\include\model.h
+	<windows.h>
+	<GL/glut.h>
+
+1520822956 c:\users\saika\desktop\cera\include\inputs.h
+	<windows.h>
+	<iostream>
+	<Model.h>
+	<parallax.h>
+	<player.h>
+
+1520822956 c:\users\saika\desktop\cera\include\parallax.h
+	<iostream>
+	<string.h>
+	<gl/gl.h>
+	<windows.h>
+
+1520822956 c:\users\saika\desktop\cera\include\player.h
+	<Model.h>
+	<gl/gl.h>
+	<textureLoader.h>
+
+1520822956 c:\users\saika\desktop\cera\include\textureloader.h
+	<SOIL.h>
+	<gl/gl.h>
+
+1520822956 source:c:\users\saika\desktop\cera\src\inputs.cpp
+	"Inputs.h"
+
+1520822956 source:c:\users\saika\desktop\cera\src\model.cpp
+	"Model.h"
+	<textureLoader.h>
+
+1520822956 source:c:\users\saika\desktop\cera\src\parallax.cpp
+	"parallax.h"
+	<textureLoader.h>
+
+1520822956 source:c:\users\saika\desktop\cera\src\textureloader.cpp
+	"textureLoader.h"
+	<iostream>
+
+1520822956 source:c:\users\saika\desktop\cera\src\timer.cpp
+	"timer.h"
+
+1520822956 c:\users\saika\desktop\cera\include\timer.h
+	<time.h>
+
