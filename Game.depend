@@ -600,3 +600,16 @@
 1520822956 c:\users\saika\desktop\cera\include\timer.h
 	<time.h>
 
+1517882654 c:\users\saika\desktop\cera\common\inc\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1518657631 c:\users\saika\desktop\cera\common\inc\soil.h
+
+1521268143 source:c:\users\saika\desktop\cera\src\player.cpp
+	<player.h>
+	<timer.h>
+	<textureLoader.h>
+
