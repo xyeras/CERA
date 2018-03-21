@@ -27,6 +27,7 @@ class player
         void drawPlayer();
         void playerInit();
         void actions(int);
+        void undoAttack();
 
         void addXS();
         void subXS();
@@ -36,6 +37,8 @@ class player
         float xs;
         float ys;
         float zs;
+
+        int standDir;
 
     protected:
 

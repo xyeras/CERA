@@ -18,8 +18,8 @@ class Inputs
         void keyUP(player *);
         void keyEnv(parallax *,float); // movements of my background
 
-        void mouseEventDown(Model *,double ,double);
-        void mouseEventUp();
+        void mouseEventDown(player *);
+        void mouseEventUp(player *);
         void mouseWheel(Model *,double);
         void mouseMove(Model *,double ,double );
 

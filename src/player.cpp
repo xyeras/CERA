@@ -1,10 +1,20 @@
 #include <player.h>
 #include <timer.h>
 #include <textureLoader.h>
-
+#include <iostream>
+using namespace std;
 timer *T = new timer();
-textureLoader runText[10];
-textureLoader stand[2];
+textureLoader runLeft[2];
+
+textureLoader standLeft[2];
+textureLoader standRight[2];
+textureLoader standUp[2];
+textureLoader standDown[2];
+
+textureLoader attackLeft[2];
+textureLoader attackRight[2];
+textureLoader attackUp[2];
+textureLoader attackDown[2];
 
 player::player()
 {
@@ -33,6 +43,7 @@ player::player()
     ys = 0.5;
     zs = -7.0;
 
+    standDir = 2;
 }
 
 player::~player()
@@ -66,20 +77,16 @@ void player::playerInit()
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
-    stand[0].bindTexture("images/player/play.png");
+    standLeft[0].bindTexture("images/Alice/standLeft.png");
+    standRight[0].bindTexture("images/Alice/standRight.png");
+    standUp[0].bindTexture("images/Alice/standUp.png");
+    standDown[0].bindTexture("images/Alice/standDown.png");
 
-    runText[0].bindTexture("images/Alice/Alice (1).png");
-    runText[1].bindTexture("images/Alice/Alice (2).png");
-    runText[2].bindTexture("images/Alice/Alice (3).png");
-    runText[3].bindTexture("images/Alice/Alice (4).png");
-    runText[4].bindTexture("images/Alice/Alice (5).png");
-    runText[5].bindTexture("images/Alice/Alice (6).png");
-    runText[6].bindTexture("images/Alice/Alice (7).png");
-    runText[7].bindTexture("images/Alice/Alice (8).png");
-    runText[8].bindTexture("images/Alice/Alice (9).png");
-    runText[9].bindTexture("images/Alice/Alice (10).png");
-    runText[10].bindTexture("images/Alice/Alice (11).png");
-    runText[11].bindTexture("images/Alice/Alice (12).png");
+    attackLeft[0].bindTexture("images/Alice/attackLeft.png");
+    attackRight[0].bindTexture("images/Alice/attackRight.png");
+    attackUp[0].bindTexture("images/Alice/attackUp.png");
+    attackDown[0].bindTexture("images/Alice/attackDown.png");
+
 
 }
 
@@ -90,14 +97,31 @@ void player::actions(int action)
     case 0:
         glPushMatrix();
         glTranslated(xs,ys,zs);      // where the player is on the  map when they are standing
-        stand[0].binder();
+
+        if (standDir == 1)
+        {
+            standLeft[0].binder();
+        }
+        else if (standDir == 2)
+        {
+            standRight[0].binder();
+        }
+        else if (standDir == 3)
+        {
+            standUp[0].binder();
+        }
+        else if (standDir == 4)
+        {
+            standDown[0].binder();
+        }
         drawPlayer();
         glPopMatrix();
         break;
 
     case 1:
+        standDir = 1;
         glPushMatrix();
-        glTranslated(xs,ys,zs);     // where the player is on the map when they are running
+        glTranslated(xs,ys,zs);
 
         if (T->getTicks() > 15)
         {
@@ -106,13 +130,14 @@ void player::actions(int action)
             T->reset();
         }
 
-        runText[runspeed].binder();
-        drawPlayer();
+      //  runText[runspeed].binder();
+       // drawPlayer();
 
         glPopMatrix();
         break;
 
     case 2:
+        standDir = 2;
         glPushMatrix();
         glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
@@ -123,13 +148,14 @@ void player::actions(int action)
             T->reset();
         }
 
-        runText[runspeed].binder();
-        drawPlayer();
+  //      runText[runspeed].binder();
+       // drawPlayer();
 
         glPopMatrix();
         break;
 
     case 3:
+        standDir = 3;
         glPushMatrix();
         glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
@@ -140,13 +166,14 @@ void player::actions(int action)
             T->reset();
         }
 
-        runText[runspeed].binder();
-        drawPlayer();
+ //       runText[runspeed].binder();
+      //  drawPlayer();
 
         glPopMatrix();
         break;
 
     case 4:
+        standDir = 4;
         glPushMatrix();
         glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
@@ -157,13 +184,40 @@ void player::actions(int action)
             T->reset();
         }
 
-        runText[runspeed].binder();
-        drawPlayer();
-
+  //      runText[runspeed].binder();
+      //  drawPlayer();
         glPopMatrix();
         break;
+    case 5:
+        glPushMatrix();
+        glTranslated(xs,ys,zs);
+            if (standDir == 1)
+            {
+                attackLeft[0].binder();
+            }
+            else if (standDir == 2)
+            {
+                attackRight[0].binder();
+            }
+            else if (standDir == 3)
+            {
+                attackUp[0].binder();
+            }
+            else if (standDir == 4)
+            {
+                attackDown[0].binder();
+            }
+            drawPlayer();
+        glPopMatrix();
+    break;
     }
 
+}
+
+void player::undoAttack()
+{
+    cout << "here" << endl;
+    actions(1);
 }
 
 void player::addXS()

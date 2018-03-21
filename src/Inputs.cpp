@@ -80,18 +80,15 @@ void Inputs::keyPressed(player* ply)
 {
     switch(wParam)
     {
-        case VK_ADD:
-            ply->actionTrigger = 0;
+
+        case VK_LEFT:
+            ply->actionTrigger = 1;
+            ply->subXS();
             break;
 
         case VK_RIGHT:
-            ply->actionTrigger = 1;
-            ply->addXS();
-            break;
-
-        case VK_LEFT:
             ply->actionTrigger = 2;
-            ply->subXS();
+            ply->addXS();
             break;
 
         case VK_UP:
@@ -102,37 +99,31 @@ void Inputs::keyPressed(player* ply)
         case VK_DOWN:
             ply->actionTrigger = 4;
             ply->subYS();
+            break;
+
     }
 }
 
 
-void Inputs::mouseEventDown(Model *Model, double x,double y)
+void Inputs::mouseEventDown(player* ply)
 {
-        prev_Mouse_X =x;
-        prev_Mouse_Y =y;
+    switch(wParam)
+    {
+        case MK_LBUTTON:
+            ply->actionTrigger = 5;
+            break;
 
-   switch (wParam)
-            {
-                case MK_LBUTTON:
-                        Mouse_Roatate = true;
-                    break;
 
-                case MK_RBUTTON:
-                     Mouse_Translate =true;
-                    break;
-                case MK_MBUTTON:
-
-                    break;
-
-                default:
-                    break;
-            }
+    }
 }
 
- void Inputs::mouseEventUp()
+
+ void Inputs::mouseEventUp(player* ply)
  {
-    Mouse_Translate =false;
-    Mouse_Roatate =false;
+    //Mouse_Translate =false;
+    //Mouse_Roatate =false;
+
+            ply->actionTrigger = 0;
  }
 
 void Inputs::mouseWheel(Model *Model,double Delta)

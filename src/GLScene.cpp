@@ -91,42 +91,17 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case WM_LBUTTONDOWN:
         {
             KbMs->wParam = wParam;
-            KbMs->mouseEventDown(modelTeapot,LOWORD(lParam),HIWORD(lParam));
+            KbMs->mouseEventDown(ply);
         break;								// Jump Back
         }
 
-   		case WM_RBUTTONDOWN:
-        {
-            KbMs->wParam = wParam;
-            KbMs->mouseEventDown(modelTeapot,LOWORD(lParam),HIWORD(lParam));
-        break;								// Jump Back
-        }
 
-          case WM_MBUTTONDOWN:
-        {
-            KbMs->wParam = wParam;
-            KbMs->mouseEventDown(modelTeapot,LOWORD(lParam),HIWORD(lParam));
-        break;								// Jump Back
-        }
 
         case WM_LBUTTONUP:
-        case WM_RBUTTONUP:
-        case WM_MBUTTONUP:
         {
-            KbMs->mouseEventUp();
+            KbMs->mouseEventUp(ply);
         break;								// Jump Back
         }
 
-        case WM_MOUSEMOVE:
-        {
-             KbMs->mouseMove(modelTeapot, LOWORD(lParam),HIWORD(lParam));
-        break;								// Jump Back
-        }
-
-        case WM_MOUSEWHEEL:
-        {
-            KbMs->mouseWheel(modelTeapot,(double)GET_WHEEL_DELTA_WPARAM(wParam));
-        break;								// Jump Back
-        }
-}
+    }
 }
