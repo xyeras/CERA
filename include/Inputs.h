@@ -6,6 +6,7 @@
 #include <Model.h>
 #include <parallax.h>
 #include <player.h>
+#include <sounds.h>
 
 class Inputs
 {
@@ -22,6 +23,8 @@ class Inputs
         void mouseEventUp(player *);
         void mouseWheel(Model *,double);
         void mouseMove(Model *,double ,double );
+        void keySounds(sounds*);
+        void mouseEventDown(sounds*);
 
         double prev_Mouse_X;
         double prev_Mouse_Y;

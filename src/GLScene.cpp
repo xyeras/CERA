@@ -4,11 +4,13 @@
 #include <Inputs.h>
 #include <parallax.h>
 #include <player.h>
+#include <sounds.h>
 
 Model *modelTeapot = new Model();
 Inputs *KbMs = new Inputs();
 parallax *plx = new parallax();
 player *ply = new player();
+sounds *snds = new sounds();
 
 GLScene::GLScene()
 {
@@ -35,6 +37,8 @@ GLint GLScene::initGL()
   //  modelTeapot->modelInit("images/player/player0.png",true);
     plx->parallaxInit("images/df.png");
     ply->playerInit();
+    snds->playMusic("sounds/forest_revised.wav");
+    snds->playMusic("sounds/wind.wav");
     return true;
 }
 
@@ -78,6 +82,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	        KbMs->keyPressed(modelTeapot);
 	     //   KbMs->keyEnv(plx,0.005);          // for environment to move around player
 	        KbMs->keyPressed(ply);
+	        KbMs->keySounds(snds);
 	    break;
 
 	    case WM_KEYUP:								// Has A Key Been Released?
@@ -92,6 +97,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         {
             KbMs->wParam = wParam;
             KbMs->mouseEventDown(ply);
+            KbMs->mouseEventDown(snds);
         break;								// Jump Back
         }
 

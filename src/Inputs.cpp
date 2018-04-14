@@ -151,3 +151,30 @@ void Inputs::mouseMove(Model *Model,double x,double y)
         prev_Mouse_Y =y;
       }
 }
+
+void Inputs::keySounds(sounds* snds)
+{
+    switch(wParam)
+    {
+        case VK_LEFT:
+        case VK_RIGHT:
+        case VK_UP:
+        case VK_DOWN:
+            snds->Plays("sounds/forest_walk.mp3");
+            break;
+
+    }
+}
+
+void Inputs::mouseEventDown(sounds* snds)
+{
+    switch(wParam)
+    {
+        case MK_LBUTTON:
+            snds->Plays("sounds/sword_sound.wav");
+            break;
+
+
+    }
+}
+
