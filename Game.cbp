@@ -50,8 +50,9 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="Common/inc" />
+			<Add directory="../Common" />
 			<Add directory="include" />
+			<Add directory="../Common/include" />
 		</Compiler>
 		<Linker>
 			<Add library="../Common/lib/libSOIL.a" />
@@ -59,6 +60,7 @@
 			<Add library="glu32" />
 			<Add library="gdi32" />
 			<Add library="../Common/lib/glut32.lib" />
+			<Add library="../Common/lib/libirrKlang.a" />
 			<Add directory="include" />
 			<Add directory="Common/inc" />
 		</Linker>
@@ -66,8 +68,10 @@
 		<Unit filename="include/GLlight.h" />
 		<Unit filename="include/Inputs.h" />
 		<Unit filename="include/Model.h" />
+		<Unit filename="include/Trees.h" />
 		<Unit filename="include/parallax.h" />
 		<Unit filename="include/player.h" />
+		<Unit filename="include/sounds.h" />
 		<Unit filename="include/textureLoader.h" />
 		<Unit filename="include/timer.h" />
 		<Unit filename="main.cpp" />
@@ -75,8 +79,10 @@
 		<Unit filename="src/GLlight.cpp" />
 		<Unit filename="src/Inputs.cpp" />
 		<Unit filename="src/Model.cpp" />
+		<Unit filename="src/Trees.cpp" />
 		<Unit filename="src/parallax.cpp" />
 		<Unit filename="src/player.cpp" />
+		<Unit filename="src/sounds.cpp" />
 		<Unit filename="src/textureLoader.cpp" />
 		<Unit filename="src/timer.cpp" />
 		<Extensions>

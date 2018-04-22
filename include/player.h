@@ -4,6 +4,9 @@
 #include <Model.h>
 #include <gl/gl.h>
 #include <textureLoader.h>
+# define M_PI           3.14159265358979323846
+#include <iostream>
+using namespace std;
 
 typedef struct
 {
@@ -11,6 +14,7 @@ typedef struct
     float y;
     float z;
 }vec;
+
 class player
 {
     public:
@@ -19,6 +23,8 @@ class player
 
         float scaleSize[3] = {1.0,1.0,1.0};
         vec verticies[4];
+
+
 
         int runspeed;
         int jumpspeed;
@@ -33,6 +39,9 @@ class player
         void subXS();
         void addYS();
         void subYS();
+
+        float getXS();
+        float getYS();
 
         float xs;
         float ys;

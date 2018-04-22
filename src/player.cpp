@@ -35,6 +35,8 @@ player::player()
     verticies[3].y = 1.0;
     verticies[3].z = -1.0;
 
+
+
     runspeed = 0;
     jumpspeed = 0;
     actionTrigger = 0;
@@ -223,22 +225,37 @@ void player::undoAttack()
 void player::addXS()
 {
     xs += 0.02;
+    cout << xs << endl;
 }
 
 void player::subXS()
 {
     xs -= 0.02;
+    cout << xs << endl;
 }
 
 void player::addYS()
 {
     ys += 0.02;
+    cout << ys << endl;
 }
 
 void player::subYS()
 {
     ys -= 0.02;
+    cout << ys << endl;
 }
+
+float player::getXS()
+{
+    return xs;
+}
+
+float player::getYS()
+{
+    return ys;
+}
+
 
 
 
