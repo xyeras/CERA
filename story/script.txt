@@ -1,4 +1,6 @@
-(Ominious music plays in the background) There is no light in the room, only darkness. Tiny footsteps can be heard, followed by a frantic voice of an eight-year-old girl.
+HellScape Story Script (CSCI 191T - Game Development)
+
+(Ominious music plays in the background) There was no light in the room, only darkness. Tiny footsteps can be heard, followed by a frantic voice of an eight-year-old girl.
 
 Alice: (Crying) Mommy! Daddy! Big Brother! Where are you? (Sniff, sniff)
 
@@ -9,6 +11,14 @@ Alice: AHHHHHHHHHHHHHH!
 Alice trembles and cries as she sees her dead family lying in the pool of blood. Blood had been splattered on the walls, and the bodies had been mutilated and mangled to the point where she couldn't distinguish which body belong to who. Their organs had been ripped out of their cavities, and the heart was unknownly demolished by her foot. An evil laugh followed in satisfaction of her wretched state and fades into emptiness.
 
 Alice starts to hyperventilate, and darkness fills her vision as everything spins before her. The trauma is too much for her heart and brain. Her body slumps onto the floor while her conciousness fades into nothingness.
+
+Comic Strip
+1st: Alice walking in the dark, crying (draw Alice with flowing dress)
+2nd: Alice looking for her family while calling them
+3rd: Alice steps on organ
+4th: Alice having panic attack (evil laugh in background)
+5th: Alice about to faint (evil laugh)
+6th: Makes impact with floor (evil laugh fades)
 
 _____________________________________________________________________________________________________________________________________________________________
 
@@ -24,6 +34,14 @@ Alice: I can't move!
 
 Her mind and body are not working together. The heinous beast roars and charges with its jaw open. Alice screams and closes her eyes for impact. There was none, and she takes a peek. A scythe floats in front of her, making a shield, and the monsters screeches in pain and lurks back. She quickly grabs the scythe with unknown familiarity and positions herself for a long fight.
 
+Comic Strip:
+1st: Alice walking home
+2nd: Ringing is heard, and light appears
+3rd: Alice in trance follows light
+4th: Alice regains conciousness and looks around
+5th: Monster emerges, and Alice is in fear
+6th: Monster charges, light appears as a weapon materializes in her hands, and Alice gets into fighting position
+
 _____________________________________________________________________________________________________________________________________________________________
 
 The final boss screeches and disintegrates. Alice takes a deep breath as memories start to flood through her mind.
@@ -33,3 +51,11 @@ She remembers all the details of that horrible day, their reflection on the scyt
 Tears start flowing as she breathes heavily, clutching tightly to her weapon. She closes her eyes, holds the blade towards her neck, and slices her neck. Bloods spurts out. She might as well end the cycle before it happens to her foster family.
 
 Dark voice: You're weak just like the rest of them.
+
+Comic Strip:
+1st: Boss dies and disintegrates
+2nd: Flashbacks occur
+3rd: Alice cries in face of the terrible truth
+4th: Alice positions her scythe near her neck and slashes her own neck
+5th: Blood spurts, and Alice falls
+6th: A dark voice emerges
