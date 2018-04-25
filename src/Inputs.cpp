@@ -264,7 +264,7 @@ void Inputs::keySounds(sounds* snds)
         case VK_RIGHT:
         case VK_UP:
         case VK_DOWN:
-            snds->Plays("sounds/forest_walk.mp3");
+            //snds->Plays("sounds/walk.wav");
             break;
 
     }
@@ -275,7 +275,7 @@ void Inputs::mouseEventDown(sounds* snds)
     switch(wParam)
     {
         case MK_LBUTTON:
-            snds->Plays("sounds/sword_sound.wav");
+            snds->Plays("sounds/slash.wav");
             break;
 
 

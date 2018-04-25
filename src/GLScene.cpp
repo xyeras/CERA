@@ -37,8 +37,9 @@ GLint GLScene::initGL()
   //  modelTeapot->modelInit("images/player/player0.png",true);
     plx->parallaxInit("images/df.png");
     ply->playerInit();
-    snds->playMusic("sounds/forest_revised.wav");
-    snds->playMusic("sounds/wind.wav");
+    //snds->playMusic("sounds/forest_revised.wav");
+    snds->playMusic("sounds/forest.mp3");
+    //snds->playMusic("sounds/wind.wav");
     return true;
 }
 
