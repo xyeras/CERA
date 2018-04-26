@@ -43,6 +43,8 @@ class player
         float getXS();
         float getYS();
 
+        void setStandDir(int);
+
         float xs;
         float ys;
         float zs;
