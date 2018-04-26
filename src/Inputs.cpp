@@ -1,7 +1,8 @@
 #include "Inputs.h"
 #include <Trees.h>
 #include <math.h>
-
+#include <iostream>
+using namespace std;
 Trees *tree = new Trees();
 Inputs::Inputs()
 {
@@ -96,6 +97,9 @@ void Inputs::keyPressed(player* ply)
     {
         case VK_LEFT:
             ply->actionTrigger = 1;
+            //ply->setStandDir(1);
+            ply->standDir = 1;              // sets the direction to stand after action
+
             if (ply->getXS() >= -4.70)      // keeps in bounces of map
             {
                 if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)   // allows player to move as long not within radius of tree
@@ -104,16 +108,15 @@ void Inputs::keyPressed(player* ply)
                 }
                 else
                 {
-                    cout << "here 1" << endl;
                     // player is running into tree
                     // allows player to move if that move will not let them collide with the tree
-                    deltaX1 = (ply->getXS() - 0.02) - tree->getX(0);
+                    deltaX1 = (ply->getXS() - 0.06)- tree->getX(0);
                     dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
 
-                    deltaX2 = (ply->getXS() - 0.02) - tree->getX(1);
+                    deltaX2 = (ply->getXS() - 0.06) - tree->getX(1);
                     dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
 
-                    deltaX3 = (ply->getXS() - 0.02) - tree->getX(2);
+                    deltaX3 = (ply->getXS() - 0.06) - tree->getX(2);
                     dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
 
                     if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
@@ -126,20 +129,22 @@ void Inputs::keyPressed(player* ply)
 
         case VK_RIGHT:      // does have a right boundary yet, needs next level goer
             ply->actionTrigger = 2;
+         //   ply->setStandDir(2);
+            ply->standDir = 2;
+
             if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
             {
                 ply->addXS();
             }
             else
             {
-                cout << "here 2" << endl;
-                deltaX1 = (ply->getXS() + 0.02) - tree->getX(0);
+                deltaX1 = (ply->getXS() + 0.06) - tree->getX(0);
                 dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
 
-                deltaX2 = (ply->getXS() + 0.02) - tree->getX(1);
+                deltaX2 = (ply->getXS() + 0.06) - tree->getX(1);
                 dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
 
-                deltaX3 = (ply->getXS() + 0.02) - tree->getX(2);
+                deltaX3 = (ply->getXS() + 0.06) - tree->getX(2);
                 dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
 
                 if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
@@ -151,6 +156,8 @@ void Inputs::keyPressed(player* ply)
 
         case VK_UP:
             ply->actionTrigger = 3;
+      //      ply->setStandDir(3);
+            ply->standDir = 3;
             if (ply->getYS() <= 1.92)
             {
                 if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
@@ -159,14 +166,13 @@ void Inputs::keyPressed(player* ply)
                 }
                 else
                 {
-                    cout << "here 3" << endl;
-                    deltaY1 = (ply->getYS() + 0.02) - tree->getY(0);
+                    deltaY1 = (ply->getYS() + 0.06) - tree->getY(0);
                     dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
 
-                    deltaY2 = (ply->getYS() + 0.02) - tree->getY(1);
+                    deltaY2 = (ply->getYS() + 0.06) - tree->getY(1);
                     dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
 
-                    deltaY3 = (ply->getYS() + 0.02) - tree->getY(2);
+                    deltaY3 = (ply->getYS() + 0.06) - tree->getY(2);
                     dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
 
                     if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
@@ -179,6 +185,8 @@ void Inputs::keyPressed(player* ply)
 
         case VK_DOWN:
             ply->actionTrigger = 4;
+       //     ply->setStandDir(4);
+            ply->standDir = 4;
             if (ply->getYS() >= -2.36)
             {
                 if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
@@ -187,14 +195,13 @@ void Inputs::keyPressed(player* ply)
                 }
                 else
                 {
-                    cout << "here 4" << endl;
-                    deltaY1 = (ply->getYS() - 0.02) - tree->getY(0);
+                    deltaY1 = (ply->getYS() - 0.06) - tree->getY(0);
                     dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
 
-                    deltaY2 = (ply->getYS() - 0.02) - tree->getY(1);
+                    deltaY2 = (ply->getYS() - 0.06) - tree->getY(1);
                     dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
 
-                    deltaY3 = (ply->getYS() - 0.02) - tree->getY(2);
+                    deltaY3 = (ply->getYS() - 0.06) - tree->getY(2);
                     dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
 
                     if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
@@ -264,7 +271,7 @@ void Inputs::keySounds(sounds* snds)
         case VK_RIGHT:
         case VK_UP:
         case VK_DOWN:
-            //snds->Plays("sounds/walk.wav");
+            snds->Plays("sounds/forest_walk.mp3");
             break;
 
     }
@@ -275,7 +282,7 @@ void Inputs::mouseEventDown(sounds* snds)
     switch(wParam)
     {
         case MK_LBUTTON:
-            snds->Plays("sounds/slash.wav");
+            snds->Plays("sounds/sword_sound.wav");
             break;
 
 

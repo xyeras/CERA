@@ -94,9 +94,10 @@ void player::playerInit()
 
 void player::actions(int action)
 {
+
     switch(action)
     {
-    case 0:
+    case 0: // not call case 0 (actionTrigger 0)
         glPushMatrix();
         glTranslated(xs,ys,zs);      // where the player is on the  map when they are standing
 
@@ -121,8 +122,9 @@ void player::actions(int action)
         break;
 
     case 1:
-        standDir = 1;
         glPushMatrix();
+
+
         glTranslated(xs,ys,zs);
 
         if (T->getTicks() > 15)
@@ -139,8 +141,9 @@ void player::actions(int action)
         break;
 
     case 2:
-        standDir = 2;
         glPushMatrix();
+
+
         glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
         if (T->getTicks() > 15)
@@ -157,8 +160,8 @@ void player::actions(int action)
         break;
 
     case 3:
-        standDir = 3;
         glPushMatrix();
+
         glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
         if (T->getTicks() > 15)
@@ -175,8 +178,8 @@ void player::actions(int action)
         break;
 
     case 4:
-        standDir = 4;
         glPushMatrix();
+
         glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
         if (T->getTicks() > 15)
@@ -218,31 +221,30 @@ void player::actions(int action)
 
 void player::undoAttack()
 {
-    cout << "here" << endl;
     actions(1);
 }
 
 void player::addXS()
 {
-    xs += 0.02;
+    xs += 0.06;
     cout << xs << endl;
 }
 
 void player::subXS()
 {
-    xs -= 0.02;
+    xs -= 0.06;
     cout << xs << endl;
 }
 
 void player::addYS()
 {
-    ys += 0.02;
+    ys += 0.06;
     cout << ys << endl;
 }
 
 void player::subYS()
 {
-    ys -= 0.02;
+    ys -= 0.06;
     cout << ys << endl;
 }
 
@@ -255,6 +257,12 @@ float player::getYS()
 {
     return ys;
 }
+
+void player::setStandDir(int s)
+{
+    standDir = s;
+}
+
 
 
 
