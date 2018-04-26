@@ -467,10 +467,11 @@
 1523730900 c:\users\cgon5\desktop\csci191t_projects\game\include\gllight.h
 	<GLScene.h>
 
-1524419664 source:c:\users\cgon5\desktop\csci191t_projects\game\src\inputs.cpp
+1524716379 source:c:\users\cgon5\desktop\csci191t_projects\game\src\inputs.cpp
 	"Inputs.h"
 	<Trees.h>
 	<math.h>
+	<iostream>
 
 1523741444 c:\users\cgon5\desktop\csci191t_projects\game\include\inputs.h
 	<windows.h>
@@ -490,7 +491,7 @@
 	<gl/gl.h>
 	<windows.h>
 
-1524379428 c:\users\cgon5\desktop\csci191t_projects\game\include\player.h
+1524536381 c:\users\cgon5\desktop\csci191t_projects\game\include\player.h
 	<Model.h>
 	<gl/gl.h>
 	<textureLoader.h>
@@ -508,7 +509,7 @@
 	"parallax.h"
 	<textureLoader.h>
 
-1524381267 source:c:\users\cgon5\desktop\csci191t_projects\game\src\player.cpp
+1524716352 source:c:\users\cgon5\desktop\csci191t_projects\game\src\player.cpp
 	<player.h>
 	<timer.h>
 	<textureLoader.h>
@@ -524,7 +525,7 @@
 1523730901 source:c:\users\cgon5\desktop\csci191t_projects\game\src\timer.cpp
 	"timer.h"
 
-1524384525 source:c:\users\cgon5\desktop\csci191t_projects\game\src\glscene.cpp
+1524554233 source:c:\users\cgon5\desktop\csci191t_projects\game\src\glscene.cpp
 	"GLScene.h"
 	<GLLight.h>
 	<Model.h>
