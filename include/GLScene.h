@@ -16,12 +16,15 @@ class GLScene
         GLint initGL();
         GLint drawGLScene();
         void resizeGLScene(GLsizei, GLsizei);
-
+        void resetData();                       //reset number of lives, health, etc.
+        void callLevelChanger();
         int windMsg(HWND,UINT,WPARAM,LPARAM);
 
         WPARAM wParam;
         float screenHeight;
         float screenWidth;
+
+        int ActiveScene;
 
     protected:
 
