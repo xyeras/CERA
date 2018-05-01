@@ -62,7 +62,7 @@ GLint GLScene::initGL()
   case 4:          // Level 1 background & sounds
 
     plx->parallaxInit("images/df.png");
-    ply->playerInit();
+    ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene);
     //snds->playMusic("sounds/forest_revised.wav");
     snds->playMusic("sounds/forest.mp3");
     //snds->playMusic("sounds/wind.wav");
@@ -70,8 +70,8 @@ GLint GLScene::initGL()
 
    case 5:          // Level 2 background & sounds
 
-    //plx5->parallaxInit("images/");
-    ply->playerInit();
+    plx5->parallaxInit("images/dungeon.png");
+    ply->playerInit(-4.5,0.5,-7.0,3,ActiveScene);
 
     break;
 

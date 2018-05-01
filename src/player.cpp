@@ -41,11 +41,7 @@ player::player()
     jumpspeed = 0;
     actionTrigger = 0;
 
-    xs = -4.5;
-    ys = 0.5;
-    zs = -7.0;
 
-    standDir = 2;
 }
 
 player::~player()
@@ -73,7 +69,7 @@ void player::drawPlayer()
  //   glPopMatrix();
 }
 
-void player::playerInit()
+void player::playerInit(float x, float y, float z, float sd, int sceneNum)
 {
     T->start();
     glEnable(GL_BLEND);
@@ -89,6 +85,12 @@ void player::playerInit()
     attackUp[0].bindTexture("images/Alice/attackUp.png");
     attackDown[0].bindTexture("images/Alice/attackDown.png");
 
+    xs = x;
+    ys = y;
+    zs = z;
+
+    standDir = sd;
+    inScene = sceneNum;
 
 }
 

@@ -82,136 +82,200 @@ void Inputs::keyUP(player* ply)
 
 void Inputs::keyPressed(player* ply)
 {
-    float deltaX1 = ply->getXS() - tree->getX(0);
-    float deltaY1 = ply->getYS() - tree->getY(0);
-    float dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
 
-    float deltaX2 = ply->getXS() - tree->getX(1);
-    float deltaY2 = ply->getYS() - tree->getY(1);
-    float dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
-
-    float deltaX3 = ply->getXS() - tree->getX(2);
-    float deltaY3 = ply->getYS() - tree->getY(2);
-    float dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
-    switch(wParam)
+    switch(ply->inScene)
     {
-        case VK_LEFT:
-            ply->actionTrigger = 1;
-            //ply->setStandDir(1);
-            ply->standDir = 1;              // sets the direction to stand after action
+        case 1:
+        {
 
-            if (ply->getXS() >= -4.70)      // keeps in bounces of map
+        }
+
+        case 4:
             {
-                if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)   // allows player to move as long not within radius of tree
-                {
-                     ply->subXS();
-                }
-                else
-                {
-                    // player is running into tree
-                    // allows player to move if that move will not let them collide with the tree
-                    deltaX1 = (ply->getXS() - 0.06)- tree->getX(0);
-                    dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
 
-                    deltaX2 = (ply->getXS() - 0.06) - tree->getX(1);
-                    dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+            float deltaX1 = ply->getXS() - tree->getX(0);
+            float deltaY1 = ply->getYS() - tree->getY(0);
+            float dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
 
-                    deltaX3 = (ply->getXS() - 0.06) - tree->getX(2);
-                    dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+            float deltaX2 = ply->getXS() - tree->getX(1);
+            float deltaY2 = ply->getYS() - tree->getY(1);
+            float dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+
+            float deltaX3 = ply->getXS() - tree->getX(2);
+            float deltaY3 = ply->getYS() - tree->getY(2);
+            float dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+            switch(wParam)
+            {
+                case VK_LEFT:
+                    ply->actionTrigger = 1;
+                    //ply->setStandDir(1);
+                    ply->standDir = 1;              // sets the direction to stand after action
+
+                    if (ply->getXS() >= -4.70)      // keeps in bounces of map
+                    {
+                        if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)   // allows player to move as long not within radius of tree
+                        {
+                             ply->subXS();
+                        }
+                        else
+                        {
+                            // player is running into tree
+                            // allows player to move if that move will not let them collide with the tree
+                            deltaX1 = (ply->getXS() - 0.06)- tree->getX(0);
+                            dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+
+                            deltaX2 = (ply->getXS() - 0.06) - tree->getX(1);
+                            dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+
+                            deltaX3 = (ply->getXS() - 0.06) - tree->getX(2);
+                            dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+
+                            if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                            {
+                                ply->subXS();
+                            }
+                        }
+                    }
+                    break;
+
+                case VK_RIGHT:      // does have a right boundary yet, needs next level goer
+                    ply->actionTrigger = 2;
+                 //   ply->setStandDir(2);
+                    ply->standDir = 2;
 
                     if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
                     {
-                        ply->subXS();
+                        ply->addXS();
                     }
+                    else
+                    {
+                        deltaX1 = (ply->getXS() + 0.06) - tree->getX(0);
+                        dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+
+                        deltaX2 = (ply->getXS() + 0.06) - tree->getX(1);
+                        dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+
+                        deltaX3 = (ply->getXS() + 0.06) - tree->getX(2);
+                        dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+
+                        if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                        {
+                            ply->addXS();
+                        }
+                    }
+                    break;
+
+                case VK_UP:
+                    ply->actionTrigger = 3;
+              //      ply->setStandDir(3);
+                    ply->standDir = 3;
+                    if (ply->getYS() <= 1.92)
+                    {
+                        if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                        {
+                            ply->addYS();
+                        }
+                        else
+                        {
+                            deltaY1 = (ply->getYS() + 0.06) - tree->getY(0);
+                            dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+
+                            deltaY2 = (ply->getYS() + 0.06) - tree->getY(1);
+                            dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+
+                            deltaY3 = (ply->getYS() + 0.06) - tree->getY(2);
+                            dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+
+                            if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                            {
+                                ply->addYS();
+                            }
+                        }
+                    }
+                    break;
+
+                case VK_DOWN:
+                    ply->actionTrigger = 4;
+               //     ply->setStandDir(4);
+                    ply->standDir = 4;
+                    if (ply->getYS() >= -2.36)
+                    {
+                        if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                        {
+                            ply->subYS();
+                        }
+                        else
+                        {
+                            deltaY1 = (ply->getYS() - 0.06) - tree->getY(0);
+                            dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+
+                            deltaY2 = (ply->getYS() - 0.06) - tree->getY(1);
+                            dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+
+                            deltaY3 = (ply->getYS() - 0.06) - tree->getY(2);
+                            dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+
+                            if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                            {
+                                ply->subYS();
+                            }
+                        }
+                    }
+                    break;
                 }
-            }
-            break;
+    }
+                break; // end of Level 1 inputs ----------------------------------------------------------
 
-        case VK_RIGHT:      // does have a right boundary yet, needs next level goer
-            ply->actionTrigger = 2;
-         //   ply->setStandDir(2);
-            ply->standDir = 2;
-
-            if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
-            {
-                ply->addXS();
-            }
-            else
-            {
-                deltaX1 = (ply->getXS() + 0.06) - tree->getX(0);
-                dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
-
-                deltaX2 = (ply->getXS() + 0.06) - tree->getX(1);
-                dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
-
-                deltaX3 = (ply->getXS() + 0.06) - tree->getX(2);
-                dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
-
-                if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+            case 5:
                 {
-                    ply->addXS();
-                }
-            }
-            break;
 
-        case VK_UP:
-            ply->actionTrigger = 3;
-      //      ply->setStandDir(3);
-            ply->standDir = 3;
-            if (ply->getYS() <= 1.92)
-            {
-                if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
-                {
-                    ply->addYS();
-                }
-                else
-                {
-                    deltaY1 = (ply->getYS() + 0.06) - tree->getY(0);
-                    dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+                    switch(wParam)
+                    {
+                case VK_LEFT:
+                    ply->actionTrigger = 1;
+                    //ply->setStandDir(1);
+                    ply->standDir = 1;              // sets the direction to stand after action
 
-                    deltaY2 = (ply->getYS() + 0.06) - tree->getY(1);
-                    dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+                    if (ply->getXS() >= -5.44)      // keeps in bounces of map
+                    {
 
-                    deltaY3 = (ply->getYS() + 0.06) - tree->getY(2);
-                    dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+                        ply->subXS();
 
-                    if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                    }
+                    break;
+
+                case VK_RIGHT:
+                    ply->actionTrigger = 2;
+                    ply->standDir = 2;
+                    if (ply->getXS() <= 4.33 )
+                    {
+                        ply->addXS();
+                    }
+
+
+                    break;
+
+                case VK_UP:
+                    ply->actionTrigger = 3;
+                    ply->standDir = 3;
+                    if (ply->getYS() <= 1.92)
                     {
                         ply->addYS();
                     }
-                }
-            }
-            break;
+                    break;
 
-        case VK_DOWN:
-            ply->actionTrigger = 4;
-       //     ply->setStandDir(4);
-            ply->standDir = 4;
-            if (ply->getYS() >= -2.36)
-            {
-                if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
-                {
-                    ply->subYS();
-                }
-                else
-                {
-                    deltaY1 = (ply->getYS() - 0.06) - tree->getY(0);
-                    dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+                case VK_DOWN:
+                    ply->actionTrigger = 4;
+                    ply->standDir = 4;
 
-                    deltaY2 = (ply->getYS() - 0.06) - tree->getY(1);
-                    dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
-
-                    deltaY3 = (ply->getYS() - 0.06) - tree->getY(2);
-                    dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
-
-                    if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                    if (ply->getYS() >= -1.0)
                     {
                         ply->subYS();
                     }
+                    break;
                 }
-            }
-            break;
-
+                break; //of Level 2 inputs
+                }
     }
 }
 

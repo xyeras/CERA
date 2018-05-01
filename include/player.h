@@ -29,9 +29,10 @@ class player
         int runspeed;
         int jumpspeed;
         int actionTrigger;
+        int inScene;
 
         void drawPlayer();
-        void playerInit();
+        void playerInit(float,float,float,float,int);
         void actions(int);
         void undoAttack();
 
