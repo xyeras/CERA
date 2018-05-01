@@ -327,16 +327,34 @@ void Inputs::mouseMove(Model *Model,double x,double y)
       }
 }
 
-void Inputs::keySounds(sounds* snds)
+void Inputs::keySounds(sounds* snds,int scene)
 {
-    switch(wParam)
+    switch(scene)
     {
-        case VK_LEFT:
-        case VK_RIGHT:
-        case VK_UP:
-        case VK_DOWN:
-            snds->Plays("sounds/forest_walk.mp3");
-            break;
+        case 4:
+        {
+
+            switch(wParam)
+            {
+                case VK_LEFT:
+                case VK_RIGHT:
+                case VK_UP:
+                case VK_DOWN:
+                    snds->Plays("sounds/forest_walk.mp3");
+                    break;
+            }
+        }
+        break;
+        case 5:
+        {
+            case VK_LEFT:
+            case VK_RIGHT:
+            case VK_UP:
+            case VK_DOWN:
+                //snds->Plays("sounds/forest_walk.mp3");
+                break;
+        }
+        break;
 
     }
 }

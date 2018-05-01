@@ -222,7 +222,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 KbMs->keyPressed(modelTeapot);
              //   KbMs->keyEnv(plx,0.005);          // for environment to move around player
                 KbMs->keyPressed(ply);
-                KbMs->keySounds(snds);
+                KbMs->keySounds(snds,ply->inScene);
             break;
 
             case WM_KEYUP:								// Has A Key Been Released?
@@ -264,7 +264,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 KbMs->keyPressed(modelTeapot);
              //   KbMs->keyEnv(plx,0.005);          // for environment to move around player
                 KbMs->keyPressed(ply);
-                KbMs->keySounds(snds);
+                KbMs->keySounds(snds,ply->inScene);
             break;
 
             case WM_KEYUP:								// Has A Key Been Released?
