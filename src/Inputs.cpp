@@ -1,9 +1,11 @@
 #include "Inputs.h"
 #include <Trees.h>
+#include <Posts.h>
 #include <math.h>
 #include <iostream>
 using namespace std;
 Trees *tree = new Trees();
+Posts *light = new Posts();
 Inputs::Inputs()
 {
     //ctor
@@ -229,6 +231,13 @@ void Inputs::keyPressed(player* ply)
             case 5:
                 {
 
+                float deltaX1L = ply->getXS() - light->getX(0);
+                float deltaY1L = ply->getYS() - light->getY(0);
+                float dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
+
+                float deltaX2L = ply->getXS() - tree->getX(1);
+                float deltaY2L = ply->getYS() - tree->getY(1);
+                float dist2L = sqrtf((deltaX2L * deltaX2L)+(deltaY2L * deltaY2L));
                     switch(wParam)
                     {
                 case VK_LEFT:
@@ -238,8 +247,25 @@ void Inputs::keyPressed(player* ply)
 
                     if (ply->getXS() >= -5.44)      // keeps in bounces of map
                     {
+                        if (dist1L >= 0.25 + 0.25)   // allows player to move as long not within radius of post
+                        {
+                             ply->subXS();
+                        }
+                        else
+                        {
+                            // player is running into post
+                            // allows player to move if that move will not let them collide with the post
+                            deltaX1L = (ply->getXS() - 0.06)- light->getX(0);
+                            dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
 
-                        ply->subXS();
+
+
+
+                            if (dist1L >= 0.25 + 0.25)
+                            {
+                                ply->subXS();
+                            }
+                        }
 
                     }
                     break;
@@ -247,9 +273,22 @@ void Inputs::keyPressed(player* ply)
                 case VK_RIGHT:
                     ply->actionTrigger = 2;
                     ply->standDir = 2;
-                    if (ply->getXS() <= 4.33 )
+                    if (ply->getXS() <= 4.33)
                     {
-                        ply->addXS();
+                        if (dist1L >= 0.25 + 0.25)
+                        {
+                            ply->addXS();
+                        }
+                        else
+                        {
+                            deltaX1L = (ply->getXS() - 0.06)- light->getX(0);
+                            dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
+
+                            if (dist1L >= 0.25 + 0.25)
+                            {
+                                ply->addXS();
+                            }
+                        }
                     }
 
 
@@ -260,7 +299,20 @@ void Inputs::keyPressed(player* ply)
                     ply->standDir = 3;
                     if (ply->getYS() <= 1.92)
                     {
-                        ply->addYS();
+                        if (dist1L >= 0.25 + 0.25)
+                        {
+                            ply->addYS();
+                        }
+                        else
+                        {
+                            deltaX1L = (ply->getXS() - 0.06)- light->getX(0);
+                            dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
+
+                            if (dist1L >= 0.25 + 0.25)
+                            {
+                                ply->addYS();
+                            }
+                        }
                     }
                     break;
 
@@ -270,7 +322,20 @@ void Inputs::keyPressed(player* ply)
 
                     if (ply->getYS() >= -3.0)
                     {
-                        ply->subYS();
+                        if (dist1L >= 0.25 + 0.25)
+                        {
+                            ply->subYS();
+                        }
+                        else
+                        {
+                            deltaX1L = (ply->getXS() - 0.06)- light->getX(0);
+                            dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
+
+                            if (dist1L >= 0.25 + 0.25)
+                            {
+                                ply->subYS();
+                            }
+                        }
                     }
                     break;
                 }

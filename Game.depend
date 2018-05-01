@@ -449,14 +449,14 @@
 1519866769 c:\users\cgon5\desktop\csci191t_projects\lesson9\include\timer.h
 	<time.h>
 
-1523730899 source:c:\users\cgon5\desktop\csci191t_projects\game\main.cpp
+1524867201 source:c:\users\cgon5\desktop\csci191t_projects\game\main.cpp
 	<windows.h>
 	<GLScene.h>
 	<stdlib.h>
 	<iostream>
 	<windows.h>
 
-1523730900 c:\users\cgon5\desktop\csci191t_projects\game\include\glscene.h
+1524802071 c:\users\cgon5\desktop\csci191t_projects\game\include\glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -467,13 +467,13 @@
 1523730900 c:\users\cgon5\desktop\csci191t_projects\game\include\gllight.h
 	<GLScene.h>
 
-1524716379 source:c:\users\cgon5\desktop\csci191t_projects\game\src\inputs.cpp
+1525151827 source:c:\users\cgon5\desktop\csci191t_projects\game\src\inputs.cpp
 	"Inputs.h"
 	<Trees.h>
 	<math.h>
 	<iostream>
 
-1523741444 c:\users\cgon5\desktop\csci191t_projects\game\include\inputs.h
+1525150762 c:\users\cgon5\desktop\csci191t_projects\game\include\inputs.h
 	<windows.h>
 	<iostream>
 	<Model.h>
@@ -491,7 +491,7 @@
 	<gl/gl.h>
 	<windows.h>
 
-1524536381 c:\users\cgon5\desktop\csci191t_projects\game\include\player.h
+1525147546 c:\users\cgon5\desktop\csci191t_projects\game\include\player.h
 	<Model.h>
 	<gl/gl.h>
 	<textureLoader.h>
@@ -509,7 +509,7 @@
 	"parallax.h"
 	<textureLoader.h>
 
-1524716352 source:c:\users\cgon5\desktop\csci191t_projects\game\src\player.cpp
+1525147589 source:c:\users\cgon5\desktop\csci191t_projects\game\src\player.cpp
 	<player.h>
 	<timer.h>
 	<textureLoader.h>
@@ -525,7 +525,7 @@
 1523730901 source:c:\users\cgon5\desktop\csci191t_projects\game\src\timer.cpp
 	"timer.h"
 
-1524554233 source:c:\users\cgon5\desktop\csci191t_projects\game\src\glscene.cpp
+1525151572 source:c:\users\cgon5\desktop\csci191t_projects\game\src\glscene.cpp
 	"GLScene.h"
 	<GLLight.h>
 	<Model.h>
@@ -533,6 +533,7 @@
 	<parallax.h>
 	<player.h>
 	<sounds.h>
+	<iostream>
 
 1520822956 source:c:\users\saika\desktop\cera\main.cpp
 	<windows.h>
@@ -906,8 +907,13 @@
 	"ik_IRefCounted.h"
 	"ik_ISoundSource.h"
 
-1524423755 source:c:\users\cgon5\desktop\csci191t_projects\game\src\trees.cpp
+1525152549 source:c:\users\cgon5\desktop\csci191t_projects\game\src\trees.cpp
 	"Trees.h"
 
 1524380427 c:\users\cgon5\desktop\csci191t_projects\game\include\trees.h
+
+1525153608 source:c:\users\cgon5\desktop\csci191t_projects\game\src\posts.cpp
+	"Posts.h"
+
+1525153650 c:\users\cgon5\desktop\csci191t_projects\game\include\posts.h
 
