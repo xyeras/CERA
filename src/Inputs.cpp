@@ -268,7 +268,7 @@ void Inputs::keyPressed(player* ply)
                     ply->actionTrigger = 4;
                     ply->standDir = 4;
 
-                    if (ply->getYS() >= -1.0)
+                    if (ply->getYS() >= -3.0)
                     {
                         ply->subYS();
                     }
