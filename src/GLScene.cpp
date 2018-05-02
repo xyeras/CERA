@@ -22,7 +22,7 @@ GLScene::GLScene()
     //ctor
     screenHeight = GetSystemMetrics(SM_CYSCREEN);
     screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    ActiveScene = 5;
+    ActiveScene = 4;
 }
 
 GLScene::~GLScene()
@@ -62,7 +62,7 @@ GLint GLScene::initGL()
   case 4:          // Level 1 background & sounds
 
     plx->parallaxInit("images/df.png");
-    ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene);
+    ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
     //snds->playMusic("sounds/forest_revised.wav");
     snds->playMusic("sounds/forest.mp3");
     //snds->playMusic("sounds/wind.wav");
@@ -71,7 +71,7 @@ GLint GLScene::initGL()
    case 5:          // Level 2 background & sounds
 
     plx5->parallaxInit("images/dungeon.png");
-    ply->playerInit(-4.5,0.5,-7.0,3,ActiveScene);
+    ply->playerInit(-.42,-2.98,-7.0,3,ActiveScene);
 
     break;
 

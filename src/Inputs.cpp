@@ -235,8 +235,8 @@ void Inputs::keyPressed(player* ply)
                 float deltaY1L = ply->getYS() - light->getY(0);
                 float dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
 
-                float deltaX2L = ply->getXS() - tree->getX(1);
-                float deltaY2L = ply->getYS() - tree->getY(1);
+                float deltaX2L = ply->getXS() - light->getX(1);
+                float deltaY2L = ply->getYS() - light->getY(1);
                 float dist2L = sqrtf((deltaX2L * deltaX2L)+(deltaY2L * deltaY2L));
                     switch(wParam)
                     {
@@ -247,7 +247,7 @@ void Inputs::keyPressed(player* ply)
 
                     if (ply->getXS() >= -5.44)      // keeps in bounces of map
                     {
-                        if (dist1L >= 0.25 + 0.25)   // allows player to move as long not within radius of post
+                        if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)   // allows player to move as long not within radius of post
                         {
                              ply->subXS();
                         }
@@ -258,15 +258,15 @@ void Inputs::keyPressed(player* ply)
                             deltaX1L = (ply->getXS() - 0.06)- light->getX(0);
                             dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
 
+                            deltaX2L = (ply->getXS() - 0.06)- light->getX(1);
+                            dist2L = sqrtf((deltaX2L * deltaX2L)+(deltaY2L * deltaY2L));
 
 
-
-                            if (dist1L >= 0.25 + 0.25)
+                            if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
                             {
                                 ply->subXS();
                             }
                         }
-
                     }
                     break;
 
@@ -275,16 +275,18 @@ void Inputs::keyPressed(player* ply)
                     ply->standDir = 2;
                     if (ply->getXS() <= 4.33)
                     {
-                        if (dist1L >= 0.25 + 0.25)
+                        if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
                         {
                             ply->addXS();
                         }
                         else
                         {
-                            deltaX1L = (ply->getXS() - 0.06)- light->getX(0);
+                            deltaX1L = (ply->getXS() + 0.06)- light->getX(0);
                             dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
 
-                            if (dist1L >= 0.25 + 0.25)
+                            deltaX2L = (ply->getXS() + 0.06)- light->getX(1);
+                            dist2L = sqrtf((deltaX2L * deltaX2L)+(deltaY2L * deltaY2L));
+                            if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
                             {
                                 ply->addXS();
                             }
@@ -299,16 +301,19 @@ void Inputs::keyPressed(player* ply)
                     ply->standDir = 3;
                     if (ply->getYS() <= 1.92)
                     {
-                        if (dist1L >= 0.25 + 0.25)
+                        if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
                         {
                             ply->addYS();
                         }
                         else
                         {
-                            deltaX1L = (ply->getXS() - 0.06)- light->getX(0);
+                            deltaY1L = (ply->getYS() + 0.06)- light->getY(0);
                             dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
 
-                            if (dist1L >= 0.25 + 0.25)
+                            deltaY2L = (ply->getYS() + 0.06)- light->getY(1);
+                            dist2L = sqrtf((deltaX2L * deltaX2L)+(deltaY2L * deltaY2L));
+
+                            if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
                             {
                                 ply->addYS();
                             }
@@ -322,16 +327,19 @@ void Inputs::keyPressed(player* ply)
 
                     if (ply->getYS() >= -3.0)
                     {
-                        if (dist1L >= 0.25 + 0.25)
+                        if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
                         {
                             ply->subYS();
                         }
                         else
                         {
-                            deltaX1L = (ply->getXS() - 0.06)- light->getX(0);
+                            deltaY1L = (ply->getYS() - 0.06)- light->getY(0);
                             dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
 
-                            if (dist1L >= 0.25 + 0.25)
+                            deltaY2L = (ply->getYS() - 0.06)- light->getY(1);
+                            dist2L = sqrtf((deltaX2L * deltaX2L)+(deltaY2L * deltaY2L));
+
+                            if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
                             {
                                 ply->subYS();
                             }

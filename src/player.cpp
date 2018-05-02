@@ -69,7 +69,7 @@ void player::drawPlayer()
  //   glPopMatrix();
 }
 
-void player::playerInit(float x, float y, float z, float sd, int sceneNum)
+void player::playerInit(float x, float y, float z, float sd, int sceneNum) // load xpos, ypos, zpos , direction to stand, scene number
 {
     T->start();
     glEnable(GL_BLEND);

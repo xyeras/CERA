@@ -68,6 +68,7 @@
 		<Unit filename="include/GLlight.h" />
 		<Unit filename="include/Inputs.h" />
 		<Unit filename="include/Model.h" />
+		<Unit filename="include/Posts.h" />
 		<Unit filename="include/Trees.h" />
 		<Unit filename="include/parallax.h" />
 		<Unit filename="include/player.h" />
@@ -79,6 +80,7 @@
 		<Unit filename="src/GLlight.cpp" />
 		<Unit filename="src/Inputs.cpp" />
 		<Unit filename="src/Model.cpp" />
+		<Unit filename="src/Posts.cpp" />
 		<Unit filename="src/Trees.cpp" />
 		<Unit filename="src/parallax.cpp" />
 		<Unit filename="src/player.cpp" />
