@@ -22,7 +22,7 @@ GLScene::GLScene()
     //ctor
     screenHeight = GetSystemMetrics(SM_CYSCREEN);
     screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    ActiveScene = 4;
+    ActiveScene = 6;
 }
 
 GLScene::~GLScene()
@@ -49,14 +49,17 @@ GLint GLScene::initGL()
   case 1:          // Start Screen background & sound
 
     plx2->parallaxInit("images/TitleScreen.png");
-      break;
+    snds->playMusic("sounds/nightmare.wav");
+    break;
 
   case 2:          // first comic strip
    // plx3->parallaxInit("images/");
+   snds->playMusic("sounds/comic1.wav");
    break;
 
   case 3:          // second comic strip
     // plx4->parallaxInit("images/");
+    snds->playMusic("sounds/creepy-music-box.wav");
    break;
 
   case 4:          // Level 1 background & sounds
@@ -71,10 +74,15 @@ GLint GLScene::initGL()
    case 5:          // Level 2 background & sounds
 
     plx5->parallaxInit("images/dungeon.png");
+    snds->playMusic("sounds/dungeon.wav");
     ply->playerInit(-.42,-2.98,-7.0,3,ActiveScene);
 
     break;
 
+   case 6:
+    //plx5->parallaxInit("images/dungeon.png");
+    snds->playMusic("sounds/calm-synthesizer.wav");
+    break;
 
   }
     return true;
@@ -128,7 +136,16 @@ GLint GLScene::drawGLScene()
             ply->actions(ply->actionTrigger);
         glPopMatrix();
         break;
+
+    case 6:
+       glPushMatrix();
+            glScaled(3.33,3.33,1.0);        // scale of environment
+            plx5->drawSquare(screenWidth,screenHeight);
+        glPopMatrix();
+        break;
     }
+
+
 }
 
 GLvoid GLScene::resizeGLScene(GLsizei width, GLsizei height)
@@ -293,6 +310,28 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
         }       // end of inner switch for inputs
         break;
+
+        case 6:            // third comic strip inputs
+        switch (uMsg)									// Check For Windows Messages
+        {
+
+            case WM_KEYDOWN:
+                KbMs->wParam = wParam;
+
+            break;
+
+
+            case WM_LBUTTONDOWN:
+            {
+                KbMs->wParam = wParam;
+
+            break;
+            }
+
+
+        }       // end of inner switch for inputs
+        break;
+        //--------------------------------------------------------------
     }
 
     //--------------------------------------------------------------------

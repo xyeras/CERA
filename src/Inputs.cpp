@@ -145,24 +145,27 @@ void Inputs::keyPressed(player* ply)
                  //   ply->setStandDir(2);
                     ply->standDir = 2;
 
-                    if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                    if (ply->getXS() <= 3.76)
                     {
-                        ply->addXS();
-                    }
-                    else
-                    {
-                        deltaX1 = (ply->getXS() + 0.06) - tree->getX(0);
-                        dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
-
-                        deltaX2 = (ply->getXS() + 0.06) - tree->getX(1);
-                        dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
-
-                        deltaX3 = (ply->getXS() + 0.06) - tree->getX(2);
-                        dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
-
                         if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
                         {
                             ply->addXS();
+                        }
+                        else
+                        {
+                            deltaX1 = (ply->getXS() + 0.06) - tree->getX(0);
+                            dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+
+                            deltaX2 = (ply->getXS() + 0.06) - tree->getX(1);
+                            dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+
+                            deltaX3 = (ply->getXS() + 0.06) - tree->getX(2);
+                            dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+
+                            if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                            {
+                                ply->addXS();
+                            }
                         }
                     }
                     break;
