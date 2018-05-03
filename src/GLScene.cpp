@@ -6,6 +6,8 @@
 #include <player.h>
 #include <sounds.h>
 #include <iostream>
+#include <enms.h>
+#include <string.h>
 using namespace std;
 Model *modelTeapot = new Model();
 Inputs *KbMs = new Inputs();
@@ -16,13 +18,15 @@ parallax *plx4 = new parallax();
 parallax *plx5 = new parallax();
 player *ply = new player();
 sounds *snds = new sounds();
+textureLoader *enm = new textureLoader();
+enms E;
 
 GLScene::GLScene()
 {
     //ctor
     screenHeight = GetSystemMetrics(SM_CYSCREEN);
     screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    ActiveScene = 6;
+    ActiveScene = 5;
 }
 
 GLScene::~GLScene()
@@ -69,6 +73,12 @@ GLint GLScene::initGL()
     //snds->playMusic("sounds/forest_revised.wav");
     snds->playMusic("sounds/forest.mp3");
     //snds->playMusic("sounds/wind.wav");
+    enm->bindTexture("images/dragon clone.png");
+    E.EnemyTex= enm->tex;
+    //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
+    //E.yPos = -0.5;
+    E.placeEnemy(1,0.5,-3.0);
+    E.ySize=E.xSize= 0.3;
     break;
 
    case 5:          // Level 2 background & sounds
@@ -76,6 +86,12 @@ GLint GLScene::initGL()
     plx5->parallaxInit("images/dungeon.png");
     snds->playMusic("sounds/dungeon.wav");
     ply->playerInit(-.42,-2.98,-7.0,3,ActiveScene);
+    enm->bindTexture("images/dragon clone.png");
+    E.EnemyTex= enm->tex;
+    //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
+    //E.yPos = -0.5;
+    E.placeEnemy(1,0.5,-3.0);
+    E.ySize=E.xSize= 0.3;
 
     break;
 
@@ -124,6 +140,21 @@ GLint GLScene::drawGLScene()
         glPushMatrix();
             ply->actions(ply->actionTrigger);
         glPopMatrix();
+
+        glPushMatrix();
+            if(E.yPos<-0.65)
+            {
+                E.action =0;
+                E.ymove = 0.0025;
+            }
+            else if(E.yPos>0.75)
+            {
+                E.action =1;
+                E.ymove = -0.0025;
+            }
+            E.yPos += E.ymove;
+            E.actions();
+        glPopMatrix();
         break;
 
     case 5:             // Level 2 background & player
@@ -134,6 +165,21 @@ GLint GLScene::drawGLScene()
 
         glPushMatrix();
             ply->actions(ply->actionTrigger);
+        glPopMatrix();
+
+        glPushMatrix();
+            if(E.xPos<-1.25)
+            {
+                E.action =0;
+                E.xmove = 0.0025;
+            }
+            else if(E.xPos>1.25)
+            {
+                E.action =1;
+                E.xmove = -0.0025;
+            }
+            E.xPos += E.xmove;
+            E.actions();
         glPopMatrix();
         break;
 
