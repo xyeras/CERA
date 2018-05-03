@@ -26,7 +26,7 @@ GLScene::GLScene()
     //ctor
     screenHeight = GetSystemMetrics(SM_CYSCREEN);
     screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    ActiveScene = 5;
+    ActiveScene = 4;
 }
 
 GLScene::~GLScene()
@@ -52,7 +52,7 @@ GLint GLScene::initGL()
 
   case 1:          // Start Screen background & sound
 
-    plx2->parallaxInit("images/TitleScreen.png");
+    plx2->parallaxInit("images/title.png");
     snds->playMusic("sounds/nightmare.wav");
     break;
 
@@ -216,6 +216,30 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             case WM_KEYDOWN:
                 KbMs->wParam = wParam;
+
+                switch(wParam){
+            case 0x53: //'s'
+                snds->Plays("sounds/sword_sound.wav");
+                callLevelChanger(4);
+                plx->parallaxInit("images/df.png");
+                ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
+                snds->playMusic("sounds/forest.mp3");
+                cout<<"Game Start!"<<endl;
+                break;
+
+            case 0x48:
+                snds->Plays("sounds/sword_sound.wav");
+                //callLevelChanger(4);
+                plx->parallaxInit("images/howToPlay.png");
+                break;
+
+
+            case 0x45: //'E'
+                exit(0);
+                break;
+                }
+
+            break;
 
             break;
 
@@ -383,3 +407,16 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     //--------------------------------------------------------------------
 
 }
+
+void GLScene::resetData()
+{
+    cout<<"Reset"<<endl;
+    cout<<ActiveScene;
+}
+
+void GLScene::callLevelChanger(int val)
+{
+    ActiveScene = val;
+    resetData();
+}
+

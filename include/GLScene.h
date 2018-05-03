@@ -17,7 +17,7 @@ class GLScene
         GLint drawGLScene();
         void resizeGLScene(GLsizei, GLsizei);
         void resetData();                       //reset number of lives, health, etc.
-        void callLevelChanger();
+        void callLevelChanger(int);
         int windMsg(HWND,UINT,WPARAM,LPARAM);
 
         WPARAM wParam;
@@ -25,6 +25,7 @@ class GLScene
         float screenWidth;
 
         int ActiveScene;
+
 
     protected:
 
