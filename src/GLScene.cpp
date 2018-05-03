@@ -26,7 +26,7 @@ GLScene::GLScene()
     //ctor
     screenHeight = GetSystemMetrics(SM_CYSCREEN);
     screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    ActiveScene = 4;
+    ActiveScene = 1;
 }
 
 GLScene::~GLScene()
