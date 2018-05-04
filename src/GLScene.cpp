@@ -57,12 +57,12 @@ GLint GLScene::initGL()
     break;
 
   case 2:          // first comic strip
-   // plx3->parallaxInit("images/");
+    plx3->parallaxInit("images/Story/scene1.jpg");
    snds->playMusic("sounds/comic1.wav");
    break;
 
   case 3:          // second comic strip
-    // plx4->parallaxInit("images/");
+     plx4->parallaxInit("images/Story/scene2.jpg");
     snds->playMusic("sounds/creepy-music-box.wav");
    break;
 
@@ -96,7 +96,7 @@ GLint GLScene::initGL()
     break;
 
    case 6:
-    //plx5->parallaxInit("images/dungeon.png");
+    plx5->parallaxInit("images/Story/scene3.jpg");
     snds->playMusic("sounds/calm-synthesizer.wav");
     break;
 
