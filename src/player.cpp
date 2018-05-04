@@ -75,10 +75,10 @@ void player::playerInit(float x, float y, float z, float sd, int sceneNum) // lo
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
-    standLeft[0].bindTexture("images/Alice/standLeft.png");
-    standRight[0].bindTexture("images/Alice/standRight.png");
-    standUp[0].bindTexture("images/Alice/standUp.png");
-    standDown[0].bindTexture("images/Alice/standDown.png");
+    standLeft[0].bindTexture("images/improvedAlice/left1.png");
+    standRight[0].bindTexture("images/improvedAlice/right1.png");
+    standUp[0].bindTexture("images/improvedAlice/back1.png");
+    standDown[0].bindTexture("images/improvedAlice/front1.png");
 
     attackLeft[0].bindTexture("images/Alice/attackLeft.png");
     attackRight[0].bindTexture("images/Alice/attackRight.png");
@@ -102,7 +102,7 @@ void player::actions(int action)
     case 0: // not call case 0 (actionTrigger 0)
         glPushMatrix();
         glTranslated(xs,ys,zs);      // where the player is on the  map when they are standing
-
+        glScalef(3.0,3.0,1.0);
         if (standDir == 1)
         {
             standLeft[0].binder();

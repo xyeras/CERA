@@ -19,7 +19,9 @@ parallax *plx5 = new parallax();
 player *ply = new player();
 sounds *snds = new sounds();
 textureLoader *enm = new textureLoader();
+textureLoader *enm2 = new textureLoader();
 enms E;
+enms E2;
 
 GLScene::GLScene()
 {
@@ -73,12 +75,12 @@ GLint GLScene::initGL()
     //snds->playMusic("sounds/forest_revised.wav");
     snds->playMusic("sounds/forest.mp3");
     //snds->playMusic("sounds/wind.wav");
-    enm->bindTexture("images/dragon clone.png");
-    E.EnemyTex= enm->tex;
+    enm2->bindTexture("images/dragon clone.png");
+    E2.EnemyTex= enm2->tex;
     //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
     //E.yPos = -0.5;
-    E.placeEnemy(1,0.5,-3.0);
-    E.ySize=E.xSize= 0.3;
+    E2.placeEnemy(1,0.5,-3.0);
+    E2.ySize=E2.xSize= 0.3;
     break;
 
    case 5:          // Level 2 background & sounds
@@ -142,18 +144,18 @@ GLint GLScene::drawGLScene()
         glPopMatrix();
 
         glPushMatrix();
-            if(E.yPos<-0.65)
+            if(E2.yPos<-0.65)
             {
-                E.action =0;
-                E.ymove = 0.0025;
+                E2.action =0;
+                E2.ymove = 0.0025;
             }
-            else if(E.yPos>0.75)
+            else if(E2.yPos>0.75)
             {
-                E.action =1;
-                E.ymove = -0.0025;
+                E2.action =1;
+                E2.ymove = -0.0025;
             }
-            E.yPos += E.ymove;
-            E.actions();
+            E2.yPos += E2.ymove;
+            E2.actions();
         glPopMatrix();
         break;
 
@@ -220,11 +222,14 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 switch(wParam){
             case 0x53: //'s'
                 snds->Plays("sounds/sword_sound.wav");
-                callLevelChanger(4);
-                plx->parallaxInit("images/df.png");
-                ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
-                snds->playMusic("sounds/forest.mp3");
+                snds->stopAllSounds();
+                callLevelChanger(2);
+
+                plx3->parallaxInit("images/Story/scene1.jpg");
+                snds->playMusic("sounds/comic1.wav");
+//
                 cout<<"Game Start!"<<endl;
+                //snds->stopAllSounds();
                 break;
 
             case 0x48:
@@ -268,6 +273,10 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             case WM_LBUTTONDOWN:
             {
                 KbMs->wParam = wParam;
+                snds->stopAllSounds();
+                callLevelChanger(3);
+                plx4->parallaxInit("images/Story/scene2.jpg");
+            snds->playMusic("sounds/creepy-music-box.wav");
 
             break;
             }
@@ -290,6 +299,17 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             case WM_LBUTTONDOWN:
             {
                 KbMs->wParam = wParam;
+                snds->stopAllSounds();
+                callLevelChanger(4);
+                plx->parallaxInit("images/df.png");
+                ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
+                snds->playMusic("sounds/forest.mp3");
+                 enm2->bindTexture("images/dragon clone.png");
+            E2.EnemyTex= enm2->tex;
+            //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
+            //E.yPos = -0.5;
+            E2.placeEnemy(1,0.5,-3.0);
+            E2.ySize=E2.xSize= 0.3;
 
             break;
             }
@@ -327,9 +347,6 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 KbMs->mouseEventDown(snds);
             break;								// Jump Back
             }
-
-
-
             case WM_LBUTTONUP:
             {
                 KbMs->mouseEventUp(ply);

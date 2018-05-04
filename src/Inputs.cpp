@@ -3,9 +3,11 @@
 #include <Posts.h>
 #include <math.h>
 #include <iostream>
+//#include <sounds.h>
 using namespace std;
 Trees *tree = new Trees();
 Posts *light = new Posts();
+//sounds *snds = new sounds();
 Inputs::Inputs()
 {
     //ctor
@@ -416,7 +418,8 @@ void Inputs::keySounds(sounds* snds,int scene)
                 case VK_RIGHT:
                 case VK_UP:
                 case VK_DOWN:
-                    snds->Plays("sounds/forest_walk.mp3");
+                    //snds->Plays("sounds/forest_walk.mp3");
+                    //snds->stopAllSounds();
                     break;
             }
         }
