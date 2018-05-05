@@ -6,11 +6,13 @@ using namespace std;
 timer *T = new timer();
 textureLoader runLeft[2];
 
+// for moving player
 textureLoader standLeft[2];
 textureLoader standRight[2];
 textureLoader standUp[2];
 textureLoader standDown[2];
 
+// for player's attack
 textureLoader attackLeft[2];
 textureLoader attackRight[2];
 textureLoader attackUp[2];
@@ -76,14 +78,36 @@ void player::playerInit(float x, float y, float z, float sd, int sceneNum) // lo
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
     standLeft[0].bindTexture("images/improvedAlice/left1.png");
-    standRight[0].bindTexture("images/improvedAlice/right1.png");
-    standUp[0].bindTexture("images/improvedAlice/back1.png");
-    standDown[0].bindTexture("images/improvedAlice/front1.png");
+    standLeft[1].bindTexture("images/improvedAlice/left2.png");
+    standLeft[2].bindTexture("images/improvedAlice/left3.png");
 
-    attackLeft[0].bindTexture("images/Alice/attackLeft.png");
-    attackRight[0].bindTexture("images/Alice/attackRight.png");
-    attackUp[0].bindTexture("images/Alice/attackUp.png");
-    attackDown[0].bindTexture("images/Alice/attackDown.png");
+    standRight[0].bindTexture("images/improvedAlice/right1.png");
+    standRight[1].bindTexture("images/improvedAlice/right2.png");
+    standRight[2].bindTexture("images/improvedAlice/right3.png");
+
+    standUp[0].bindTexture("images/improvedAlice/back1.png");
+    standUp[1].bindTexture("images/improvedAlice/back2.png");
+    standUp[2].bindTexture("images/improvedAlice/back3.png");
+
+    standDown[0].bindTexture("images/improvedAlice/front1.png");
+    standDown[1].bindTexture("images/improvedAlice/front2.png");
+    standDown[2].bindTexture("images/improvedAlice/front3.png");
+
+    attackLeft[0].bindTexture("images/improvedAlice/left1_attack.png");
+    attackLeft[1].bindTexture("images/improvedAlice/left2_attack.png");
+    attackLeft[2].bindTexture("images/improvedAlice/left3_attack.png");
+
+    attackRight[0].bindTexture("images/improvedAlice/right1_attack.png");
+    attackRight[1].bindTexture("images/improvedAlice/right2_attack.png");
+    attackRight[2].bindTexture("images/improvedAlice/right3_attack.png");
+
+    attackUp[0].bindTexture("images/improvedAlice/back1_attack.png");
+    attackUp[1].bindTexture("images/improvedAlice/back2_attack.png");
+    attackUp[2].bindTexture("images/improvedAlice/back3_attack.png");
+
+    attackDown[0].bindTexture("images/improvedAlice/front1_attack.png");
+    attackDown[1].bindTexture("images/improvedAlice/front2_attack.png");
+    attackDown[2].bindTexture("images/improvedAlice/front3_attack.png");
 
     xs = x;
     ys = y;
@@ -102,7 +126,7 @@ void player::actions(int action)
     case 0: // not call case 0 (actionTrigger 0)
         glPushMatrix();
         glTranslated(xs,ys,zs);      // where the player is on the  map when they are standing
-        glScalef(3.0,3.0,1.0);
+
         if (standDir == 1)
         {
             standLeft[0].binder();
@@ -129,15 +153,15 @@ void player::actions(int action)
 
         glTranslated(xs,ys,zs);
 
-        if (T->getTicks() > 15)
+        if (T->getTicks() > .05)
         {
             runspeed++;
-            runspeed = runspeed % 10;
+            runspeed = runspeed % 3;
             T->reset();
         }
 
-      //  runText[runspeed].binder();
-       // drawPlayer();
+        standLeft[runspeed].binder();
+        drawPlayer();
 
         glPopMatrix();
         break;
@@ -148,15 +172,15 @@ void player::actions(int action)
 
         glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
-        if (T->getTicks() > 15)
+        if (T->getTicks() > .05)
         {
             runspeed++;
-            runspeed = runspeed % 10;
+            runspeed = runspeed % 3;
             T->reset();
         }
 
-  //      runText[runspeed].binder();
-       // drawPlayer();
+        standRight[runspeed].binder();
+        drawPlayer();
 
         glPopMatrix();
         break;
@@ -166,15 +190,15 @@ void player::actions(int action)
 
         glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
-        if (T->getTicks() > 15)
+        if (T->getTicks() > .05)
         {
             runspeed++;
-            runspeed = runspeed % 10;
+            runspeed = runspeed % 3;
             T->reset();
         }
 
- //       runText[runspeed].binder();
-      //  drawPlayer();
+        standUp[runspeed].binder();
+        drawPlayer();
 
         glPopMatrix();
         break;
@@ -184,15 +208,15 @@ void player::actions(int action)
 
         glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
-        if (T->getTicks() > 15)
+        if (T->getTicks() > .05)
         {
             runspeed++;
-            runspeed = runspeed % 10;
+            runspeed = runspeed % 3;
             T->reset();
         }
 
-  //      runText[runspeed].binder();
-      //  drawPlayer();
+        standDown[runspeed].binder();
+        drawPlayer();
         glPopMatrix();
         break;
     case 5:
@@ -200,19 +224,47 @@ void player::actions(int action)
         glTranslated(xs,ys,zs);
             if (standDir == 1)
             {
-                attackLeft[0].binder();
+                if (T->getTicks() > .05)
+                {
+                    runspeed++;
+                    runspeed = runspeed % 3;
+                    T->reset();
+                }
+
+                attackLeft[runspeed].binder();
             }
             else if (standDir == 2)
             {
-                attackRight[0].binder();
+                if (T->getTicks() > .05)
+                {
+                    runspeed++;
+                    runspeed = runspeed % 3;
+                    T->reset();
+                }
+
+                attackRight[runspeed].binder();
             }
             else if (standDir == 3)
             {
-                attackUp[0].binder();
+                if (T->getTicks() > .05)
+                {
+                    runspeed++;
+                    runspeed = runspeed % 3;
+                    T->reset();
+                }
+
+                attackUp[runspeed].binder();
             }
             else if (standDir == 4)
             {
-                attackDown[0].binder();
+                if (T->getTicks() > .05)
+                {
+                    runspeed++;
+                    runspeed = runspeed % 3;
+                    T->reset();
+                }
+
+                attackDown[runspeed].binder();
             }
             drawPlayer();
         glPopMatrix();
