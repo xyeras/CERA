@@ -343,7 +343,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             case WM_LBUTTONDOWN:
             {
                 KbMs->wParam = wParam;
-                KbMs->mouseEventDown(ply);
+                KbMs->mouseEventDown(ply,E);
                 KbMs->mouseEventDown(snds);
             break;								// Jump Back
             }
@@ -382,7 +382,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             case WM_LBUTTONDOWN:
             {
                 KbMs->wParam = wParam;
-                KbMs->mouseEventDown(ply);
+                KbMs->mouseEventDown(ply,E);
                 KbMs->mouseEventDown(snds);
             break;								// Jump Back
             }
