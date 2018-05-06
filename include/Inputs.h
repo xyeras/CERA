@@ -7,6 +7,7 @@
 #include <parallax.h>
 #include <player.h>
 #include <sounds.h>
+#include <enms.h>
 
 class Inputs
 {
@@ -19,7 +20,7 @@ class Inputs
         void keyUP(player *);
         void keyEnv(parallax *,float); // movements of my background
 
-        void mouseEventDown(player *);
+        void mouseEventDown(player *,enms&);
         void mouseEventUp(player *);
         void mouseWheel(Model *,double);
         void mouseMove(Model *,double ,double );
