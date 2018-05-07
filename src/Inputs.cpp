@@ -3,9 +3,11 @@
 #include <Posts.h>
 #include <math.h>
 #include <iostream>
+//#include <sounds.h>
 using namespace std;
 Trees *tree = new Trees();
 Posts *light = new Posts();
+//sounds *snds = new sounds();
 Inputs::Inputs()
 {
     //ctor
@@ -356,12 +358,27 @@ void Inputs::keyPressed(player* ply)
 }
 
 
-void Inputs::mouseEventDown(player* ply)
+void Inputs::mouseEventDown(player* ply, enms &E)
 {
     switch(wParam)
     {
         case MK_LBUTTON:
             ply->actionTrigger = 5;
+            float deltaX = ply->getXS() - E.xPos;
+            float deltaY = ply->getYS() - E.yPos;
+            float dist= sqrtf((deltaX * deltaX)+(deltaY * deltaY));
+            if (dist < 0.25 + 0.25) // within same space as enemy
+            {
+               // cout << "HIT_______" << endl;
+                E.EnemyLife -= 1;
+               // cout << "-----" << E.EnemyLife << endl;
+                if (E.EnemyLife == 0)
+                {
+                  //  cout << "Death" << endl;
+                  // EVENT HERE FOR DEATH OF ENEMY----------------------------------------------------------
+                    E.EnemyLife = 3;
+                }
+            }
             break;
 
 
@@ -416,7 +433,8 @@ void Inputs::keySounds(sounds* snds,int scene)
                 case VK_RIGHT:
                 case VK_UP:
                 case VK_DOWN:
-                    snds->Plays("sounds/forest_walk.mp3");
+                    //snds->Plays("sounds/forest_walk.mp3");
+                    //snds->stopAllSounds();
                     break;
             }
         }
