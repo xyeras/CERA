@@ -8,6 +8,8 @@
 #include <iostream>
 #include <enms.h>
 #include <string.h>
+#include <Objects.h>
+#include <textureLoader.h>
 using namespace std;
 Model *modelTeapot = new Model();
 Inputs *KbMs = new Inputs();
@@ -21,6 +23,11 @@ player *ply = new player();
 sounds *snds = new sounds();
 textureLoader *enm = new textureLoader();
 enms E;
+
+textureLoader *objtex = new textureLoader();
+textureLoader *objtex2 = new textureLoader();
+
+Objects obj[20];
 
 GLScene::GLScene()
 {
@@ -90,6 +97,8 @@ GLint GLScene::initGL()
     snds->playMusic("sounds/dungeon.wav");
     ply->playerInit(-.42,-2.98,-7.0,3,ActiveScene);
     enm->bindTexture("images/dragon clone.png");
+    objtex->bindTexture("images/fire.png");
+    objtex2->bindTexture("images/fire.png");
     E.EnemyTex= enm->tex;
     //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
     //E.yPos = -0.5;
