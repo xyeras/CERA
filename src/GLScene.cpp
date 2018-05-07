@@ -16,6 +16,7 @@ parallax *plx2 = new parallax();
 parallax *plx3 = new parallax();
 parallax *plx4 = new parallax();
 parallax *plx5 = new parallax();
+parallax *plx6 = new parallax();
 player *ply = new player();
 sounds *snds = new sounds();
 textureLoader *enm = new textureLoader();
@@ -69,6 +70,7 @@ GLint GLScene::initGL()
   case 4:          // Level 1 background & sounds
 
     plx->parallaxInit("images/df.png");
+    plx6->parallaxInit("images/pause.png");
     ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
     //snds->playMusic("sounds/forest_revised.wav");
     snds->playMusic("sounds/forest.mp3");
@@ -79,6 +81,7 @@ GLint GLScene::initGL()
     //E.yPos = -0.5;
     E.placeEnemy(1,0.5,-3.0);
     E.ySize=E.xSize= 0.3;
+
     break;
 
    case 5:          // Level 2 background & sounds
@@ -132,9 +135,12 @@ GLint GLScene::drawGLScene()
         break;
 
     case 4:             // Level 1 background & player
+
+
         glPushMatrix();
             glScaled(3.33,3.33,1.0);        // scale of environment
             plx->drawSquare(screenWidth,screenHeight);
+
         glPopMatrix();
 
         glPushMatrix();
@@ -155,6 +161,16 @@ GLint GLScene::drawGLScene()
             E.yPos += E.ymove;
             E.actions();
         glPopMatrix();
+
+
+        if(paused){
+                glPushMatrix();
+                glScaled(3.33, 3.33, 1.0);
+                    plx6->drawSquare(screenWidth,screenHeight);
+                    glPopMatrix();
+                cout<<"ISPAUSED"<<endl;
+            }
+
         break;
 
     case 5:             // Level 2 background & player
@@ -305,11 +321,21 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         {
 
             case WM_KEYDOWN:
+                {
                 KbMs->wParam = wParam;
                 KbMs->keyPressed(modelTeapot);
              //   KbMs->keyEnv(plx,0.005);          // for environment to move around player
                 KbMs->keyPressed(ply);
                 KbMs->keySounds(snds,ply->inScene);
+                switch(wParam){
+            case VK_RETURN:
+                paused = !paused;
+                if(paused){
+                    glEnable(GL_TEXTURE_2D);
+                }
+                }
+                break;
+                }
             break;
 
             case WM_KEYUP:								// Has A Key Been Released?
