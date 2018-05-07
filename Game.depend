@@ -1360,7 +1360,7 @@
 	<iostream>
 	<windows.h>
 
-1525473218 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\glscene.h
+1525738166 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -1388,20 +1388,21 @@
 1525327235 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\gllight.h
 	<GLScene.h>
 
-1525327236 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\inputs.cpp
+1525738169 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\inputs.cpp
 	"Inputs.h"
 	<Trees.h>
 	<Posts.h>
 	<math.h>
 	<iostream>
 
-1525327235 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\inputs.h
+1525738169 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\inputs.h
 	<windows.h>
 	<iostream>
 	<Model.h>
 	<parallax.h>
 	<player.h>
 	<sounds.h>
+	<enms.h>
 
 1525327235 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\model.h
 	<windows.h>
@@ -1537,7 +1538,7 @@
 	"parallax.h"
 	<textureLoader.h>
 
-1525327237 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\player.cpp
+1525738169 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\player.cpp
 	<player.h>
 	<timer.h>
 	<textureLoader.h>
@@ -1546,7 +1547,7 @@
 1525327237 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\posts.cpp
 	"Posts.h"
 
-1525471500 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\sounds.cpp
+1525738169 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\sounds.cpp
 	<iostream>
 	"sounds.h"
 
@@ -1560,7 +1561,7 @@
 1525327237 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\trees.cpp
 	"Trees.h"
 
-1525474666 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\glscene.cpp
+1525738921 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\glscene.cpp
 	"GLScene.h"
 	<GLLight.h>
 	<Model.h>
@@ -1689,6 +1690,13 @@
 	"enms2.h"
 
 1525472385 c:\users\rya_c\desktop\the game\include\enms2.h
+	<gl/gl.h>
+	<timer.h>
+
+1525738169 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\enms2.cpp
+	"enms2.h"
+
+1525738169 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\enms2.h
 	<gl/gl.h>
 	<timer.h>
 

@@ -236,7 +236,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 switch(wParam){
             case 0x53: //'s'
                 snds->Plays("sounds/sword_sound.wav");
-                callLevelChanger(4);
+                callLevelChanger(2);
                 plx->parallaxInit("images/df.png");
                 ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
                 snds->playMusic("sounds/forest.mp3");
@@ -349,7 +349,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             case WM_LBUTTONDOWN:
             {
                 KbMs->wParam = wParam;
-                KbMs->mouseEventDown(ply);
+//                KbMs->mouseEventDown(ply);
                 KbMs->mouseEventDown(snds);
             break;								// Jump Back
             }
@@ -391,7 +391,8 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             case WM_LBUTTONDOWN:
             {
                 KbMs->wParam = wParam;
-                KbMs->mouseEventDown(ply);
+
+//                KbMs->mouseEventDown(ply);
                 KbMs->mouseEventDown(snds);
             break;								// Jump Back
             }
