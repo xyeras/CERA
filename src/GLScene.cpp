@@ -57,7 +57,7 @@ GLint GLScene::initGL()
     glEnable(GL_COLOR_MATERIAL);
     GLLight Light(GL_LIGHT0);
   //  modelTeapot->modelInit("images/player/player0.png",true);
-    shader->shaderInit("V.vs","F.fs");
+    shader->shaderInit("V1.vs","F1.fs");
   switch(ActiveScene)
   {
 
