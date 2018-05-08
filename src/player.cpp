@@ -2,8 +2,13 @@
 #include <timer.h>
 #include <textureLoader.h>
 #include <iostream>
+#include <Trees.h>
+#include <Posts.h>
+#include <math.h>
 using namespace std;
 timer *T = new timer();
+Trees *tree = new Trees();
+Posts *light = new Posts();
 textureLoader runLeft[2];
 
 // for moving player
@@ -121,156 +126,525 @@ void player::playerInit(float x, float y, float z, float sd, int sceneNum) // lo
 void player::actions(int action)
 {
 
-    switch(action)
+switch(inScene)
     {
-    case 0: // not call case 0 (actionTrigger 0)
-        glPushMatrix();
-        glTranslated(xs,ys,zs);      // where the player is on the  map when they are standing
 
-        if (standDir == 1)
-        {
-            standLeft[0].binder();
-        }
-        else if (standDir == 2)
-        {
-            standRight[0].binder();
-        }
-        else if (standDir == 3)
-        {
-            standUp[0].binder();
-        }
-        else if (standDir == 4)
-        {
-            standDown[0].binder();
-        }
-        drawPlayer();
-        glPopMatrix();
-        break;
-
-    case 1:
-        glPushMatrix();
-
-
-        glTranslated(xs,ys,zs);
-
-        if (T->getTicks() > .05)
-        {
-            runspeed++;
-            runspeed = runspeed % 3;
-            T->reset();
-        }
-
-        standLeft[runspeed].binder();
-        drawPlayer();
-
-        glPopMatrix();
-        break;
-
-    case 2:
-        glPushMatrix();
-
-
-        glTranslated(xs,ys,zs);     // where the player is on the map when they are running
-
-        if (T->getTicks() > .05)
-        {
-            runspeed++;
-            runspeed = runspeed % 3;
-            T->reset();
-        }
-
-        standRight[runspeed].binder();
-        drawPlayer();
-
-        glPopMatrix();
-        break;
-
-    case 3:
-        glPushMatrix();
-
-        glTranslated(xs,ys,zs);     // where the player is on the map when they are running
-
-        if (T->getTicks() > .05)
-        {
-            runspeed++;
-            runspeed = runspeed % 3;
-            T->reset();
-        }
-
-        standUp[runspeed].binder();
-        drawPlayer();
-
-        glPopMatrix();
-        break;
-
-    case 4:
-        glPushMatrix();
-
-        glTranslated(xs,ys,zs);     // where the player is on the map when they are running
-
-        if (T->getTicks() > .05)
-        {
-            runspeed++;
-            runspeed = runspeed % 3;
-            T->reset();
-        }
-
-        standDown[runspeed].binder();
-        drawPlayer();
-        glPopMatrix();
-        break;
-    case 5:
-        glPushMatrix();
-        glTranslated(xs,ys,zs);
-            if (standDir == 1)
+        case 4:
             {
-                if (T->getTicks() > .05)
+
+                float deltaX1 = getXS() - tree->getX(0);
+                float deltaY1 = getYS() - tree->getY(0);
+                float dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+
+                float deltaX2 = getXS() - tree->getX(1);
+                float deltaY2 = getYS() - tree->getY(1);
+                float dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+
+                float deltaX3 = getXS() - tree->getX(2);
+                float deltaY3 = getYS() - tree->getY(2);
+                float dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+
+                switch(action)
                 {
-                    runspeed++;
-                    runspeed = runspeed % 3;
-                    T->reset();
+                case 0: // not call case 0 (actionTrigger 0)
+                    glPushMatrix();
+                    glTranslated(xs,ys,zs);      // where the player is on the  map when they are standing
+
+                    if (standDir == 1)
+                    {
+                        standLeft[0].binder();
+                    }
+                    else if (standDir == 2)
+                    {
+                        standRight[0].binder();
+                    }
+                    else if (standDir == 3)
+                    {
+                        standUp[0].binder();
+                    }
+                    else if (standDir == 4)
+                    {
+                        standDown[0].binder();
+                    }
+                    drawPlayer();
+                    glPopMatrix();
+                    break;
+
+                case 1:
+                    glPushMatrix();
+
+
+                    glTranslated(xs,ys,zs);
+
+                    if (T->getTicks() > .05)
+                    {
+                        runspeed++;
+                        runspeed = runspeed % 3;
+                        T->reset();
+                    }
+
+                     if (getXS() >= -4.70)      // keeps in bounces of map
+                                {
+                                    if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)   // allows player to move as long not within radius of tree
+                                    {
+                                         subXS();
+                                    }
+                                    else
+                                    {
+                                        // player is running into tree
+                                        // allows player to move if that move will not let them collide with the tree
+                                        deltaX1 = (getXS() - 0.06)- tree->getX(0);
+                                        dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+
+                                        deltaX2 = (getXS() - 0.06) - tree->getX(1);
+                                        dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+
+                                        deltaX3 = (getXS() - 0.06) - tree->getX(2);
+                                        dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+
+                                        if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                                        {
+                                            subXS();
+                                        }
+                                    }
+                                }
+
+                    standLeft[runspeed].binder();
+                    drawPlayer();
+
+                    glPopMatrix();
+                    break;
+
+                case 2:
+                    glPushMatrix();
+
+
+                    glTranslated(xs,ys,zs);     // where the player is on the map when they are running
+
+                    if (T->getTicks() > .05)
+                    {
+                        runspeed++;
+                        runspeed = runspeed % 3;
+                        T->reset();
+                    }
+
+                    if (getXS() <= 3.76)
+                    {
+                        if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                        {
+                            addXS();
+                        }
+                        else
+                        {
+                            deltaX1 = (getXS() + 0.06) - tree->getX(0);
+                            dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+
+                            deltaX2 = (getXS() + 0.06) - tree->getX(1);
+                            dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+
+                            deltaX3 = (getXS() + 0.06) - tree->getX(2);
+                            dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+
+                            if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                            {
+                                addXS();
+                            }
+                        }
+                    }
+
+                    standRight[runspeed].binder();
+                    drawPlayer();
+
+                    glPopMatrix();
+                    break;
+
+                case 3:
+                    glPushMatrix();
+
+                    glTranslated(xs,ys,zs);     // where the player is on the map when they are running
+
+                    if (T->getTicks() > .05)
+                    {
+                        runspeed++;
+                        runspeed = runspeed % 3;
+                        T->reset();
+                    }
+
+                    if (getYS() <= 1.92)
+                    {
+                        if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                        {
+                            addYS();
+                        }
+                        else
+                        {
+                            deltaY1 = (getYS() + 0.06) - tree->getY(0);
+                            dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+
+                            deltaY2 = (getYS() + 0.06) - tree->getY(1);
+                            dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+
+                            deltaY3 = (getYS() + 0.06) - tree->getY(2);
+                            dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+
+                            if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                            {
+                                addYS();
+                            }
+                        }
+                    }
+
+                    standUp[runspeed].binder();
+                    drawPlayer();
+
+                    glPopMatrix();
+                    break;
+
+                case 4:
+                    glPushMatrix();
+
+                    glTranslated(xs,ys,zs);     // where the player is on the map when they are running
+
+                    if (T->getTicks() > .05)
+                    {
+                        runspeed++;
+                        runspeed = runspeed % 3;
+                        T->reset();
+                    }
+
+                    if (getYS() >= -2.36)
+                    {
+                        if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                        {
+                            subYS();
+                        }
+                        else
+                        {
+                            deltaY1 = (getYS() - 0.06) - tree->getY(0);
+                            dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+
+                            deltaY2 = (getYS() - 0.06) - tree->getY(1);
+                            dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+
+                            deltaY3 = (getYS() - 0.06) - tree->getY(2);
+                            dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+
+                            if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                            {
+                                subYS();
+                            }
+                        }
+                    }
+
+                    standDown[runspeed].binder();
+                    drawPlayer();
+                    glPopMatrix();
+                    break;
+                case 5:
+                    glPushMatrix();
+                    glTranslated(xs,ys,zs);
+                        if (standDir == 1)
+                        {
+                            if (T->getTicks() > .05)
+                            {
+                                runspeed++;
+                                runspeed = runspeed % 3;
+                                T->reset();
+                            }
+
+                            attackLeft[runspeed].binder();
+                        }
+                        else if (standDir == 2)
+                        {
+                            if (T->getTicks() > .05)
+                            {
+                                runspeed++;
+                                runspeed = runspeed % 3;
+                                T->reset();
+                            }
+
+                            attackRight[runspeed].binder();
+                        }
+                        else if (standDir == 3)
+                        {
+                            if (T->getTicks() > .05)
+                            {
+                                runspeed++;
+                                runspeed = runspeed % 3;
+                                T->reset();
+                            }
+
+                            attackUp[runspeed].binder();
+                        }
+                        else if (standDir == 4)
+                        {
+                            if (T->getTicks() > .05)
+                            {
+                                runspeed++;
+                                runspeed = runspeed % 3;
+                                T->reset();
+                            }
+
+                            attackDown[runspeed].binder();
+                        }
+                        drawPlayer();
+                    glPopMatrix();
+                break;
                 }
 
-                attackLeft[runspeed].binder();
+
+            break;
             }
-            else if (standDir == 2)
+
+        case 5:
             {
-                if (T->getTicks() > .05)
+                float deltaX1L = getXS() - light->getX(0);
+                float deltaY1L = getYS() - light->getY(0);
+                float dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
+
+                float deltaX2L = getXS() - light->getX(1);
+                float deltaY2L = getYS() - light->getY(1);
+                float dist2L = sqrtf((deltaX2L * deltaX2L)+(deltaY2L * deltaY2L));
+
+                switch(action)
                 {
-                    runspeed++;
-                    runspeed = runspeed % 3;
-                    T->reset();
+                case 0: // not call case 0 (actionTrigger 0)
+                    glPushMatrix();
+                    glTranslated(xs,ys,zs);      // where the player is on the  map when they are standing
+
+                    if (standDir == 1)
+                    {
+                        standLeft[0].binder();
+                    }
+                    else if (standDir == 2)
+                    {
+                        standRight[0].binder();
+                    }
+                    else if (standDir == 3)
+                    {
+                        standUp[0].binder();
+                    }
+                    else if (standDir == 4)
+                    {
+                        standDown[0].binder();
+                    }
+                    drawPlayer();
+                    glPopMatrix();
+                    break;
+
+                case 1:
+                    glPushMatrix();
+
+
+                    glTranslated(xs,ys,zs);
+
+                    if (T->getTicks() > 60)
+                    {
+                        runspeed++;
+                        runspeed = runspeed % 3;
+                        T->reset();
+                    }
+
+                    if (getXS() >= -5.44)      // keeps in bounces of map
+                    {
+                        if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)   // allows player to move as long not within radius of post
+                        {
+                             subXS();
+                        }
+                        else
+                        {
+                            // player is running into post
+                            // allows player to move if that move will not let them collide with the post
+                            deltaX1L = (getXS() - 0.06)- light->getX(0);
+                            dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
+
+                            deltaX2L = (getXS() - 0.06)- light->getX(1);
+                            dist2L = sqrtf((deltaX2L * deltaX2L)+(deltaY2L * deltaY2L));
+
+
+                            if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
+                            {
+                                subXS();
+                            }
+                        }
+                    }
+
+                    standLeft[runspeed].binder();
+                    drawPlayer();
+
+                    glPopMatrix();
+                    break;
+
+                case 2:
+                    glPushMatrix();
+
+
+                    glTranslated(xs,ys,zs);     // where the player is on the map when they are running
+
+                    if (T->getTicks() > 60)
+                    {
+                        runspeed++;
+                        runspeed = runspeed % 3;
+                        T->reset();
+                    }
+
+                    if (getXS() <= 4.33)
+                    {
+                        if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
+                        {
+                            addXS();
+                        }
+                        else
+                        {
+                            deltaX1L = (getXS() + 0.06)- light->getX(0);
+                            dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
+
+                            deltaX2L = (getXS() + 0.06)- light->getX(1);
+                            dist2L = sqrtf((deltaX2L * deltaX2L)+(deltaY2L * deltaY2L));
+                            if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
+                            {
+                                addXS();
+                            }
+                        }
+                    }
+
+                    standRight[runspeed].binder();
+                    drawPlayer();
+
+                    glPopMatrix();
+                    break;
+
+                case 3:
+                    glPushMatrix();
+
+                    glTranslated(xs,ys,zs);     // where the player is on the map when they are running
+
+                    if (T->getTicks() > 60)
+                    {
+                        runspeed++;
+                        runspeed = runspeed % 3;
+                        T->reset();
+                    }
+
+                    if (getYS() <= 1.92)
+                    {
+                        if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
+                        {
+                            addYS();
+                        }
+                        else
+                        {
+                            deltaY1L = (getYS() + 0.06)- light->getY(0);
+                            dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
+
+                            deltaY2L = (getYS() + 0.06)- light->getY(1);
+                            dist2L = sqrtf((deltaX2L * deltaX2L)+(deltaY2L * deltaY2L));
+
+                            if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
+                            {
+                                addYS();
+                            }
+                        }
+                    }
+
+                    standUp[runspeed].binder();
+                    drawPlayer();
+
+                    glPopMatrix();
+                    break;
+
+                case 4:
+                    glPushMatrix();
+
+                    glTranslated(xs,ys,zs);     // where the player is on the map when they are running
+
+                    if (T->getTicks() > 60)
+                    {
+                        runspeed++;
+                        runspeed = runspeed % 3;
+                        T->reset();
+                    }
+
+                    if (getYS() >= -3.0)
+                    {
+                        if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
+                        {
+                            subYS();
+                        }
+                        else
+                        {
+                            deltaY1L = (getYS() - 0.06)- light->getY(0);
+                            dist1L = sqrtf((deltaX1L * deltaX1L)+(deltaY1L * deltaY1L));
+
+                            deltaY2L = (getYS() - 0.06)- light->getY(1);
+                            dist2L = sqrtf((deltaX2L * deltaX2L)+(deltaY2L * deltaY2L));
+
+                            if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
+                            {
+                                subYS();
+                            }
+                        }
+                    }
+
+                    standDown[runspeed].binder();
+                    drawPlayer();
+                    glPopMatrix();
+                    break;
+                case 5:
+                    glPushMatrix();
+                    glTranslated(xs,ys,zs);
+                        if (standDir == 1)
+                        {
+                            if (T->getTicks() > 60)
+                            {
+                                runspeed++;
+                                runspeed = runspeed % 3;
+                                T->reset();
+                            }
+
+                            attackLeft[runspeed].binder();
+                        }
+                        else if (standDir == 2)
+                        {
+                            if (T->getTicks() > 60)
+                            {
+                                runspeed++;
+                                runspeed = runspeed % 3;
+                                T->reset();
+                            }
+
+                            attackRight[runspeed].binder();
+                        }
+                        else if (standDir == 3)
+                        {
+                            if (T->getTicks() > 60)
+                            {
+                                runspeed++;
+                                runspeed = runspeed % 3;
+                                T->reset();
+                            }
+
+                            attackUp[runspeed].binder();
+                        }
+                        else if (standDir == 4)
+                        {
+                            if (T->getTicks() > 60)
+                            {
+                                runspeed++;
+                                runspeed = runspeed % 3;
+                                T->reset();
+                            }
+
+                            attackDown[runspeed].binder();
+                        }
+                        drawPlayer();
+                    glPopMatrix();
+                break;
                 }
 
-                attackRight[runspeed].binder();
+            break;
             }
-            else if (standDir == 3)
-            {
-                if (T->getTicks() > .05)
-                {
-                    runspeed++;
-                    runspeed = runspeed % 3;
-                    T->reset();
-                }
-
-                attackUp[runspeed].binder();
-            }
-            else if (standDir == 4)
-            {
-                if (T->getTicks() > .05)
-                {
-                    runspeed++;
-                    runspeed = runspeed % 3;
-                    T->reset();
-                }
-
-                attackDown[runspeed].binder();
-            }
-            drawPlayer();
-        glPopMatrix();
-    break;
     }
-
 }
 
 void player::undoAttack()
@@ -280,26 +654,54 @@ void player::undoAttack()
 
 void player::addXS()
 {
-    xs += 0.06;
-    cout << xs << endl;
+    switch(inScene)
+    {
+        case 4:
+            xs += 0.004;
+        break;
+
+        case 5:
+            xs +=0.006;
+    }
 }
 
 void player::subXS()
 {
-    xs -= 0.06;
-    cout << xs << endl;
+    switch(inScene)
+    {
+        case 4:
+            xs -= 0.004;
+        break;
+
+        case 5:
+            xs -=0.006;
+    }
 }
 
 void player::addYS()
 {
-    ys += 0.06;
-    cout << ys << endl;
+    switch(inScene)
+    {
+        case 4:
+            ys += 0.004;
+        break;
+
+        case 5:
+            ys +=0.006;
+    }
 }
 
 void player::subYS()
 {
-    ys -= 0.06;
-    cout << ys << endl;
+    switch(inScene)
+    {
+        case 4:
+            ys -= 0.004;
+        break;
+
+        case 5:
+            ys -=0.006;
+    }
 }
 
 float player::getXS()
