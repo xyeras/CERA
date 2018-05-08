@@ -1,3 +1,4 @@
+#include <loadShader.h>
 #include "GLScene.h"
 #include <GLLight.h>
 #include <Model.h>
@@ -8,12 +9,9 @@
 #include <iostream>
 #include <enms.h>
 #include <string.h>
-<<<<<<< HEAD
-#include <Objects.h>
-#include <textureLoader.h>
-=======
 #include <enms2.h>
->>>>>>> origin/master
+#include <rain.h>
+
 using namespace std;
 Model *modelTeapot = new Model();
 Inputs *KbMs = new Inputs();
@@ -23,16 +21,16 @@ parallax *plx3 = new parallax();
 parallax *plx4 = new parallax();
 parallax *plx5 = new parallax();
 parallax *plx6 = new parallax();
+loadShader *shader = new loadShader();
 player *ply = new player();
 sounds *snds = new sounds();
 textureLoader *enm = new textureLoader();
 textureLoader *enm2 = new textureLoader();
+rain *R = new rain();
 enms E;
 enms2 E2;
-
-textureLoader *objtex = new textureLoader();
-textureLoader *objtex2 = new textureLoader();
-
+float a=0;
+int h=1;
 GLScene::GLScene()
 {
     //ctor
@@ -48,6 +46,8 @@ GLScene::~GLScene()
 
 GLint GLScene::initGL()
 {
+    glewInit();
+    int x,z;
     glShadeModel(GL_SMOOTH);
     glClearColor(0.0f,0.0f,0.0f,0.0f);
     glClearDepth(1.0f);
@@ -57,7 +57,7 @@ GLint GLScene::initGL()
     glEnable(GL_COLOR_MATERIAL);
     GLLight Light(GL_LIGHT0);
   //  modelTeapot->modelInit("images/player/player0.png",true);
-
+    shader->shaderInit("V.vs","F.fs");
   switch(ActiveScene)
   {
 
@@ -85,12 +85,13 @@ GLint GLScene::initGL()
     //snds->playMusic("sounds/forest_revised.wav");
     snds->playMusic("sounds/forest.mp3");
     //snds->playMusic("sounds/wind.wav");
-    enm2->bindTexture("images/dragon clone.png");
+    enm2->bindTexture("images/demon test.png");
     E2.EnemyTex= enm2->tex;
     //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
     //E.yPos = -0.5;
-    E2.placeEnemy(1,0.5,-3.0);
+    E2.placeEnemy(1,0.3,-3.0);
     E2.ySize=E2.xSize= 0.3;
+    shader->shaderInit("V1.vs","F1.fs");
     break;
 
    case 5:          // Level 2 background & sounds
@@ -98,9 +99,7 @@ GLint GLScene::initGL()
     plx5->parallaxInit("images/dungeon.png");
     snds->playMusic("sounds/dungeon.wav");
     ply->playerInit(-.42,-2.98,-7.0,3,ActiveScene);
-    enm->bindTexture("images/dragon clone.png");
-    objtex->bindTexture("images/fire.png");
-    objtex2->bindTexture("images/fire.png");
+    enm->bindTexture("images/dragon attack.png");
     E.EnemyTex= enm->tex;
     //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
     //E.yPos = -0.5;
@@ -147,12 +146,31 @@ GLint GLScene::drawGLScene()
 
     case 4:             // Level 1 background & player
 
-
+        {int i, j;
+        float x, y, z;
         glPushMatrix();
             glScaled(3.33,3.33,1.0);        // scale of environment
             plx->drawSquare(screenWidth,screenHeight);
 
         glPopMatrix();
+
+        glUseProgram(shader->program);
+        GLint loc=glGetUniformLocation(shader->program,"Scale");
+        if(loc!=-1)
+        {
+            glUniform1f(loc,a);
+        }
+        glPushMatrix();
+            glTranslated(0.6,-1.25,0.0);
+            R->generateParticles();
+            R->drawParticles();
+            R->lifeTime();
+            glColor3f(1,1,1);
+        glPopMatrix();
+        glUseProgram(0);
+      (a<0.1)?h=1:NULL;
+      (a>1.5)?h=-1:NULL;
+      a+=0.01*h;
 
         glPushMatrix();
             ply->actions(ply->actionTrigger);
@@ -162,16 +180,18 @@ GLint GLScene::drawGLScene()
             if(E2.yPos<-0.65)
             {
                 E2.action =0;
-                E2.ymove = 0.0025;
+                E2.ymove = 0.0015;
             }
+
             else if(E2.yPos>0.75)
             {
                 E2.action =1;
-                E2.ymove = -0.0025;
+                E2.ymove = -0.0015;
             }
             E2.yPos += E2.ymove;
             E2.actions();
         glPopMatrix();
+
 
 
         if(paused){
@@ -181,7 +201,7 @@ GLint GLScene::drawGLScene()
                     glPopMatrix();
                 cout<<"ISPAUSED"<<endl;
             }
-
+        }
         break;
 
     case 5:             // Level 2 background & player
@@ -195,12 +215,12 @@ GLint GLScene::drawGLScene()
         glPopMatrix();
 
         glPushMatrix();
-            if(E.xPos<-1.25)
+            if(E.xPos<-1.55)
             {
                 E.action =0;
                 E.xmove = 0.0025;
             }
-            else if(E.xPos>1.25)
+            else if(E.xPos>1.55)
             {
                 E.action =1;
                 E.xmove = -0.0025;
@@ -247,19 +267,12 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 switch(wParam){
             case 0x53: //'s'
                 snds->Plays("sounds/sword_sound.wav");
-<<<<<<< HEAD
-                callLevelChanger(4);
-                plx->parallaxInit("images/df.png");
-                ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
-                snds->playMusic("sounds/forest.mp3");
-=======
                 snds->stopAllSounds();
                 callLevelChanger(2);
 
                 plx3->parallaxInit("images/Story/scene1.jpg");
                 snds->playMusic("sounds/comic1.wav");
 //
->>>>>>> origin/master
                 cout<<"Game Start!"<<endl;
                 //snds->stopAllSounds();
                 break;
@@ -336,12 +349,13 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 plx->parallaxInit("images/df.png");
                 ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
                 snds->playMusic("sounds/forest.mp3");
-                 enm2->bindTexture("images/dragon clone.png");
+                 enm2->bindTexture("images/demon test.png");
             E2.EnemyTex= enm2->tex;
             //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
             //E.yPos = -0.5;
             E2.placeEnemy(1,0.5,-3.0);
             E2.ySize=E2.xSize= 0.3;
+            shader->shaderInit("V1.vs","F1.fs");
 
             break;
             }
@@ -427,7 +441,8 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             case WM_LBUTTONDOWN:
             {
                 KbMs->wParam = wParam;
-//                KbMs->mouseEventDown(ply);
+
+                //KbMs->mouseEventDown(ply,&E);
                 KbMs->mouseEventDown(snds);
             break;								// Jump Back
             }

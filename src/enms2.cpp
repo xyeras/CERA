@@ -16,7 +16,7 @@ enms2::enms2()
     rotateY =0.0;
     rotateZ =0.0;
 
-    frames = 7;
+    frames = 10;
     xmin=0;
     ymin=0;
     xmax = 1.0/frames;
@@ -76,13 +76,13 @@ void enms2::actions()
 {
    switch(action){
    case 0:
-       if(TE->getTicks()>1000){
+       if(TE->getTicks()>200){
             xmin+= 1.0/frames;
             xmax+= 1.0/frames;
             ymin = 0.5;
             ymax = 1.0;
 
-            if(xmax>=1){xmin=0; xmax =1.0/frames;}
+            if(xmax>=3){xmin=0; xmax =1.0/frames;}
          TE->reset();
           }
           drawEnemy();
@@ -90,13 +90,13 @@ void enms2::actions()
 
    case 1:
 
-   if(TE->getTicks()>1000){
+   if(TE->getTicks()>200){
 
             xmin += 1.0/frames;
             xmax += 1.0/frames;
             ymin = 0.0;
             ymax = 0.5;
-            if(xmax>=1){xmin=0; xmax =1.0/frames;}
+            if(xmax>=3){xmin=0; xmax =1.0/frames;}
         TE->reset();
    }
       drawEnemy();
