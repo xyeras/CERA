@@ -1375,7 +1375,7 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1525327237 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\enms.cpp
+1525755664 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\enms.cpp
 	"enms.h"
 
 1525327235 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\enms.h
@@ -1391,11 +1391,8 @@
 1525327235 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\gllight.h
 	<GLScene.h>
 
-1525750052 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\inputs.cpp
+1525755664 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\inputs.cpp
 	"Inputs.h"
-	<Trees.h>
-	<Posts.h>
-	<math.h>
 	<iostream>
 
 1525749804 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\inputs.h
@@ -1541,11 +1538,14 @@
 	"parallax.h"
 	<textureLoader.h>
 
-1525738169 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\player.cpp
+1525755664 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\player.cpp
 	<player.h>
 	<timer.h>
 	<textureLoader.h>
 	<iostream>
+	<Trees.h>
+	<Posts.h>
+	<math.h>
 
 1525327237 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\posts.cpp
 	"Posts.h"
@@ -1564,7 +1564,8 @@
 1525327237 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\trees.cpp
 	"Trees.h"
 
-1525755545 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\glscene.cpp
+1525755664 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\glscene.cpp
+	<loadShader.h>
 	"GLScene.h"
 	<GLLight.h>
 	<Model.h>
@@ -1576,6 +1577,7 @@
 	<enms.h>
 	<string.h>
 	<enms2.h>
+	<rain.h>
 
 1525468994 source:c:\users\rya_c\desktop\the game\main.cpp
 	<windows.h>
@@ -1697,7 +1699,7 @@
 	<gl/gl.h>
 	<timer.h>
 
-1525738169 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\enms2.cpp
+1525755664 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\enms2.cpp
 	"enms2.h"
 
 1525738169 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\enms2.h
@@ -2071,4 +2073,31 @@
 	<Availability.h>
 	<OpenGL/glu.h>
 	<GL/glu.h>
+
+1525755664 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\loadshader.h
+	<GL/glew.h>
+	<iostream>
+	<string>
+
+1501566382 c:\users\alex\desktop\school\spring 2018\csci191t\common\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1525755664 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\rain.h
+	<gl/gl.h>
+	<math.h>
+	<stdlib.h>
+	<iostream>
+
+1525755664 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\loadshader.cpp
+	"loadShader.h"
+	<fstream>
+
+1525755664 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\rain.cpp
+	"rain.h"
 
