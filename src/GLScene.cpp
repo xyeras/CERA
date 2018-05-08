@@ -27,8 +27,6 @@ enms E;
 textureLoader *objtex = new textureLoader();
 textureLoader *objtex2 = new textureLoader();
 
-Objects obj[20];
-
 GLScene::GLScene()
 {
     //ctor
@@ -358,7 +356,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             case WM_LBUTTONDOWN:
             {
                 KbMs->wParam = wParam;
-                KbMs->mouseEventDown(ply);
+//                KbMs->mouseEventDown(ply);
                 KbMs->mouseEventDown(snds);
             break;								// Jump Back
             }
@@ -400,7 +398,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             case WM_LBUTTONDOWN:
             {
                 KbMs->wParam = wParam;
-                KbMs->mouseEventDown(ply);
+//                KbMs->mouseEventDown(ply);
                 KbMs->mouseEventDown(snds);
             break;								// Jump Back
             }
