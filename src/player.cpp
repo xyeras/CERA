@@ -718,8 +718,3 @@ void player::setStandDir(int s)
 {
     standDir = s;
 }
-
-
-
-
-

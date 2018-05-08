@@ -36,7 +36,7 @@ GLScene::GLScene()
     //ctor
     screenHeight = GetSystemMetrics(SM_CYSCREEN);
     screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    ActiveScene = 1;
+    ActiveScene = 5;
 }
 
 GLScene::~GLScene()
@@ -57,7 +57,7 @@ GLint GLScene::initGL()
     glEnable(GL_COLOR_MATERIAL);
     GLLight Light(GL_LIGHT0);
   //  modelTeapot->modelInit("images/player/player0.png",true);
-    shader->shaderInit("V1.vs","F1.fs");
+    shader->shaderInit("V.vs","F.fs");
   switch(ActiveScene)
   {
 
@@ -228,6 +228,11 @@ GLint GLScene::drawGLScene()
             E.xPos += E.xmove;
             E.actions();
         glPopMatrix();
+
+       // if(!E.isEnemyLive)
+        //{
+
+        //}
         break;
 
     case 6:
@@ -399,7 +404,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             case WM_LBUTTONDOWN:
             {
                 KbMs->wParam = wParam;
-//                KbMs->mouseEventDown(ply);
+                //KbMs->mouseEventDown(ply,E);
                 KbMs->mouseEventDown(snds);
             break;								// Jump Back
             }
@@ -442,7 +447,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             {
                 KbMs->wParam = wParam;
 
-                //KbMs->mouseEventDown(ply,&E);
+                KbMs->mouseEventDown(ply,E);
                 KbMs->mouseEventDown(snds);
             break;								// Jump Back
             }

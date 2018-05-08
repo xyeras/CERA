@@ -55,7 +55,7 @@
 			<Add directory="../Common/include" />
 		</Compiler>
 		<Linker>
-			<Add library="../Common/lib/glew32s.lib" />
+			<Add library="../../Common/lib/glew32s.lib" />
 			<Add library="../Common/lib/libSOIL.a" />
 			<Add library="opengl32" />
 			<Add library="glu32" />
@@ -73,8 +73,10 @@
 		<Unit filename="include/Trees.h" />
 		<Unit filename="include/enms.h" />
 		<Unit filename="include/enms2.h" />
+		<Unit filename="include/loadShader.h" />
 		<Unit filename="include/parallax.h" />
 		<Unit filename="include/player.h" />
+		<Unit filename="include/rain.h" />
 		<Unit filename="include/sounds.h" />
 		<Unit filename="include/textureLoader.h" />
 		<Unit filename="include/timer.h" />
@@ -87,8 +89,10 @@
 		<Unit filename="src/Trees.cpp" />
 		<Unit filename="src/enms.cpp" />
 		<Unit filename="src/enms2.cpp" />
+		<Unit filename="src/loadShader.cpp" />
 		<Unit filename="src/parallax.cpp" />
 		<Unit filename="src/player.cpp" />
+		<Unit filename="src/rain.cpp" />
 		<Unit filename="src/sounds.cpp" />
 		<Unit filename="src/textureLoader.cpp" />
 		<Unit filename="src/timer.cpp" />

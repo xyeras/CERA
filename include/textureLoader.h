@@ -1,8 +1,8 @@
 #ifndef TEXTURELOADER_H
 #define TEXTURELOADER_H
 
-#include<SOIL.h>
-#include<gl/gl.h>
+#include <SOIL.h>
+#include <gl/gl.h>
 
 class textureLoader
 {
@@ -14,6 +14,7 @@ class textureLoader
         unsigned char* image;
         int width, height;
         GLuint tex;
+
     protected:
 
     private:
