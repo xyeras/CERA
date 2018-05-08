@@ -16,7 +16,7 @@ class Inputs
         virtual ~Inputs();
 
         void keyPressed(Model *);
-        void keyPressed(player *);
+        void keyPressed(player *, enms&);
         void keyUP(player *);
         void keyEnv(parallax *,float); // movements of my background
 

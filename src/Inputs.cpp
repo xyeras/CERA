@@ -84,7 +84,7 @@ void Inputs::keyUP(player* ply)
     }
 }
 
-void Inputs::keyPressed(player* ply)
+void Inputs::keyPressed(player* ply, enms &E)
 {
 
     switch(ply->inScene)
@@ -229,6 +229,26 @@ void Inputs::keyPressed(player* ply)
                         }
                     }
                     break;
+
+                    case VK_SPACE:
+                     ply->actionTrigger = 5;
+                    float deltaX = ply->getXS() - E.xPos;
+                    float deltaY = ply->getYS() - E.yPos;
+                    float dist= sqrtf((deltaX * deltaX)+(deltaY * deltaY));
+                    if (dist < 0.25 + 0.25) // within same space as enemy
+                    {
+                       // cout << "HIT_______" << endl;
+                        E.EnemyLife -= 1;
+                       // cout << "-----" << E.EnemyLife << endl;
+                        if (E.EnemyLife == 0)
+                        {
+                          //  cout << "Death" << endl;
+                          // EVENT HERE FOR DEATH OF ENEMY----------------------------------------------------------
+                            E.EnemyLife = 3;
+                        }
+                    }
+                    break;
+
                 }
     }
                 break; // end of Level 1 inputs ----------------------------------------------------------
@@ -435,6 +455,9 @@ void Inputs::keySounds(sounds* snds,int scene)
                 case VK_DOWN:
                     //snds->Plays("sounds/forest_walk.mp3");
                     //snds->stopAllSounds();
+                    break;
+                case VK_SPACE:
+                    snds->Plays("sounds/sword_sound.wav");
                     break;
             }
         }

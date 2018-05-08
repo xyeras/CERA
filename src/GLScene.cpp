@@ -73,6 +73,7 @@ GLint GLScene::initGL()
   case 4:          // Level 1 background & sounds
 
     plx->parallaxInit("images/df.png");
+
     ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
     //snds->playMusic("sounds/forest_revised.wav");
     snds->playMusic("sounds/forest.mp3");
@@ -102,6 +103,10 @@ GLint GLScene::initGL()
    case 6:
     plx5->parallaxInit("images/Story/scene3.jpg");
     snds->playMusic("sounds/calm-synthesizer.wav");
+    break;
+
+   case 7:
+    plx6->parallaxInit("images/pause.png");
     break;
 
   }
@@ -137,7 +142,6 @@ GLint GLScene::drawGLScene()
 
     case 4:             // Level 1 background & player
 
-
         glPushMatrix();
             glScaled(3.33,3.33,1.0);        // scale of environment
             plx->drawSquare(screenWidth,screenHeight);
@@ -162,15 +166,6 @@ GLint GLScene::drawGLScene()
             E2.yPos += E2.ymove;
             E2.actions();
         glPopMatrix();
-
-
-        if(paused){
-                glPushMatrix();
-                glScaled(3.33, 3.33, 1.0);
-                    plx6->drawSquare(screenWidth,screenHeight);
-                    glPopMatrix();
-                cout<<"ISPAUSED"<<endl;
-            }
 
         break;
 
@@ -204,6 +199,13 @@ GLint GLScene::drawGLScene()
        glPushMatrix();
             glScaled(3.33,3.33,1.0);        // scale of environment
             plx5->drawSquare(screenWidth,screenHeight);
+        glPopMatrix();
+        break;
+
+    case 7:
+       glPushMatrix();
+            glScaled(3.33,3.33,1.0);        // scale of environment
+            plx6->drawSquare(screenWidth,screenHeight);
         glPopMatrix();
         break;
     }
@@ -316,6 +318,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 KbMs->wParam = wParam;
                 snds->stopAllSounds();
                 callLevelChanger(4);
+
                 plx->parallaxInit("images/df.png");
                 ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
                 snds->playMusic("sounds/forest.mp3");
@@ -328,8 +331,6 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             break;
             }
-
-
         }       // end of inner switch for inputs
         break;
         //--------------------------------------------------------------
@@ -344,14 +345,14 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 KbMs->wParam = wParam;
                 KbMs->keyPressed(modelTeapot);
              //   KbMs->keyEnv(plx,0.005);          // for environment to move around player
-                KbMs->keyPressed(ply);
+                KbMs->keyPressed(ply, E);
                 KbMs->keySounds(snds,ply->inScene);
                 switch(wParam){
-            case VK_RETURN:
-                paused = !paused;
-                if(paused){
-                    glEnable(GL_TEXTURE_2D);
-                }
+                    case VK_RETURN:
+                snds->stopAllSounds();
+                callLevelChanger(7);
+                plx6->parallaxInit("images/pause.png");
+                pausedScene = 4;
                 }
                 break;
                 }
@@ -395,7 +396,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 KbMs->wParam = wParam;
                 KbMs->keyPressed(modelTeapot);
              //   KbMs->keyEnv(plx,0.005);          // for environment to move around player
-                KbMs->keyPressed(ply);
+               // KbMs->keyPressed(ply, E2);
                 KbMs->keySounds(snds,ply->inScene);
             break;
 
@@ -443,16 +444,62 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             break;
             }
+            break;
+        }
+        case 7:            // first comic strip inputs
+        switch (uMsg)									// Check For Windows Messages
+        {
+            case WM_KEYDOWN:
+                KbMs->wParam = wParam;
+
+                switch(wParam){
+                case 0x52: //Return
+                    //snds->stopAllSounds();
+                    callLevelChanger(pausedScene);
+                    cout<<"RETURNEDDDDDDDDDDDD";
+                    cout<<pausedScene<<endl;
+                    if(pausedScene ==4) plx6->parallaxInit("images/df.png");
+                break;
+
+                case 0x48: //How to play
+                //snds->Plays("sounds/sword_sound.wav");
+                //callLevelChanger(4);
+                plx->parallaxInit("images/howToPlay.png");
+                break;
+
+                case 0x42: // Back to start menu
+                    callLevelChanger(1);
+                    plx2->parallaxInit("images/title.png");
+                break;
+
+                }
+
+                break;
+
+
+            case WM_LBUTTONDOWN:
+            {
+                KbMs->wParam = wParam;
+
+
+
+            break;
+            }
 
 
         }       // end of inner switch for inputs
         break;
+
+
+
+        }       // end of inner switch for inputs
+
         //--------------------------------------------------------------
     }
 
     //--------------------------------------------------------------------
 
-}
+
 
 void GLScene::resetData()
 {
@@ -463,6 +510,5 @@ void GLScene::resetData()
 void GLScene::callLevelChanger(int val)
 {
     ActiveScene = val;
-    resetData();
 }
 
