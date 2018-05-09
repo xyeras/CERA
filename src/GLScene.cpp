@@ -36,7 +36,7 @@ GLScene::GLScene()
     //ctor
     screenHeight = GetSystemMetrics(SM_CYSCREEN);
     screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    ActiveScene = 5;
+    ActiveScene = 1;
 }
 
 GLScene::~GLScene()
@@ -150,12 +150,9 @@ GLint GLScene::drawGLScene()
         break;
 
     case 4:             // Level 1 background & player
-
-<<<<<<< HEAD
-=======
-        {int i, j;
+        {
+            int i, j;
         float x, y, z;
->>>>>>> fd749e7759ec2943538fb8851d06d80003979f30
         glPushMatrix();
             glScaled(3.33,3.33,1.0);        // scale of environment
             plx->drawSquare(screenWidth,screenHeight);
@@ -200,8 +197,7 @@ GLint GLScene::drawGLScene()
             E2.actions();
         glPopMatrix();
 
-<<<<<<< HEAD
-=======
+
 
 
         if(paused){
@@ -212,7 +208,7 @@ GLint GLScene::drawGLScene()
                 cout<<"ISPAUSED"<<endl;
             }
         }
->>>>>>> fd749e7759ec2943538fb8851d06d80003979f30
+
         break;
 
     case 5:             // Level 2 background & player
