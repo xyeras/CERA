@@ -554,13 +554,42 @@
 1520822956 c:\users\saika\desktop\cera\include\gllight.h
 	<GLScene.h>
 
+1525755664 D
+	<sounds.h>
+	<iostream>
+	<enms.h>
+	<string.h>
+	<enms2.h>
+	<rain.h>
+
 1520822956 source:c:\users\saika\desktop\cera\src\glscene.cpp
+	<loadShader.h>
+
+1525753275 r.h>
+
+1525755664 gin/master
 	"GLScene.h"
 	<GLLight.h>
 	<Model.h>
 	<Inputs.h>
 	<parallax.h>
 	<player.h>
+	<GL/glew.h>
+	<iostream>
+	<string>
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+	<gl/gl.h>
+	<math.h>
+	<stdlib.h>
+	<iostream>
+
+1520822956 
 
 1520822956 c:\users\saika\desktop\cera\include\model.h
 	<windows.h>
@@ -1564,7 +1593,7 @@
 1525327237 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\trees.cpp
 	"Trees.h"
 
-1525756862 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\glscene.cpp
+1525912457 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\glscene.cpp
 	<loadShader.h>
 	"GLScene.h"
 	<GLLight.h>
@@ -2047,6 +2076,8 @@
 	"ik_IRefCounted.h"
 	"ik_ISoundSource.h"
 
+1525752029 c:\users\saika\desktop\cera\include\loadshader.h
+
 1525751329 source:c:\users\rya_c\desktop\fresnostate\cera-master\src\rain.cpp
 	"rain.h"
 
@@ -2061,18 +2092,12 @@
 	<fstream>
 
 1525747019 c:\users\rya_c\desktop\fresnostate\cera-master\include\loadshader.h
-	<GL/glew.h>
-	<iostream>
-	<string>
+
+1524529394 c:\users\saika\desktop\cera\common\inc\gl\glew.h
 
 1469325578 c:\users\rya_c\desktop\fresnostate\common\include\gl\glew.h
-	<stddef.h>
-	<inttypes.h>
-	<stdint.h>
-	<inttypes.h>
-	<Availability.h>
-	<OpenGL/glu.h>
-	<GL/glu.h>
+
+1525752029 c:\users\saika\desktop\cera\include\rain.h
 
 1525755664 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\loadshader.h
 	<GL/glew.h>
@@ -2089,10 +2114,6 @@
 	<GL/glu.h>
 
 1525755664 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\rain.h
-	<gl/gl.h>
-	<math.h>
-	<stdlib.h>
-	<iostream>
 
 1525755664 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\loadshader.cpp
 	"loadShader.h"
