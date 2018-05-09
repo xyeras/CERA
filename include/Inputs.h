@@ -8,6 +8,8 @@
 #include <player.h>
 #include <sounds.h>
 #include <enms.h>
+#include <textureLoader.h>
+#include <GLScene.h>
 
 class Inputs
 {
@@ -16,11 +18,11 @@ class Inputs
         virtual ~Inputs();
 
         void keyPressed(Model *);
-        void keyPressed(player *, enms&);
+        void keyPressed(player *);
         void keyUP(player *);
         void keyEnv(parallax *,float); // movements of my background
 
-        void mouseEventDown(player *,enms&);
+        bool mouseEventDown(player *,enms&);
         void mouseEventUp(player *);
         void mouseWheel(Model *,double);
         void mouseMove(Model *,double ,double );
