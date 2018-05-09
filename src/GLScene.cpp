@@ -330,6 +330,16 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             case WM_KEYDOWN:
                 KbMs->wParam = wParam;
+                switch(wParam){
+            case VK_SPACE:
+                snds->stopAllSounds();
+                callLevelChanger(3);
+                plx4->parallaxInit("images/Story/scene2.jpg");
+            snds->playMusic("sounds/creepy-music-box.wav");
+
+            break;
+
+                }
 
             break;
 
@@ -356,6 +366,27 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             case WM_KEYDOWN:
                 KbMs->wParam = wParam;
+                switch(wParam){
+                case VK_SPACE:
+                    KbMs->wParam = wParam;
+                snds->stopAllSounds();
+                callLevelChanger(4);
+
+                plx->parallaxInit("images/df.png");
+                ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
+                snds->playMusic("sounds/forest.mp3");
+                 enm2->bindTexture("images/demon test.png");
+            E2.EnemyTex= enm2->tex;
+            //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
+            //E.yPos = -0.5;
+            E2.placeEnemy(1,0.5,-3.0);
+            E2.ySize=E2.xSize= 0.3;
+            shader->shaderInit("V1.vs","F1.fs");
+
+            break;
+
+                }
+
 
             break;
 
