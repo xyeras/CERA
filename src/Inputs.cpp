@@ -3,11 +3,15 @@
 //#include <Posts.h>
 //#include <math.h>
 #include <iostream>
+#include <windows.h>
+#include <timer.h>
 //#include <sounds.h>
 using namespace std;
 //Trees *tree = new Trees();
 //Posts *light = new Posts();
-//sounds *snds = new sounds();
+//sounds *snds =texx new sounds();
+textureLoader *eTex= new textureLoader();
+timer *Time=new timer();
 Inputs::Inputs()
 {
     //ctor
@@ -81,7 +85,7 @@ void Inputs::keyUP(player* ply)
     }
 }
 
-void Inputs::keyPressed(player* ply, enms &E)
+void Inputs::keyPressed(player* ply)
 {
 
     switch(ply->inScene)
@@ -124,26 +128,6 @@ void Inputs::keyPressed(player* ply, enms &E)
                     ply->standDir = 4;
 
                     break;
-
-                    case VK_SPACE:
-                     ply->actionTrigger = 5;
-                    float deltaX = ply->getXS() - E.xPos;
-                    float deltaY = ply->getYS() - E.yPos;
-                    float dist= sqrtf((deltaX * deltaX)+(deltaY * deltaY));
-                    if (dist < 0.25 + 0.25) // within same space as enemy
-                    {
-                       // cout << "HIT_______" << endl;
-                        E.EnemyLife -= 1;
-                       // cout << "-----" << E.EnemyLife << endl;
-                        if (E.EnemyLife == 0)
-                        {
-                          //  cout << "Death" << endl;
-                          // EVENT HERE FOR DEATH OF ENEMY----------------------------------------------------------
-                            E.EnemyLife = 3;
-                        }
-                    }
-                    break;
-
                 }
     }
                 break; // end of Level 1 inputs ----------------------------------------------------------
@@ -187,7 +171,7 @@ void Inputs::keyPressed(player* ply, enms &E)
 }
 
 
-void Inputs::mouseEventDown(player* ply, enms &E)
+bool Inputs::mouseEventDown(player* ply, enms &E)
 {
     switch(wParam)
     {
@@ -207,13 +191,24 @@ void Inputs::mouseEventDown(player* ply, enms &E)
                     cout << "Death" << endl;
                   // EVENT HERE FOR DEATH OF ENEMY----------------------------------------------------------
                    E.isEnemyLive = false;
-                   // E.EnemyLife = 3;
+                   if(!E.isEnemyLive)
+                    {
+                        eTex->bindTexture("images/dragon die.png");
+                        E.EnemyTex= eTex->tex;
+                        E.ySize=E.xSize= 0.3;
+                        Time->stop();
+                       return false;
+                    }
+
+
+                    E.EnemyLife = 3;
                 }
             }
             break;
 
 
     }
+    return true;
 }
 
 
@@ -266,9 +261,6 @@ void Inputs::keySounds(sounds* snds,int scene)
                 case VK_DOWN:
                     //snds->Plays("sounds/forest_walk.mp3");
                     //snds->stopAllSounds();
-                    break;
-                case VK_SPACE:
-                    snds->Plays("sounds/sword_sound.wav");
                     break;
             }
         }
