@@ -55,7 +55,7 @@
 			<Add directory="../Common/include" />
 		</Compiler>
 		<Linker>
-			<Add library="../Common/lib/glew32s.lib" />
+			<Add library="../../Common/lib/glew32s.lib" />
 			<Add library="../Common/lib/libSOIL.a" />
 			<Add library="opengl32" />
 			<Add library="glu32" />
