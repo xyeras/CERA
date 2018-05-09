@@ -1,8 +1,6 @@
-#include <iostream>
 #include "textureLoader.h"
-
+#include <iostream>
 using namespace std;
-
 textureLoader::textureLoader()
 {
     //ctor
@@ -12,27 +10,40 @@ textureLoader::~textureLoader()
 {
     //dtor
 }
+
 void textureLoader::bindTexture(char* fileName)
 {
-    glGenTextures(1,&tex);
+
+
+
+    glEnable(GL_TEXTURE_2D);
+ glGenTextures(1, &tex);
+ glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_MODULATE);
+ glBindTexture(GL_TEXTURE_2D, tex); // images are 2D arrays of pixels, bound to the GL_TEXTURE_2D target.
+ int width, height; // width & height for the image reader
+ unsigned char* image;
+ image = SOIL_load_image(fileName, &width, &height, 0, SOIL_LOAD_RGBA);
+ glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+// binding image data
+ SOIL_free_image_data(image);
+ glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+ glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+ /*   glGenTextures(1,&tex);
     glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_MODULATE);
 
     glBindTexture(GL_TEXTURE_2D, tex);
-    image = SOIL_load_image(fileName,&width,&height, 0,SOIL_LOAD_RGBA);
+    image = SOIL_load_image(fileName,&width,&height,0,SOIL_LOAD_RGB);
 
-    if(!image)cout<<"fail to find image"<<endl;
+    if (!image)
+        cout << "Failed to find image" << endl;
 
-
-    glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,width, height,0,GL_RGBA,GL_UNSIGNED_BYTE,image);
-    SOIL_free_image_data(image);
-
-    glEnable(GL_TEXTURE_2D);
+    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,image);
+    //SOIL_free_image_data(image);
 
     glEnable(GL_TEXTURE_2D);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);  // Repeat the pattern
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);*/
 }
 
 void textureLoader::binder()

@@ -52,15 +52,12 @@ void Inputs::keyPressed(Model* Mdl)
     case VK_LEFT:
         Mdl->RotateX +=1.0;
         break;
-
     case VK_RIGHT:
         Mdl->RotateX -=1.0;
         break;
-
     case VK_DOWN:
         Mdl->RotateY -=1.0;
         break;
-
     case VK_UP:
         Mdl->RotateY +=1.0;
         break;
@@ -84,7 +81,7 @@ void Inputs::keyUP(player* ply)
     }
 }
 
-void Inputs::keyPressed(player* ply)
+void Inputs::keyPressed(player* ply, enms &E)
 {
 
     switch(ply->inScene)
@@ -127,6 +124,26 @@ void Inputs::keyPressed(player* ply)
                     ply->standDir = 4;
 
                     break;
+
+                    case VK_SPACE:
+                     ply->actionTrigger = 5;
+                    float deltaX = ply->getXS() - E.xPos;
+                    float deltaY = ply->getYS() - E.yPos;
+                    float dist= sqrtf((deltaX * deltaX)+(deltaY * deltaY));
+                    if (dist < 0.25 + 0.25) // within same space as enemy
+                    {
+                       // cout << "HIT_______" << endl;
+                        E.EnemyLife -= 1;
+                       // cout << "-----" << E.EnemyLife << endl;
+                        if (E.EnemyLife == 0)
+                        {
+                          //  cout << "Death" << endl;
+                          // EVENT HERE FOR DEATH OF ENEMY----------------------------------------------------------
+                            E.EnemyLife = 3;
+                        }
+                    }
+                    break;
+
                 }
     }
                 break; // end of Level 1 inputs ----------------------------------------------------------
@@ -179,16 +196,18 @@ void Inputs::mouseEventDown(player* ply, enms &E)
             float deltaX = ply->getXS() - E.xPos;
             float deltaY = ply->getYS() - E.yPos;
             float dist= sqrtf((deltaX * deltaX)+(deltaY * deltaY));
-            if (dist < 0.25 + 0.25) // within same space as enemy
+            cout << "---------------" << endl;
+            if (dist < 0.30 + 0.30) // within same space as enemy
             {
-               // cout << "HIT_______" << endl;
+                cout << "HIT_______" << endl;
                 E.EnemyLife -= 1;
-               // cout << "-----" << E.EnemyLife << endl;
+                cout << "-----" << E.EnemyLife << endl;
                 if (E.EnemyLife == 0)
                 {
-                  //  cout << "Death" << endl;
+                    cout << "Death" << endl;
                   // EVENT HERE FOR DEATH OF ENEMY----------------------------------------------------------
-                    E.EnemyLife = 3;
+                   E.isEnemyLive = false;
+                   // E.EnemyLife = 3;
                 }
             }
             break;
@@ -248,6 +267,9 @@ void Inputs::keySounds(sounds* snds,int scene)
                     //snds->Plays("sounds/forest_walk.mp3");
                     //snds->stopAllSounds();
                     break;
+                case VK_SPACE:
+                    snds->Plays("sounds/sword_sound.wav");
+                    break;
             }
         }
         break;
@@ -276,4 +298,3 @@ void Inputs::mouseEventDown(sounds* snds)
 
     }
 }
-
