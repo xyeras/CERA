@@ -211,6 +211,16 @@ bool Inputs::mouseEventDown(player* ply, enms &E)
     return true;
 }
 
+void Inputs::mouseEventDown3(player* ply)
+{
+    switch(wParam)
+    {
+        case MK_LBUTTON:
+            ply->actionTrigger = 5;
+            break;
+    }
+}
+
 
  void Inputs::mouseEventUp(player* ply)
  {
@@ -284,6 +294,7 @@ void Inputs::mouseEventDown(sounds* snds)
     switch(wParam)
     {
         case MK_LBUTTON:
+
             snds->Plays("sounds/sword_sound.wav");
             break;
 
