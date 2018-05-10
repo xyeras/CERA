@@ -30,8 +30,10 @@ sounds *snds = new sounds();
 textureLoader *enm = new textureLoader();
 textureLoader *enm2 = new textureLoader();
 textureLoader *att = new textureLoader();
+textureLoader *att2 = new textureLoader();
 rain *R = new rain();
 enms E;
+enms arr2[3];
 enms2 E2;
 enms2 arr[3];
 float a=0;
@@ -111,6 +113,12 @@ GLint GLScene::initGL()
     plx5->parallaxInit("images/dungeon.png");
     snds->playMusic("sounds/dungeon.wav");
     ply->playerInit(-.42,-2.98,-7.0,3,ActiveScene);
+    att2->bindTexture("images/attack boss 2/MA1.png");
+    for(int i=0;i<3;i++)
+    {
+        arr2[i].arrTex = att2->tex;
+        arr2[i].arrowLoc.sizes=5;
+    }
     enm->bindTexture("images/dragon attack.png");
     E.EnemyTex= enm->tex;
     //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
@@ -213,7 +221,7 @@ GLint GLScene::drawGLScene()
         {
 
             arr[i].drawAttack();
-            arr[i].arrowLoc.x-=0.03;
+            arr[i].arrowLoc.x-=0.02;
             if(arr[i].arrowLoc.x<=-3.00)
             {
                 arr[i].arrowLoc.x=E2.xPos;
@@ -280,6 +288,20 @@ GLint GLScene::drawGLScene()
             }
 
 
+
+        glPopMatrix();
+        glPushMatrix();
+        for(int i=0;i<3;i++)
+        {
+
+            arr2[i].drawAttack();
+            arr2[i].arrowLoc.y-=0.01;
+            if(arr2[i].arrowLoc.y<=-3.00)
+            {
+                arr2[i].arrowLoc.x=E.xPos;
+                arr2[i].arrowLoc.y=E.yPos;
+            }
+        }
 
         glPopMatrix();
 

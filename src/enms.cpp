@@ -7,7 +7,7 @@ enms::enms()
     //ctor
     xPos =0.0;             //placing objects on x
     yPos =0.0;             //placing objects on y
-    zPos = -5.0;             //placing objects on z
+    zPos = -3.0;             //placing objects on z
     EnemyLife = 3;
     xSize = 1.0;            // for scaling x
     ySize = 0.5;            // for scaling y
@@ -30,6 +30,32 @@ enms::~enms()
 {
     //dtor
 }
+void enms::drawAttack()
+{
+    glColor3f(1.0,1.0,1.0);
+    glBindTexture(GL_TEXTURE_2D,arrTex);
+    glPushMatrix();
+    glTranslatef(arrowLoc.x ,arrowLoc.y-0.5,zPos);
+    glRotated(180,0,0,1);
+
+    glScaled(0.25,0.25,1);
+
+    glBegin(GL_QUADS);
+        glTexCoord2f(0,0);
+        glVertex3f(1,1,0.0f);
+
+        glTexCoord2f(1,0);
+        glVertex3f(-1,1,0.0f);
+
+        glTexCoord2f(1,1);
+        glVertex3f(-1,-1,0.0f);
+
+        glTexCoord2f(0,1);
+        glVertex3f(1,-1,0.0f);
+     glEnd();
+     glPopMatrix();
+}
+
 
 void enms::drawEnemy()
 {
@@ -102,27 +128,33 @@ void enms::placeEnemy(float x, float y, float z)
 
 void enms::actions()
 {
+    TE->start();
    switch(action){
    case 0:
        if(TE->getTicks()>400){
-            xmin+= 1.0/frames;
-            xmax+= 1.0/frames;
+
             if(isEnemyLive)
             {
+                xmin+= 1.0/frames;
+                xmax+= 1.0/frames;
                 ymin = 0.5;
                 ymax = 1.0;
+                if(xmax>=4){xmin=0; xmax =1.0/frames;}
+                TE->reset();
             }else
             {
+                if(xmax<=frames)
+                {
+                    xmin+= 1.0/frames;
+                    xmax+= 1.0/frames;
+                }
                 ymin = 0.0;
                 ymax = 1.0;
+                if(xmax>=2){xmin=1; xmax =1;}
+                //TE->reset();
+                TE->reset();
             }
 
-
-            if(xmax>=4&&isEnemyLive==true){xmin=0; xmax =1.0/frames;}
-            else if(xmax>=4&&isEnemyLive==false){xmin=1;xmax=1;TE->stop();};
-
-            TE->reset();
-            //else TE->stop();
           }
           drawEnemy();
        break;
@@ -131,23 +163,29 @@ void enms::actions()
 
    if(TE->getTicks()>400){
 
-            xmin += 1.0/frames;
-            xmax += 1.0/frames;
+
             if(isEnemyLive)
-            {
+            {   xmin += 1.0/frames;
+                xmax += 1.0/frames;
                 ymin = 0.0;
                 ymax = 0.5;
+                if(xmax>=4){xmin=0; xmax =1.0/frames;}
+                TE->reset();
             }else
             {
+                if(xmax<=frames)
+                {
+                    xmin+= 1.0/frames;
+                    xmax+= 1.0/frames;
+                }
+
                 ymin = 0.0;
                 ymax = 1.0;
+                if(xmax>=2){xmin=1; xmax =1;}
+                //TE->reset();
+                TE->reset();
             }
 
-
-                if(xmax>=4&&isEnemyLive==true){xmin=0; xmax =1.0/frames;}
-            else if(xmax>=4&&isEnemyLive==false){xmin=1;xmax=1;TE->stop();};
-            TE->reset();
-            //else TE->stop();
    }
       drawEnemy();
      break;
