@@ -21,6 +21,8 @@ parallax *plx3 = new parallax();
 parallax *plx4 = new parallax();
 parallax *plx5 = new parallax();
 parallax *plx6 = new parallax();
+parallax *plx7 = new parallax();
+parallax *plx8 = new parallax();
 loadShader *shader = new loadShader();
 player *ply = new player();
 sounds *snds = new sounds();
@@ -112,6 +114,18 @@ GLint GLScene::initGL()
     plx5->parallaxInit("images/Story/scene3.jpg");
     snds->playMusic("sounds/calm-synthesizer.wav");
     break;
+    case 7:
+        plx6->parallaxInit("images/pause.png");
+    break;
+
+    case 8:
+        plx7->parallaxInit("images/howToPlay.png");
+    break;
+    case 9:
+        plx8->parallaxInit("images/credits.png");
+    break;
+
+
 
   }
     return true;
@@ -254,9 +268,28 @@ GLint GLScene::drawGLScene()
             plx5->drawSquare(screenWidth,screenHeight);
         glPopMatrix();
         break;
-    }
 
 
+    case 7:
+      glPushMatrix();
+           glScaled(3.33,3.33,1.0);        // scale of environment
+           plx6->drawSquare(screenWidth,screenHeight);
+       glPopMatrix();
+        break;
+    case 8:
+  glPushMatrix();
+       glScaled(3.33,3.33,1.0);        // scale of environment
+       plx7->drawSquare(screenWidth,screenHeight);
+   glPopMatrix();
+    break;
+    case 9:
+  glPushMatrix();
+       glScaled(3.33,3.33,1.0);        // scale of environment
+       plx8->drawSquare(screenWidth,screenHeight);
+   glPopMatrix();
+    break;
+
+}
 }
 
 GLvoid GLScene::resizeGLScene(GLsizei width, GLsizei height)
@@ -297,13 +330,19 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             case 0x48:
                 snds->Plays("sounds/sword_sound.wav");
-                //callLevelChanger(4);
+                callLevelChanger(7);
                 plx->parallaxInit("images/howToPlay.png");
+                returnScene =1;
                 break;
 
 
             case 0x45: //'E'
                 exit(0);
+                break;
+
+            case 0x43: //'C'
+                plx8->parallaxInit("images/credits.png");
+                callLevelChanger(9);
                 break;
                 }
 
@@ -428,10 +467,11 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 KbMs->keySounds(snds,ply->inScene);
                 switch(wParam){
             case VK_RETURN:
-                paused = !paused;
-                if(paused){
-                    glEnable(GL_TEXTURE_2D);
-                }
+                snds->stopAllSounds();
+                callLevelChanger(7);
+                plx6->parallaxInit("images/pause.png");
+                pausedScene = 4;
+                returnScene = 2;
                 }
                 break;
                 }
@@ -478,6 +518,15 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
              //   KbMs->keyEnv(plx,0.005);          // for environment to move around player
                 KbMs->keyPressed(ply);
                 KbMs->keySounds(snds,ply->inScene);
+                switch(wParam){
+            case VK_RETURN:
+                snds->stopAllSounds();
+                callLevelChanger(7);
+                plx6->parallaxInit("images/pause.png");
+                pausedScene = 5;
+                returnScene = 3;
+                }
+                break;
             break;
 
             case WM_KEYUP:								// Has A Key Been Released?
@@ -498,7 +547,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 {
                     //glEnable(GL_TEXTURE_2D);
                     snds->stopAllSounds();
-                    Sleep(3000);
+                    //Sleep(3000);
                     callLevelChanger(6);
                     plx5->parallaxInit("images/Story/scene3.jpg");
                     snds->playMusic("sounds/calm-synthesizer.wav");
@@ -533,9 +582,81 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             break;
             }
+        }
+
+            case 7:            // first comic strip inputs
+        switch (uMsg)									// Check For Windows Messages
+        {
+            case WM_KEYDOWN:
+                KbMs->wParam = wParam;
+
+                switch(wParam){
+                case 0x52: //Return
+                    //snds->stopAllSounds();
+                    callLevelChanger(pausedScene);
+                    cout<<"RETURNEDDDDDDDDDDDD";
+                    cout<<pausedScene<<endl;
+                    if(pausedScene ==4) plx6->parallaxInit("images/df.png");
+                break;
+
+                case 0x48: //How to play
+                //snds->Plays("sounds/sword_sound.wav");
+                //callLevelChanger(4);
+                plx->parallaxInit("images/howToPlay.png");
+                break;
+
+                case 0x42: // Back to start menu
+                    callLevelChanger(1);
+                    plx2->parallaxInit("images/title.png");
+                break;
+
+                }
+
+                break;
 
 
         }       // end of inner switch for inputs
+            case 8:            // first comic strip inputs
+        switch (uMsg)									// Check For Windows Messages
+        {
+            case WM_KEYDOWN:
+                KbMs->wParam = wParam;
+
+                switch(wParam){
+                case 0x52:
+                    if(returnScene == 1){
+                    callLevelChanger(1);
+                    plx2->parallaxInit("images/title.png");
+                    }
+                    if(returnScene ==2){
+                        callLevelChanger(4);
+                        plx->parallaxInit("images/df.png");
+                    }
+                    if(returnScene == 3){
+                        callLevelChanger(5);
+                        plx5->parallaxInit("images/dungeon.png");
+                    }
+                }
+
+                break;
+
+
+        }
+        break;
+
+    case 9:            // first comic strip inputs
+        switch (uMsg)									// Check For Windows Messages
+        {
+            case WM_KEYDOWN:
+                KbMs->wParam = wParam;
+
+                switch(wParam){
+                case 0x42:
+                    callLevelChanger(1);
+                    plx2->parallaxInit("images/title.png");
+                }
+                break;
+        }
         break;
         //--------------------------------------------------------------
     }

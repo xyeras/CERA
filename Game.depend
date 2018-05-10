@@ -554,54 +554,27 @@
 1521677980 c:\users\saika\desktop\cera\include\gllight.h
 	<GLScene.h>
 
-<<<<<<< HEAD
-1525747019 D
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
-1525755664 D
->>>>>>> be0a7573929731912ebda46286f880faf972de55
+1525468327 D
 	<sounds.h>
 	<iostream>
 	<enms.h>
 	<string.h>
 	<enms2.h>
 	<rain.h>
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-1525912011 source:c:\users\saika\desktop\cera\src\glscene.cpp
-	<loadShader.h>
-=======
-1520822956 source:c:\users\saika\desktop\cera\src\glscene.cpp
-	<loadShader.h>
-
-1525753275 r.h>
-
-1525755664 gin/master
-=======
-1520822956 source:c:\users\saika\desktop\cera\src\glscene.cpp
->>>>>>> 9565ad9a094176bd0d4f86bbdf5ec0dcb7629a42
->>>>>>> origin/master
+1469325578 gin/master
 	"GLScene.h"
 	<GLLight.h>
 	<Model.h>
 	<Inputs.h>
 	<parallax.h>
 	<player.h>
-<<<<<<< HEAD
-	<sounds.h>
-	<iostream>
-	<enms.h>
-	<string.h>
-	<enms2.h>
-	<rain.h>
-=======
-<<<<<<< HEAD
->>>>>>> be0a7573929731912ebda46286f880faf972de55
+	"GLScene.h"
+	<GLLight.h>
+	<Model.h>
+	<Inputs.h>
+	<parallax.h>
+	<player.h>
 	<GL/glew.h>
 	<iostream>
 	<string>
@@ -617,12 +590,37 @@
 	<stdlib.h>
 	<iostream>
 
+1469325578 a7573929731912ebda46286f880faf972de55
+	<sounds.h>
+	<iostream>
+	<enms.h>
+	<string.h>
+	<enms2.h>
+	<rain.h>
+	<GL/glew.h>
+	<iostream>
+	<string>
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+	<gl/gl.h>
+	<math.h>
+	<stdlib.h>
+	<iostream>
+	<GL/glew.h>
+	<iostream>
+	<string>
+
 1520822956 source:c:\users\saika\desktop\cera\src\glscene.cpp
 	<loadShader.h>
+	<loadShader.h>
+	<loadShader.h>
 
-1525912457 r.h>
-
-1525755664 gin/master
+1525753275 r.h>
 
 1469325578 5ad9a094176bd0d4f86bbdf5ec0dcb7629a42
 	"GLScene.h"
@@ -642,39 +640,7 @@
 	<enms.h>
 	<string.h>
 
-1520822956 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 9565ad9a094176bd0d4f86bbdf5ec0dcb7629a42
->>>>>>> origin/master
->>>>>>> be0a7573929731912ebda46286f880faf972de55
-
-1525753275 r.h>
-
-1525755664 gin/master
-	"GLScene.h"
-	<GLLight.h>
-	<Model.h>
-	<Inputs.h>
-	<parallax.h>
-	<player.h>
-	<GL/glew.h>
-	<iostream>
-	<string>
-	<stddef.h>
-	<inttypes.h>
-	<stdint.h>
-	<inttypes.h>
-	<Availability.h>
-	<OpenGL/glu.h>
-	<GL/glu.h>
-	<gl/gl.h>
-	<math.h>
-	<stdlib.h>
-	<iostream>
-
-1520822956 
+1525468327 
 
 1521677980 c:\users\saika\desktop\cera\include\model.h
 	<windows.h>
@@ -1485,7 +1451,7 @@
 	<iostream>
 	<windows.h>
 
-1525912925 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\glscene.h
+1525925912 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -1513,7 +1479,7 @@
 1525327235 c:\users\alex\desktop\school\spring 2018\csci191t\cera\include\gllight.h
 	<GLScene.h>
 
-1525912925 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\inputs.cpp
+1525927337 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\inputs.cpp
 	"Inputs.h"
 	<iostream>
 	<windows.h>
@@ -1690,7 +1656,7 @@
 1525327237 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\trees.cpp
 	"Trees.h"
 
-1525913451 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\glscene.cpp
+1525927235 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\glscene.cpp
 	<loadShader.h>
 	"GLScene.h"
 	<GLLight.h>
@@ -2181,14 +2147,6 @@
 
 1525752029 c:\users\saika\desktop\cera\include\loadshader.h
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 9565ad9a094176bd0d4f86bbdf5ec0dcb7629a42
->>>>>>> origin/master
->>>>>>> be0a7573929731912ebda46286f880faf972de55
 1525751329 source:c:\users\rya_c\desktop\fresnostate\cera-master\src\rain.cpp
 	"rain.h"
 
@@ -2203,17 +2161,17 @@
 	<fstream>
 
 1525747019 c:\users\rya_c\desktop\fresnostate\cera-master\include\loadshader.h
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
->>>>>>> be0a7573929731912ebda46286f880faf972de55
 
 1524529394 c:\users\saika\desktop\cera\common\inc\gl\glew.h
 
 1469325578 c:\users\rya_c\desktop\fresnostate\common\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
 	<stddef.h>
 	<inttypes.h>
 	<stdint.h>
@@ -2246,10 +2204,7 @@
 
 1525755664 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\rain.cpp
 	"rain.h"
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
 1525468325 c:\users\saika\desktop\common\include\gl\glut.h
 	<windows.h>
 	<stdlib.h>
@@ -2393,24 +2348,3 @@
 1525468327 source:c:\users\saika\desktop\cera\src\trees.cpp
 	"Trees.h"
 
-=======
-=======
->>>>>>> be0a7573929731912ebda46286f880faf972de55
-	<GL/glew.h>
-	<iostream>
-	<string>
-
-<<<<<<< HEAD
-=======
-1469325578 c:\users\rya_c\desktop\fresnostate\common\include\gl\glew.h
-	<stddef.h>
-	<inttypes.h>
-	<stdint.h>
-	<inttypes.h>
-	<Availability.h>
-	<OpenGL/glu.h>
-	<GL/glu.h>
-
->>>>>>> 9565ad9a094176bd0d4f86bbdf5ec0dcb7629a42
->>>>>>> origin/master
->>>>>>> be0a7573929731912ebda46286f880faf972de55

@@ -25,6 +25,8 @@ class GLScene
         float screenWidth;
 
         int ActiveScene;
+        int pausedScene;
+        int returnScene;
         bool paused = false;
 
 
