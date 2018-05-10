@@ -536,31 +536,72 @@
 	<sounds.h>
 	<iostream>
 
-1520822956 source:c:\users\saika\desktop\cera\main.cpp
+1525468325 source:c:\users\saika\desktop\cera\main.cpp
 	<windows.h>
 	<GLScene.h>
 	<stdlib.h>
 	<iostream>
 	<windows.h>
 
-1520822956 c:\users\saika\desktop\cera\include\glscene.h
+1525912011 c:\users\saika\desktop\cera\include\glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
 
-1520822956 source:c:\users\saika\desktop\cera\src\gllight.cpp
+1521677980 source:c:\users\saika\desktop\cera\src\gllight.cpp
 	"GLLight.h"
 
-1520822956 c:\users\saika\desktop\cera\include\gllight.h
+1521677980 c:\users\saika\desktop\cera\include\gllight.h
 	<GLScene.h>
 
+<<<<<<< HEAD
 1525747019 D
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+1525755664 D
+>>>>>>> be0a7573929731912ebda46286f880faf972de55
 	<sounds.h>
 	<iostream>
 	<enms.h>
 	<string.h>
 	<enms2.h>
 	<rain.h>
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+1525912011 source:c:\users\saika\desktop\cera\src\glscene.cpp
+	<loadShader.h>
+=======
+1520822956 source:c:\users\saika\desktop\cera\src\glscene.cpp
+	<loadShader.h>
+
+1525753275 r.h>
+
+1525755664 gin/master
+=======
+1520822956 source:c:\users\saika\desktop\cera\src\glscene.cpp
+>>>>>>> 9565ad9a094176bd0d4f86bbdf5ec0dcb7629a42
+>>>>>>> origin/master
+	"GLScene.h"
+	<GLLight.h>
+	<Model.h>
+	<Inputs.h>
+	<parallax.h>
+	<player.h>
+<<<<<<< HEAD
+	<sounds.h>
+	<iostream>
+	<enms.h>
+	<string.h>
+	<enms2.h>
+	<rain.h>
+=======
+<<<<<<< HEAD
+>>>>>>> be0a7573929731912ebda46286f880faf972de55
 	<GL/glew.h>
 	<iostream>
 	<string>
@@ -602,52 +643,88 @@
 	<string.h>
 
 1520822956 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9565ad9a094176bd0d4f86bbdf5ec0dcb7629a42
+>>>>>>> origin/master
+>>>>>>> be0a7573929731912ebda46286f880faf972de55
 
-1520822956 c:\users\saika\desktop\cera\include\model.h
+1525753275 r.h>
+
+1525755664 gin/master
+	"GLScene.h"
+	<GLLight.h>
+	<Model.h>
+	<Inputs.h>
+	<parallax.h>
+	<player.h>
+	<GL/glew.h>
+	<iostream>
+	<string>
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+	<gl/gl.h>
+	<math.h>
+	<stdlib.h>
+	<iostream>
+
+1520822956 
+
+1521677980 c:\users\saika\desktop\cera\include\model.h
 	<windows.h>
 	<GL/glut.h>
 
-1520822956 c:\users\saika\desktop\cera\include\inputs.h
+1525912011 c:\users\saika\desktop\cera\include\inputs.h
 	<windows.h>
 	<iostream>
 	<Model.h>
 	<parallax.h>
 	<player.h>
+	<sounds.h>
+	<enms.h>
 
-1520822956 c:\users\saika\desktop\cera\include\parallax.h
+1521677980 c:\users\saika\desktop\cera\include\parallax.h
 	<iostream>
 	<string.h>
 	<gl/gl.h>
 	<windows.h>
 
-1520822956 c:\users\saika\desktop\cera\include\player.h
+1525468325 c:\users\saika\desktop\cera\include\player.h
 	<Model.h>
 	<gl/gl.h>
 	<textureLoader.h>
+	<iostream>
 
-1520822956 c:\users\saika\desktop\cera\include\textureloader.h
+1525912011 c:\users\saika\desktop\cera\include\textureloader.h
 	<SOIL.h>
 	<gl/gl.h>
 
-1520822956 source:c:\users\saika\desktop\cera\src\inputs.cpp
+1525912011 source:c:\users\saika\desktop\cera\src\inputs.cpp
 	"Inputs.h"
+	<iostream>
 
-1520822956 source:c:\users\saika\desktop\cera\src\model.cpp
+1521677980 source:c:\users\saika\desktop\cera\src\model.cpp
 	"Model.h"
 	<textureLoader.h>
 
-1520822956 source:c:\users\saika\desktop\cera\src\parallax.cpp
+1521677980 source:c:\users\saika\desktop\cera\src\parallax.cpp
 	"parallax.h"
 	<textureLoader.h>
 
-1520822956 source:c:\users\saika\desktop\cera\src\textureloader.cpp
+1525912011 source:c:\users\saika\desktop\cera\src\textureloader.cpp
 	"textureLoader.h"
 	<iostream>
 
-1520822956 source:c:\users\saika\desktop\cera\src\timer.cpp
+1521677980 source:c:\users\saika\desktop\cera\src\timer.cpp
 	"timer.h"
 
-1520822956 c:\users\saika\desktop\cera\include\timer.h
+1521677980 c:\users\saika\desktop\cera\include\timer.h
 	<time.h>
 
 1517882654 c:\users\saika\desktop\cera\common\inc\gl\glut.h
@@ -658,10 +735,14 @@
 
 1518657631 c:\users\saika\desktop\cera\common\inc\soil.h
 
-1521268143 source:c:\users\saika\desktop\cera\src\player.cpp
+1525912011 source:c:\users\saika\desktop\cera\src\player.cpp
 	<player.h>
 	<timer.h>
 	<textureLoader.h>
+	<iostream>
+	<Trees.h>
+	<Posts.h>
+	<math.h>
 
 1521581006 c:\users\cgon5\desktop\csci191t_projects\game\common\inc\gl\glut.h
 	<windows.h>
@@ -2100,6 +2181,14 @@
 
 1525752029 c:\users\saika\desktop\cera\include\loadshader.h
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9565ad9a094176bd0d4f86bbdf5ec0dcb7629a42
+>>>>>>> origin/master
+>>>>>>> be0a7573929731912ebda46286f880faf972de55
 1525751329 source:c:\users\rya_c\desktop\fresnostate\cera-master\src\rain.cpp
 	"rain.h"
 
@@ -2114,6 +2203,13 @@
 	<fstream>
 
 1525747019 c:\users\rya_c\desktop\fresnostate\cera-master\include\loadshader.h
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> be0a7573929731912ebda46286f880faf972de55
 
 1524529394 c:\users\saika\desktop\cera\common\inc\gl\glew.h
 
@@ -2150,7 +2246,171 @@
 
 1525755664 source:c:\users\alex\desktop\school\spring 2018\csci191t\cera\src\rain.cpp
 	"rain.h"
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+1525468325 c:\users\saika\desktop\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1525752029 source:c:\users\saika\desktop\cera\src\enms.cpp
+	"enms.h"
+
+1525468325 c:\users\saika\desktop\cera\include\enms.h
+	<gl/gl.h>
+	<timer.h>
+
+1525752029 source:c:\users\saika\desktop\cera\src\enms2.cpp
+	"enms2.h"
+
+1525474081 c:\users\saika\desktop\cera\include\enms2.h
+	<gl/gl.h>
+	<timer.h>
+
+1525468325 c:\users\saika\desktop\common\include\soil.h
+
+1524528303 c:\users\saika\desktop\cera\include\sounds.h
+	<SNDS/irrKlang.h>
+
+1525468325 c:\users\saika\desktop\common\include\snds\irrklang.h
+	"ik_irrKlangTypes.h"
+	"ik_vec3d.h"
+	"ik_IRefCounted.h"
+	"ik_IVirtualRefCounted.h"
+	"ik_ESoundOutputDrivers.h"
+	"ik_ESoundEngineOptions.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+	"ik_ISoundEngine.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_IAudioStream.h"
+	"ik_IAudioStreamLoader.h"
+	"ik_ISoundEffectControl.h"
+	"ik_ISoundStopEventReceiver.h"
+	"ik_IFileFactory.h"
+	"ik_IFileReader.h"
+	"ik_ISoundDeviceList.h"
+	"ik_IAudioRecorder.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_irrklangtypes.h
+	<wchar.h>
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_vec3d.h
+	<math.h>
+	"ik_irrKlangTypes.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_irefcounted.h
+	"ik_irrKlangTypes.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_ivirtualrefcounted.h
+	"ik_irrKlangTypes.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_esoundoutputdrivers.h
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_esoundengineoptions.h
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_estreammodes.h
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_saudiostreamformat.h
+	"ik_IRefCounted.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_isoundengine.h
+	"ik_IRefCounted.h"
+	"ik_vec3d.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_EStreamModes.h"
+	"ik_IFileFactory.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_isoundsource.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_isound.h
+	"ik_IVirtualRefCounted.h"
+	"ik_ISoundEffectControl.h"
+	"ik_vec3d.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_isoundeffectcontrol.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_ifilefactory.h
+	"ik_IRefCounted.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_isoundmixedoutputreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_iaudiostream.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_iaudiostreamloader.h
+	"ik_IRefCounted.h"
+	"ik_IFileReader.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_ifilereader.h
+	"ik_IRefCounted.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_isoundstopeventreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_isounddevicelist.h
+	"ik_IRefCounted.h"
+
+1525468325 c:\users\saika\desktop\common\include\snds\ik_iaudiorecorder.h
+	"ik_IRefCounted.h"
+	"ik_ISoundSource.h"
+
+1525912011 source:c:\users\saika\desktop\cera\src\loadshader.cpp
+	"loadShader.h"
+	<fstream>
+
+1524528303 c:\users\saika\desktop\cera\include\trees.h
+
+1525468325 c:\users\saika\desktop\cera\include\posts.h
+
+1525468327 source:c:\users\saika\desktop\cera\src\posts.cpp
+	"Posts.h"
+
+1525912011 source:c:\users\saika\desktop\cera\src\rain.cpp
+	"rain.h"
+
+1525474082 source:c:\users\saika\desktop\cera\src\sounds.cpp
+	<iostream>
+	"sounds.h"
+
+1525468327 source:c:\users\saika\desktop\cera\src\trees.cpp
+	"Trees.h"
+
+=======
+=======
+>>>>>>> be0a7573929731912ebda46286f880faf972de55
 	<GL/glew.h>
 	<iostream>
 	<string>
 
+<<<<<<< HEAD
+=======
+1469325578 c:\users\rya_c\desktop\fresnostate\common\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+>>>>>>> 9565ad9a094176bd0d4f86bbdf5ec0dcb7629a42
+>>>>>>> origin/master
+>>>>>>> be0a7573929731912ebda46286f880faf972de55
