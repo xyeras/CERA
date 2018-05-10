@@ -52,6 +52,9 @@ class player
 
         int standDir;
 
+        bool isAlive;
+        int lives;
+
     protected:
 
     private:
