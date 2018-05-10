@@ -225,7 +225,7 @@ GLint GLScene::drawGLScene()
         {
 
             arr[i].drawAttack();
-            arr[i].arrowLoc.x-=0.005;
+            arr[i].arrowLoc.x-=0.015;
 
             // calculate collision of player with fireball
             deltaX4 = ply->getXS() - arr[i].arrowLoc.x;
@@ -333,9 +333,9 @@ GLint GLScene::drawGLScene()
 
            // cout << "d " << dist5 << endl;
             //cout << "lives " << ply->lives << endl;
-            if (dist5 <= .05)              // Alice gets hit
+            if (dist5 <= .15)              // Alice gets hit
             {
-                  cout << "hit--------------------------" << endl;
+                  cout << "health--------------------------" << endl;
 
                 ply->lives -= 1;
                     cout<<ply->lives<<endl;
@@ -619,11 +619,28 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     //--------------------------------------------------------------------
 
     case 5:         // Level 2 Inputs
-//        if(!ply->isAlive)
-//        {
-//            cout<<"U DEAD"<<endl;
-//            exit(0);
-//        }
+        if(!ply->isAlive)
+        {
+            ply->isAlive=true;
+            ply->lives=3;
+            snds->stopAllSounds();
+                callLevelChanger(5);
+                plx5->parallaxInit("images/dungeon.png");
+        snds->playMusic("sounds/dungeon.wav");
+        ply->playerInit(-.42,-2.98,-7.0,3,ActiveScene);
+            att2->bindTexture("images/attack boss 2/MA1.png");
+            for(int i=0;i<1;i++)
+            {
+                arr2[i].arrTex = att2->tex;
+                arr2[i].arrowLoc.sizes=5;
+            }
+            enm->bindTexture("images/dragon attack.png");
+            E.EnemyTex= enm->tex;
+    //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
+    //E.yPos = -0.5;
+        E.placeEnemy(1,0.5,-3.0);
+        E.ySize=E.xSize= 0.3;
+        }
 
         switch (uMsg)									// Check For Windows Messages
         {
@@ -705,7 +722,8 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             {
                 cout<<endl;
                 cout<<"*************GAME WON?*************"<<endl;
-                exit(0);
+                callLevelChanger(1);
+                plx5->parallaxInit("images/title.png");
                 KbMs->wParam = wParam;
 
             break;

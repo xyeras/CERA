@@ -1006,14 +1006,14 @@
 
 1525153650 c:\users\cgon5\desktop\csci191t_projects\game\include\posts.h
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\main.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\main.cpp
 	<windows.h>
 	<GLScene.h>
 	<stdlib.h>
 	<iostream>
 	<windows.h>
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\glscene.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\glscene.h
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -1024,20 +1024,19 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\src\gllight.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\gllight.cpp
 	"GLLight.h"
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\gllight.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\gllight.h
 	<GLScene.h>
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\src\inputs.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\inputs.cpp
 	"Inputs.h"
-	<Trees.h>
-	<Posts.h>
-	<math.h>
 	<iostream>
+	<windows.h>
+	<timer.h>
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\inputs.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\inputs.h
 	<windows.h>
 	<iostream>
 	<Model.h>
@@ -1045,30 +1044,32 @@
 	<player.h>
 	<sounds.h>
 	<enms.h>
+	<textureLoader.h>
+	<GLScene.h>
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\model.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\model.h
 	<windows.h>
 	<GL/glut.h>
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\parallax.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\parallax.h
 	<iostream>
 	<string.h>
 	<gl/gl.h>
 	<windows.h>
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\player.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\player.h
 	<Model.h>
 	<gl/gl.h>
 	<textureLoader.h>
 	<iostream>
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\textureloader.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\textureloader.h
 	<SOIL.h>
 	<gl/gl.h>
 
 1525322504 c:\users\rya_c\desktop\cera-master\common\inc\soil.h
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\sounds.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\sounds.h
 	<SNDS/irrKlang.h>
 
 1525322504 c:\users\rya_c\desktop\cera-master\common\inc\snds\irrklang.h
@@ -1168,52 +1169,56 @@
 	"ik_IRefCounted.h"
 	"ik_ISoundSource.h"
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\trees.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\trees.h
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\posts.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\posts.h
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\src\model.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\model.cpp
 	"Model.h"
 	<textureLoader.h>
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\src\parallax.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\parallax.cpp
 	"parallax.h"
 	<textureLoader.h>
 
-1525742006 source:c:\users\rya_c\desktop\cera-master\src\player.cpp
+1525980418 source:c:\users\rya_c\desktop\cera-master\src\player.cpp
 	<player.h>
 	<timer.h>
 	<textureLoader.h>
 	<iostream>
+	<Trees.h>
+	<Posts.h>
+	<math.h>
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\timer.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\timer.h
 	<time.h>
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\src\posts.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\posts.cpp
 	"Posts.h"
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\src\sounds.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\sounds.cpp
 	<iostream>
 	"sounds.h"
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\src\textureloader.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\textureloader.cpp
 	"textureLoader.h"
 	<iostream>
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\src\timer.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\timer.cpp
 	"timer.h"
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\src\trees.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\trees.cpp
 	"Trees.h"
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\src\enms.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\enms.cpp
 	"enms.h"
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\enms.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\enms.h
 	<gl/gl.h>
 	<timer.h>
 
-1525742051 source:c:\users\rya_c\desktop\cera-master\src\glscene.cpp
+1525980378 source:c:\users\rya_c\desktop\cera-master\src\glscene.cpp
+	<loadShader.h>
 	"GLScene.h"
 	<GLLight.h>
 	<Model.h>
@@ -1225,6 +1230,8 @@
 	<enms.h>
 	<string.h>
 	<enms2.h>
+	<rain.h>
+	<windows.h>
 
 1525322504 source:c:\users\rya_c\desktop\error\main.cpp
 	<windows.h>
@@ -1799,10 +1806,11 @@
 	<gl/gl.h>
 	<timer.h>
 
-1525740030 source:c:\users\rya_c\desktop\cera-master\src\enms2.cpp
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\enms2.cpp
 	"enms2.h"
 
-1525740030 c:\users\rya_c\desktop\cera-master\include\enms2.h
+1525947784 c:\users\rya_c\desktop\cera-master\include\enms2.h
+	<textureLoader.h>
 	<gl/gl.h>
 	<timer.h>
 
@@ -2347,4 +2355,36 @@
 
 1525468327 source:c:\users\saika\desktop\cera\src\trees.cpp
 	"Trees.h"
+
+1525947784 c:\users\rya_c\desktop\cera-master\src\enms2.h
+	<textureLoader.h>
+	<gl/gl.h>
+	<timer.h>
+
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\loadshader.cpp
+	"loadShader.h"
+	<fstream>
+
+1525947784 c:\users\rya_c\desktop\cera-master\include\loadshader.h
+	<GL/glew.h>
+	<iostream>
+	<string>
+
+1469325578 c:\users\rya_c\desktop\common\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1525947784 source:c:\users\rya_c\desktop\cera-master\src\rain.cpp
+	"rain.h"
+
+1525947784 c:\users\rya_c\desktop\cera-master\include\rain.h
+	<gl/gl.h>
+	<math.h>
+	<stdlib.h>
+	<iostream>
 

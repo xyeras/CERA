@@ -43,11 +43,11 @@ player::player()
     verticies[3].z = -1.0;
 
 
-
+    isAlive=true;
     runspeed = 0;
     jumpspeed = 0;
     actionTrigger = 0;
-    lives = 3;
+    lives = 10;
 
 }
 
@@ -60,7 +60,9 @@ void player::drawPlayer()
 {
     //glColor3f(1.0,0.0,0.0);
 //    glPushMatrix();
-    glBegin(GL_QUADS);
+    if(isAlive)
+    {
+        glBegin(GL_QUADS);
     glTexCoord2f(0.0,1.0);
     glVertex3f(verticies[0].x,verticies[0].y,verticies[0].z);
 
@@ -73,12 +75,16 @@ void player::drawPlayer()
     glTexCoord2f(0.0,0.0);
     glVertex3f(verticies[3].x,verticies[3].y,verticies[3].z);
     glEnd();
+    }
+
  //   glPopMatrix();
 }
 
 void player::playerInit(float x, float y, float z, float sd, int sceneNum) // load xpos, ypos, zpos , direction to stand, scene number
 {
-    T->start();
+    if(isAlive)
+    {
+        T->start();
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
@@ -120,6 +126,8 @@ void player::playerInit(float x, float y, float z, float sd, int sceneNum) // lo
 
     standDir = sd;
     inScene = sceneNum;
+    }
+
 
 }
 
@@ -181,7 +189,7 @@ switch(inScene)
 
                     glTranslated(xs,ys,zs);
 
-                    if (T->getTicks() > .05)
+                    if (T->getTicks() > 60)
                     {
                         runspeed++;
                         runspeed = runspeed % 3;
@@ -231,7 +239,7 @@ switch(inScene)
 
                     glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
-                    if (T->getTicks() > .05)
+                    if (T->getTicks() > 60)
                     {
                         runspeed++;
                         runspeed = runspeed % 3;
@@ -279,7 +287,7 @@ switch(inScene)
 
                     glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
-                    if (T->getTicks() > .05)
+                    if (T->getTicks() > 60)
                     {
                         runspeed++;
                         runspeed = runspeed % 3;
@@ -326,7 +334,7 @@ switch(inScene)
 
                     glTranslated(xs,ys,zs);     // where the player is on the map when they are running
 
-                    if (T->getTicks() > .05)
+                    if (T->getTicks() > 60)
                     {
                         runspeed++;
                         runspeed = runspeed % 3;
@@ -371,7 +379,7 @@ switch(inScene)
                     glTranslated(xs,ys,zs);
                         if (standDir == 1)
                         {
-                            if (T->getTicks() > .05)
+                            if (T->getTicks() > 60)
                             {
                                 runspeed++;
                                 runspeed = runspeed % 3;
@@ -393,7 +401,7 @@ switch(inScene)
                         }
                         else if (standDir == 3)
                         {
-                            if (T->getTicks() > .05)
+                            if (T->getTicks() > 60)
                             {
                                 runspeed++;
                                 runspeed = runspeed % 3;
@@ -404,7 +412,7 @@ switch(inScene)
                         }
                         else if (standDir == 4)
                         {
-                            if (T->getTicks() > .05)
+                            if (T->getTicks() > 60)
                             {
                                 runspeed++;
                                 runspeed = runspeed % 3;
@@ -708,11 +716,11 @@ void player::addXS()
     switch(inScene)
     {
         case 4:
-            xs += 0.004;
+            xs += 0.009;
         break;
 
         case 5:
-            xs +=0.006;
+            xs +=0.009;
     }
 }
 
@@ -721,11 +729,11 @@ void player::subXS()
     switch(inScene)
     {
         case 4:
-            xs -= 0.004;
+            xs -= 0.009;
         break;
 
         case 5:
-            xs -=0.006;
+            xs -=0.009;
     }
 }
 
@@ -734,11 +742,11 @@ void player::addYS()
     switch(inScene)
     {
         case 4:
-            ys += 0.004;
+            ys += 0.009;
         break;
 
         case 5:
-            ys +=0.006;
+            ys +=0.009;
     }
 }
 
@@ -747,11 +755,11 @@ void player::subYS()
     switch(inScene)
     {
         case 4:
-            ys -= 0.004;
+            ys -= 0.009;
         break;
 
         case 5:
-            ys -=0.006;
+            ys -=0.009;
     }
 }
 
