@@ -9,7 +9,7 @@ typedef struct
     float x;
     float y;
     float sizes;
-}loc;
+}loc2;
 
 class enms2
 {
@@ -24,7 +24,7 @@ class enms2
         bool isEnemyLive= true; //status of the objects
         GLuint EnemyTex;      // handle Texture
         GLuint arrTex;
-        loc arrowLoc;
+        loc2 arrowLoc;
         int EnemyLife;
         float xPos;             //placing objects on x
         float yPos;             //placing objects on y
