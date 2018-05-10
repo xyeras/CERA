@@ -23,6 +23,7 @@ class Inputs
         void keyEnv(parallax *,float); // movements of my background
 
         bool mouseEventDown(player *,enms&);
+        void mouseEventDown3(player *);
         void mouseEventUp(player *);
         void mouseWheel(Model *,double);
         void mouseMove(Model *,double ,double );

@@ -38,7 +38,7 @@ GLScene::GLScene()
     //ctor
     screenHeight = GetSystemMetrics(SM_CYSCREEN);
     screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    ActiveScene = 5;
+    ActiveScene = 4;
 }
 
 GLScene::~GLScene()
@@ -488,7 +488,7 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             case WM_LBUTTONDOWN:
             {
                 KbMs->wParam = wParam;
-                //KbMs->mouseEventDown(ply,E);
+                KbMs->mouseEventDown3(ply);
                 KbMs->mouseEventDown(snds);
             break;								// Jump Back
             }
