@@ -47,7 +47,7 @@ player::player()
     runspeed = 0;
     jumpspeed = 0;
     actionTrigger = 0;
-
+    lives = 3;
 
 }
 
@@ -150,6 +150,11 @@ switch(inScene)
                     glPushMatrix();
                     glTranslated(xs,ys,zs);      // where the player is on the  map when they are standing
 
+                    // collides with enemy's attack while standing
+                    /*if ()
+                    {
+                        lives -=1;
+                    }*/
                     if (standDir == 1)
                     {
                         standLeft[0].binder();
@@ -184,30 +189,35 @@ switch(inScene)
                     }
 
                      if (getXS() >= -4.70)      // keeps in bounces of map
-                                {
-                                    if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)   // allows player to move as long not within radius of tree
-                                    {
-                                         subXS();
-                                    }
-                                    else
-                                    {
-                                        // player is running into tree
-                                        // allows player to move if that move will not let them collide with the tree
-                                        deltaX1 = (getXS() - 0.06)- tree->getX(0);
-                                        dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
+                    {
+                        // collides with enemy's attack
+                        /*if ()
+                        {
+                            lives -=1;
+                        }*/
+                        if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)   // allows player to move as long not within radius of tree
+                        {
+                            subXS();
+                        }
+                        else
+                        {
+                            // player is running into tree
+                            // allows player to move if that move will not let them collide with the tree
+                            deltaX1 = (getXS() - 0.06)- tree->getX(0);
+                            dist1 = sqrtf((deltaX1 * deltaX1)+(deltaY1 * deltaY1));
 
-                                        deltaX2 = (getXS() - 0.06) - tree->getX(1);
-                                        dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
+                            deltaX2 = (getXS() - 0.06) - tree->getX(1);
+                            dist2 = sqrtf((deltaX2 * deltaX2)+(deltaY2 * deltaY2));
 
-                                        deltaX3 = (getXS() - 0.06) - tree->getX(2);
-                                        dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
+                            deltaX3 = (getXS() - 0.06) - tree->getX(2);
+                            dist3 = sqrtf((deltaX3 * deltaX3)+(deltaY3 * deltaY3));
 
-                                        if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
-                                        {
-                                            subXS();
-                                        }
-                                    }
-                                }
+                            if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
+                            {
+                                subXS();
+                            }
+                        }
+                    }
 
                     standLeft[runspeed].binder();
                     drawPlayer();
@@ -230,6 +240,12 @@ switch(inScene)
 
                     if (getXS() <= 3.76)
                     {
+                        // collides with enemy's attack
+                        /*if ()
+                        {
+                            lives -=1;
+                        }*/
+
                         if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
                         {
                             addXS();
@@ -272,6 +288,11 @@ switch(inScene)
 
                     if (getYS() <= 1.92)
                     {
+                        // collides with enemy's attack
+                        /*if ()
+                        {
+                            lives -=1;
+                        }*/
                         if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
                         {
                             addYS();
@@ -314,6 +335,11 @@ switch(inScene)
 
                     if (getYS() >= -2.36)
                     {
+                        // collides with enemy's attack
+                        /*if ()
+                        {
+                            lives -=1;
+                        }*/
                         if (dist1 >= 0.25 + 0.25 && dist2 >= 0.25 + 0.25 && dist3 >= 0.25 + 0.25)
                         {
                             subYS();
@@ -412,6 +438,11 @@ switch(inScene)
                     glPushMatrix();
                     glTranslated(xs,ys,zs);      // where the player is on the  map when they are standing
 
+                    // collides with enemy's attack while standing
+                    /*if ()
+                    {
+                        lives -=1;
+                    }*/
                     if (standDir == 1)
                     {
                         standLeft[0].binder();
@@ -447,6 +478,11 @@ switch(inScene)
 
                     if (getXS() >= -5.44)      // keeps in bounces of map
                     {
+                        // collides with enemy's attack
+                        /*if ()
+                        {
+                            lives -=1;
+                        }*/
                         if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)   // allows player to move as long not within radius of post
                         {
                              subXS();
@@ -490,6 +526,11 @@ switch(inScene)
 
                     if (getXS() <= 4.33)
                     {
+                        // collides with enemy's attack
+                        /*if ()
+                        {
+                            lives -=1;
+                        }*/
                         if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
                         {
                             addXS();
@@ -528,6 +569,11 @@ switch(inScene)
 
                     if (getYS() <= 1.92)
                     {
+                        // collides with enemy's attack
+                        /*if ()
+                        {
+                            lives -=1;
+                        }*/
                         if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
                         {
                             addYS();
@@ -567,6 +613,11 @@ switch(inScene)
 
                     if (getYS() >= -3.0)
                     {
+                        // collides with enemy's attack
+                        /*if ()
+                        {
+                            lives -=1;
+                        }*/
                         if (dist1L >= 0.30 + 0.30 && dist2L >= 0.30 + 0.30)
                         {
                             subYS();
