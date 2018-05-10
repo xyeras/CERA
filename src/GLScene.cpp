@@ -24,6 +24,7 @@ parallax *plx5 = new parallax();
 parallax *plx6 = new parallax();
 parallax *plx7 = new parallax();
 parallax *plx8 = new parallax();
+parallax *plx9 = new parallax();
 loadShader *shader = new loadShader();
 player *ply = new player();
 sounds *snds = new sounds();
@@ -43,7 +44,7 @@ GLScene::GLScene()
     //ctor
     screenHeight = GetSystemMetrics(SM_CYSCREEN);
     screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    ActiveScene =5;
+    ActiveScene =1;
 }
 
 GLScene::~GLScene()
@@ -224,7 +225,7 @@ GLint GLScene::drawGLScene()
         {
 
             arr[i].drawAttack();
-            arr[i].arrowLoc.x-=0.02;
+            arr[i].arrowLoc.x-=0.005;
 
             // calculate collision of player with fireball
             deltaX4 = ply->getXS() - arr[i].arrowLoc.x;
@@ -243,7 +244,8 @@ GLint GLScene::drawGLScene()
                 if (ply->lives == 0)
                 {
                     //reset Alice's live before moving on to next scene
-                    ply->lives = 3;
+                    //ply->lives = 3;
+                    ply->isAlive=false;
                     // Alice dies-------------------------------------------------------------------------------
 
                 }
@@ -303,19 +305,16 @@ GLint GLScene::drawGLScene()
 //                 if(!KbMs->mouseEventDown(ply,E))
 //                 {
 //                     E.actions();
-//                    Sleep(3000);
-//                    cout<<"woahhhhh there"<<endl;
-//                    snds->stopAllSounds();
-//
-//                    callLevelChanger(6);
-//                    plx5->parallaxInit("images/Story/scene3.jpg");
-//                    snds->playMusic("sounds/calm-synthesizer.wav");
-                 //}
+                    //Sleep(3000);
+                    cout<<"woahhhhh there"<<endl;
+                    snds->stopAllSounds();
+
+                    callLevelChanger(6);
+                    plx5->parallaxInit("images/Story/scene3.jpg");
+                    snds->playMusic("sounds/calm-synthesizer.wav");
+
 
             }
-
-
-
         glPopMatrix();
         glPushMatrix();
         float deltaX5;
@@ -325,7 +324,7 @@ GLint GLScene::drawGLScene()
         {
 
             arr2[i].drawAttack();
-            arr2[i].arrowLoc.y-=0.01;
+            arr2[i].arrowLoc.y-=0.03;
 
              // calculate collision of player with fireball
             deltaX5 = ply->getXS() - arr2[i].arrowLoc.x+0.5;
@@ -333,21 +332,21 @@ GLint GLScene::drawGLScene()
             dist5 = sqrtf((deltaX5 * deltaX5)+(deltaY5 * deltaY5));
 
            // cout << "d " << dist5 << endl;
-            cout << "lives " << ply->lives << endl;
+            //cout << "lives " << ply->lives << endl;
             if (dist5 <= .05)              // Alice gets hit
             {
                   cout << "hit--------------------------" << endl;
-                ply->lives -= 1;
 
+                ply->lives -= 1;
+                    cout<<ply->lives<<endl;
                 // reset hit
                 arr2[i].arrowLoc.x=E.xPos;
                 arr2[i].arrowLoc.y=E.yPos;
                 if (ply->lives == 0)
                 {
                     //reset Alice's live before moving on to next scene
-                    ply->lives = 3;
+                    ply->isAlive=false;
                     // Alice dies-------------------------------------------------------------------------------
-
                 }
             }
 
@@ -396,6 +395,12 @@ GLint GLScene::drawGLScene()
        plx8->drawSquare(screenWidth,screenHeight);
    glPopMatrix();
     break;
+    case 10:
+  glPushMatrix();
+       glScaled(3.33,3.33,1.0);        // scale of environment
+       plx9->drawSquare(screenWidth,screenHeight);
+   glPopMatrix();
+    break;
     }
 
 
@@ -437,14 +442,22 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 //snds->stopAllSounds();
                 break;
 
-            case 0x48:
+            case 0x48://h
                 snds->Plays("sounds/sword_sound.wav");
-                //callLevelChanger(4);
-                plx->parallaxInit("images/howToPlay.png");
+                callLevelChanger(10);
+                plx9->parallaxInit("images/howToPlay.png");
                 break;
 
-
+            case 0x43://credits
+                snds->Plays("sounds/sword_sound.wav");
+                //snds->stopAllSounds();
+                callLevelChanger(10);
+                plx9->parallaxInit("images/credits.png");
+                //pausedScene = 4;
+                returnScene = 1;
+                break;
             case 0x45: //'E'
+                snds->Plays("sounds/sword_sound.wav");
                 exit(0);
                 break;
                 }
@@ -532,7 +545,28 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         //--------------------------------------------------------------
 
     case 4:         // Level 1 Inputs
-
+        if(!ply->isAlive)
+        {
+            ply->isAlive=true;
+            ply->lives=3;
+            snds->stopAllSounds();
+                callLevelChanger(5);
+                plx5->parallaxInit("images/dungeon.png");
+        snds->playMusic("sounds/dungeon.wav");
+        ply->playerInit(-.42,-2.98,-7.0,3,ActiveScene);
+            att2->bindTexture("images/attack boss 2/MA1.png");
+            for(int i=0;i<1;i++)
+            {
+                arr2[i].arrTex = att2->tex;
+                arr2[i].arrowLoc.sizes=5;
+            }
+            enm->bindTexture("images/dragon attack.png");
+            E.EnemyTex= enm->tex;
+    //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
+    //E.yPos = -0.5;
+        E.placeEnemy(1,0.5,-3.0);
+        E.ySize=E.xSize= 0.3;
+        }
         switch (uMsg)									// Check For Windows Messages
         {
 
@@ -585,7 +619,11 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     //--------------------------------------------------------------------
 
     case 5:         // Level 2 Inputs
-
+//        if(!ply->isAlive)
+//        {
+//            cout<<"U DEAD"<<endl;
+//            exit(0);
+//        }
 
         switch (uMsg)									// Check For Windows Messages
         {
@@ -688,7 +726,8 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                     callLevelChanger(pausedScene);
                     cout<<"RETURNEDDDDDDDDDDDD";
                     cout<<pausedScene<<endl;
-                    if(pausedScene ==4) plx6->parallaxInit("images/df.png");
+                    if(pausedScene ==4) {plx6->parallaxInit("images/df.png");snds->playMusic("sounds/forest.mp3");}
+                    else{snds->playMusic("sounds/dungeon.wav");}
                 break;
 
                 case 0x48: //How to play
@@ -750,6 +789,19 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 break;
         }
         break;
+                case 10:
+
+                    switch(wParam)
+                    {
+                        case 0x42:
+                            callLevelChanger(1);
+                             plx9->parallaxInit("images/title.png");
+                            break;
+                        case 0x52:
+                            callLevelChanger(1);
+                             plx9->parallaxInit("images/title.png");
+                            break;
+                    }
         //--------------------------------------------------------------
     }
 
