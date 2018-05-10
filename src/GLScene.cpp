@@ -43,7 +43,7 @@ GLScene::GLScene()
     //ctor
     screenHeight = GetSystemMetrics(SM_CYSCREEN);
     screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    ActiveScene =1;
+    ActiveScene =5;
 }
 
 GLScene::~GLScene()
@@ -93,7 +93,7 @@ GLint GLScene::initGL()
     snds->playMusic("sounds/forest.mp3");
     //snds->playMusic("sounds/wind.wav");
     att->bindTexture("images/Demon attacks/DA10.png");
-    for(int i=0;i<3;i++)
+    for(int i=0;i<1;i++)
     {
         arr[i].arrTex = att->tex;
         arr[i].arrowLoc.sizes=1;
@@ -114,7 +114,7 @@ GLint GLScene::initGL()
     snds->playMusic("sounds/dungeon.wav");
     ply->playerInit(-.42,-2.98,-7.0,3,ActiveScene);
     att2->bindTexture("images/attack boss 2/MA1.png");
-    for(int i=0;i<3;i++)
+    for(int i=0;i<1;i++)
     {
         arr2[i].arrTex = att2->tex;
         arr2[i].arrowLoc.sizes=5;
@@ -217,11 +217,38 @@ GLint GLScene::drawGLScene()
         glPopMatrix();
 
         glPushMatrix();
-        for(int i=0;i<3;i++)
+        float deltaX4;
+        float deltaY4;
+        float dist4;
+        for(int i=0;i<1;i++)
         {
 
             arr[i].drawAttack();
             arr[i].arrowLoc.x-=0.02;
+
+            // calculate collision of player with fireball
+            deltaX4 = ply->getXS() - arr[i].arrowLoc.x;
+            deltaY4 = ply->getYS() - arr[i].arrowLoc.y+0.3;
+            dist4 = sqrtf((deltaX4 * deltaX4)+(deltaY4 * deltaY4));
+
+            //cout << "lives " << ply->lives << endl;
+            if (dist4 <= 1.53)              // Alice gets hit
+            {
+              //     cout << "hit--------------------------" << endl;
+                ply->lives -= 1;
+
+                // reset hit
+                arr[i].arrowLoc.x=E2.xPos;
+                arr[i].arrowLoc.y=E2.yPos;
+                if (ply->lives == 0)
+                {
+                    //reset Alice's live before moving on to next scene
+                    ply->lives = 3;
+                    // Alice dies-------------------------------------------------------------------------------
+
+                }
+            }
+
             if(arr[i].arrowLoc.x<=-3.00)
             {
                 arr[i].arrowLoc.x=E2.xPos;
@@ -291,11 +318,40 @@ GLint GLScene::drawGLScene()
 
         glPopMatrix();
         glPushMatrix();
-        for(int i=0;i<3;i++)
+        float deltaX5;
+        float deltaY5;
+        float dist5;
+        for(int i=0;i<1;i++)
         {
 
             arr2[i].drawAttack();
             arr2[i].arrowLoc.y-=0.01;
+
+             // calculate collision of player with fireball
+            deltaX5 = ply->getXS() - arr2[i].arrowLoc.x+0.5;
+            deltaY5 = ply->getYS() - arr2[i].arrowLoc.y+3.0;
+            dist5 = sqrtf((deltaX5 * deltaX5)+(deltaY5 * deltaY5));
+
+           // cout << "d " << dist5 << endl;
+            cout << "lives " << ply->lives << endl;
+            if (dist5 <= .05)              // Alice gets hit
+            {
+                  cout << "hit--------------------------" << endl;
+                ply->lives -= 1;
+
+                // reset hit
+                arr2[i].arrowLoc.x=E.xPos;
+                arr2[i].arrowLoc.y=E.yPos;
+                if (ply->lives == 0)
+                {
+                    //reset Alice's live before moving on to next scene
+                    ply->lives = 3;
+                    // Alice dies-------------------------------------------------------------------------------
+
+                }
+            }
+
+
             if(arr2[i].arrowLoc.y<=-3.00)
             {
                 arr2[i].arrowLoc.x=E.xPos;
