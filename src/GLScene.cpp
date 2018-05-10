@@ -13,6 +13,7 @@
 #include <rain.h>
 #include <windows.h>
 using namespace std;
+timer *Te = new timer();
 Model *modelTeapot = new Model();
 Inputs *KbMs = new Inputs();
 parallax *plx = new parallax();
@@ -28,9 +29,11 @@ player *ply = new player();
 sounds *snds = new sounds();
 textureLoader *enm = new textureLoader();
 textureLoader *enm2 = new textureLoader();
+textureLoader *att = new textureLoader();
 rain *R = new rain();
 enms E;
 enms2 E2;
+enms2 arr[3];
 float a=0;
 int h=1;
 GLScene::GLScene()
@@ -38,7 +41,7 @@ GLScene::GLScene()
     //ctor
     screenHeight = GetSystemMetrics(SM_CYSCREEN);
     screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    ActiveScene = 4;
+    ActiveScene =1;
 }
 
 GLScene::~GLScene()
@@ -81,12 +84,19 @@ GLint GLScene::initGL()
    break;
 
   case 4:          // Level 1 background & sounds
-
+//    E2.initAttack(2);
     plx->parallaxInit("images/df.png");
     ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
     //snds->playMusic("sounds/forest_revised.wav");
     snds->playMusic("sounds/forest.mp3");
     //snds->playMusic("sounds/wind.wav");
+    att->bindTexture("images/Demon attacks/DA10.png");
+    for(int i=0;i<3;i++)
+    {
+        arr[i].arrTex = att->tex;
+        arr[i].arrowLoc.sizes=1;
+    }
+
     enm2->bindTexture("images/demon test.png");
     E2.EnemyTex= enm2->tex;
     //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
@@ -114,18 +124,6 @@ GLint GLScene::initGL()
     plx5->parallaxInit("images/Story/scene3.jpg");
     snds->playMusic("sounds/calm-synthesizer.wav");
     break;
-    case 7:
-        plx6->parallaxInit("images/pause.png");
-    break;
-
-    case 8:
-        plx7->parallaxInit("images/howToPlay.png");
-    break;
-    case 9:
-        plx8->parallaxInit("images/credits.png");
-    break;
-
-
 
   }
     return true;
@@ -190,20 +188,39 @@ GLint GLScene::drawGLScene()
             ply->actions(ply->actionTrigger);
         glPopMatrix();
 
+
+
         glPushMatrix();
             if(E2.yPos<-0.65)
             {
                 E2.action =0;
                 E2.ymove = 0.0015;
+            //E2.arrowLoc.x-=0.01;
             }
 
             else if(E2.yPos>0.75)
             {
                 E2.action =1;
                 E2.ymove = -0.0015;
+                //E2.arrowLoc.x-=0.01;
             }
             E2.yPos += E2.ymove;
             E2.actions();
+        glPopMatrix();
+
+        glPushMatrix();
+        for(int i=0;i<3;i++)
+        {
+
+            arr[i].drawAttack();
+            arr[i].arrowLoc.x-=0.03;
+            if(arr[i].arrowLoc.x<=-3.00)
+            {
+                arr[i].arrowLoc.x=E2.xPos;
+                arr[i].arrowLoc.y=E2.yPos;
+            }
+        }
+
         glPopMatrix();
 
 
@@ -228,6 +245,9 @@ GLint GLScene::drawGLScene()
             ply->actions(ply->actionTrigger);
         glPopMatrix();
 
+
+
+
         glPushMatrix();
             if(E.xPos<-1.55)
             {
@@ -242,13 +262,25 @@ GLint GLScene::drawGLScene()
             if(E.isEnemyLive)
             {
                 E.xPos += E.xmove;
-            }else
+                E.actions();
+            }else if(!E.isEnemyLive)
             {
-                E.xPos=E.xPos;
+//                 if(!KbMs->mouseEventDown(ply,E))
+//                 {
+//                     E.actions();
+//                    Sleep(3000);
+//                    cout<<"woahhhhh there"<<endl;
+//                    snds->stopAllSounds();
+//
+//                    callLevelChanger(6);
+//                    plx5->parallaxInit("images/Story/scene3.jpg");
+//                    snds->playMusic("sounds/calm-synthesizer.wav");
+                 //}
+
             }
 
 
-            E.actions();
+
         glPopMatrix();
 
 //        if(!E.isEnemyLive)
@@ -268,9 +300,7 @@ GLint GLScene::drawGLScene()
             plx5->drawSquare(screenWidth,screenHeight);
         glPopMatrix();
         break;
-
-
-    case 7:
+        case 7:
       glPushMatrix();
            glScaled(3.33,3.33,1.0);        // scale of environment
            plx6->drawSquare(screenWidth,screenHeight);
@@ -288,8 +318,9 @@ GLint GLScene::drawGLScene()
        plx8->drawSquare(screenWidth,screenHeight);
    glPopMatrix();
     break;
+    }
 
-}
+
 }
 
 GLvoid GLScene::resizeGLScene(GLsizei width, GLsizei height)
@@ -330,19 +361,13 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             case 0x48:
                 snds->Plays("sounds/sword_sound.wav");
-                callLevelChanger(7);
+                //callLevelChanger(4);
                 plx->parallaxInit("images/howToPlay.png");
-                returnScene =1;
                 break;
 
 
             case 0x45: //'E'
                 exit(0);
-                break;
-
-            case 0x43: //'C'
-                plx8->parallaxInit("images/credits.png");
-                callLevelChanger(9);
                 break;
                 }
 
@@ -368,16 +393,6 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             case WM_KEYDOWN:
                 KbMs->wParam = wParam;
-                switch(wParam){
-            case VK_SPACE:
-                snds->stopAllSounds();
-                callLevelChanger(3);
-                plx4->parallaxInit("images/Story/scene2.jpg");
-            snds->playMusic("sounds/creepy-music-box.wav");
-
-            break;
-
-                }
 
             break;
 
@@ -404,27 +419,6 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             case WM_KEYDOWN:
                 KbMs->wParam = wParam;
-                switch(wParam){
-                case VK_SPACE:
-                    KbMs->wParam = wParam;
-                snds->stopAllSounds();
-                callLevelChanger(4);
-
-                plx->parallaxInit("images/df.png");
-                ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
-                snds->playMusic("sounds/forest.mp3");
-                 enm2->bindTexture("images/demon test.png");
-            E2.EnemyTex= enm2->tex;
-            //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
-            //E.yPos = -0.5;
-            E2.placeEnemy(1,0.5,-3.0);
-            E2.ySize=E2.xSize= 0.3;
-            shader->shaderInit("V1.vs","F1.fs");
-
-            break;
-
-                }
-
 
             break;
 
@@ -437,6 +431,12 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 plx->parallaxInit("images/df.png");
                 ply->playerInit(-4.5,0.5,-7.0,2,ActiveScene); // load xpos, ypos, zpos , direction to stand, scene number
                 snds->playMusic("sounds/forest.mp3");
+                att->bindTexture("images/Demon attacks/DA10.png");
+    for(int i=0;i<3;i++)
+    {
+        arr[i].arrTex = att->tex;
+        arr[i].arrowLoc.sizes=1;
+    }
                  enm2->bindTexture("images/demon test.png");
             E2.EnemyTex= enm2->tex;
             //E.xPos = (float)(rand()) / float(RAND_MAX)*5-2.5;
@@ -543,15 +543,24 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
                 KbMs->mouseEventDown(ply,E);
                 KbMs->mouseEventDown(snds);
-                if(!KbMs->mouseEventDown(ply,E))
-                {
-                    //glEnable(GL_TEXTURE_2D);
+                //if(!KbMs->mouseEventDown(ply,E)&&!E.isEnemyLive)
+//                if(!E.isEnemyLive)
+//                {
+                    if(!E.isEnemyLive)
+                    {
+                        enm->bindTexture("images/dragon die.png");
+                        E.EnemyTex= enm->tex;
+                        E.ySize=E.xSize= 0.3;
+
+
+                     //Sleep(3000);
+                    cout<<"now im here"<<endl;
                     snds->stopAllSounds();
-                    //Sleep(3000);
+
                     callLevelChanger(6);
                     plx5->parallaxInit("images/Story/scene3.jpg");
-                    snds->playMusic("sounds/calm-synthesizer.wav");
-                }
+                    snds->playMusic("sounds/calm-synthesizer.wav");}
+//                }
             break;								// Jump Back
             }
 
@@ -576,15 +585,20 @@ int GLScene::windMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             break;
 
 
-            case WM_LBUTTONDOWN:
+            case WM_RBUTTONDOWN:
             {
+                cout<<endl;
+                cout<<"*************GAME WON?*************"<<endl;
+                exit(0);
                 KbMs->wParam = wParam;
 
             break;
             }
-        }
 
-            case 7:            // first comic strip inputs
+
+        }       // end of inner switch for inputs
+        break;
+        case 7:            // first comic strip inputs
         switch (uMsg)									// Check For Windows Messages
         {
             case WM_KEYDOWN:
