@@ -4,6 +4,13 @@
 #include <gl/gl.h>
 #include <timer.h>
 
+typedef struct
+{
+    float x;
+    float y;
+    float sizes;
+}loc;
+
 class enms
 {
     public:
@@ -13,9 +20,11 @@ class enms
         void drawEnemy();     // draw objects
         void placeEnemy(float, float,float); // place objects
         void actions(); //movement
-
+        void drawAttack();
         bool isEnemyLive= true; //status of the objects
         GLuint EnemyTex;      // handle Texture
+        GLuint arrTex;
+        loc arrowLoc;
         int EnemyLife;
         float xPos;             //placing objects on x
         float yPos;             //placing objects on y
