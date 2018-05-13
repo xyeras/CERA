@@ -8,9 +8,14 @@ Team CERA
 
 Chris
 	Concept ideas for game
-	First level background
-	Inputs
-	Sounds
+	created First level background
+	did inputs for player
+	collision for player with background
+	collision for player with fireballs
+	created outline for different scenes
+	created outline for different inputs for each scence
+	inputted sounds into game
+	inputted backgrounds for scenes into game
 	
 
 Elizabeth
