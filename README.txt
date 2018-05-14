@@ -33,6 +33,15 @@ Alexander
 	Scene transitions
 	Sounds
 
+The game is inspired by Alice: Madness Returns and Undertale.
 
-Our team had difficulties setting up meetings as our times conflict due to school, work, and home obligations. There would be moments where GitHub acted up and deleted our progress setting us back. In addition, we would run into last-minute glitches as the deadline was approaching, so we had to remove things from the final product.
+When you start the game, the game starts with the first comic strip of Alice's childhood. Once you finish through the first comic, click again to go to the second comic of the present.
+Once you read the second one and click again, you are sent to the first level with the mini boss. The mini boss represents your brother. There are intentionally no HP bars present, so your character has to be extra careful.
+We wanted to create a feeling of dread and futility. We chose a scythe to bring the feeling of vulernability and to utilize a close-combat system. Alice has to face her nightmares face-on with her weapon.
+You are suppose to die in the first level, but the player doesn't know this until Alice dies. After Alice dies, you wake up to the final boss. The final boss represents your parents. In the second level, you do have to defeat the boss.
+Once you defeat the final boss, all of your memories return, and this leads to the final comic strip in which tells of Alice's dark past.
+
+
+Our team had difficulties setting up meetings as our times conflict due to school, work, and home obligations. There would be moments where GitHub acted up and deleted our progress setting us back.
+In addition, we would run into last-minute glitches as the deadline was approaching, so we had to remove things from the final product.
 	
