@@ -8,30 +8,51 @@ Team CERA
 
 Chris
 	Concept ideas for game
-	First level background
-	Inputs
-	Sounds
+	created First level background
+	did inputs for player
+	collision for player with background
+	collision for player with fireballs
+	created outline for different scenes
+	created outline for different inputs for each scence
+	inputted sounds into game
+	inputted backgrounds for scenes into game
 	
 
 Elizabeth
 	Concept ideas for game
-	Main character, Alice
+		Game genre
+		Alice
+		Story
+	Alice's profile
+		Sprite avatar
+		Animations for combat
 	Comic art
+		#1, #2, #3
 	Projectiles
+		Fire
 
 Ryan
 	Concept ideas for game
+		Bosses
+		Second level background
 	First boss
+		Animations for combat
 	Second boss
+		Animations for combat
 	Second level background
 	Rain
 	Projectiles
+		Fire
 
 Alexander
 	Concept ideas for game
+		Sounds
 	Menu
 	Scene transitions
-	Sounds
+	Sound implementation
+	Sound assets
+	Artwork for title, menu, how to play, pause, and credit screens
+	Control inputs for scene transitions
 
 The game is inspired by Alice: Madness Returns and Undertale.
 
@@ -41,7 +62,7 @@ We wanted to create a feeling of dread and futility. We chose a scythe to bring 
 You are suppose to die in the first level, but the player doesn't know this until Alice dies. After Alice dies, you wake up to the final boss. The final boss represents your parents. In the second level, you do have to defeat the boss.
 Once you defeat the final boss, all of your memories return, and this leads to the final comic strip in which tells of Alice's dark past.
 
-
 Our team had difficulties setting up meetings as our times conflict due to school, work, and home obligations. There would be moments where GitHub acted up and deleted our progress setting us back.
 In addition, we would run into last-minute glitches as the deadline was approaching, so we had to remove things from the final product.
 	
+Our team had difficulties setting up meetings as our times conflict due to school, work, and home obligations. There would be moments where GitHub acted up and deleted our progress setting us back. In addition, we would run into last-minute glitches as the deadline was approaching, so we had to remove things from the final product.
